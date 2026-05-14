@@ -1,0 +1,53 @@
+{
+  "snapshots": [
+    {
+      "ts": "2026-05-14T18:07:04.861847+07:00",
+      "by_ext": {
+        "247": {
+          "talktime": 10015,
+          "calls": 155
+        },
+        "234": {
+          "talktime": 9718,
+          "calls": 162
+        },
+        "202": {
+          "talktime": 9164,
+          "calls": 137
+        },
+        "244": {
+          "talktime": 8632,
+          "calls": 136
+        },
+        "230": {
+          "talktime": 8567,
+          "calls": 138
+        },
+        "206": {
+          "talktime": 8533,
+          "calls": 179
+        },
+        "231": {
+          "talktime": 8483,
+          "calls": 150
+        },
+        "243": {
+          "talktime": 7639,
+          "calls": 264
+        },
+        "248": {
+          "talktime": 7630,
+          "calls": 207
+        },
+        "204": {
+          "talktime": 2629,
+          "calls": 87
+        },
+        "205": {
+          "talktime": 1974,
+          "calls": 42
+        }
+      }
+    }
+  ]
+}
