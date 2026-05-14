@@ -172,6 +172,84 @@
     font-size: 12px;
   }
   .leader-info .stats span b { color: var(--accent); }
+  .leader-info .delta {
+    margin-top: 6px;
+    font-size: 11px;
+    color: var(--good);
+    font-weight: 600;
+    display: flex; gap: 8px; align-items: center;
+  }
+
+  /* EDIT MODE for photo positioning */
+  .edit-btn {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all .15s ease;
+  }
+  .edit-btn:hover { background: rgba(255,255,255,0.22); }
+  .edit-btn.active { background: var(--accent); color: #0a1628; border-color: var(--accent); font-weight: 600; }
+  .edit-controls { position: absolute; right: 32px; bottom: 18px; display: flex; gap: 8px; }
+  body.edit-mode .avatar, body.edit-mode .mini-avatar {
+    cursor: move !important;
+    box-shadow: 0 0 0 2px var(--accent), 0 0 16px rgba(0,212,255,0.4);
+  }
+  body.edit-mode .avatar img, body.edit-mode .mini-avatar img { pointer-events: none; }
+  body.edit-mode .leader-card { position: relative; }
+  .pos-hint {
+    display: none;
+    position: absolute; top: -8px; left: 50%; transform: translate(-50%, -100%);
+    background: var(--bg-card2); color: var(--accent);
+    padding: 2px 6px; border-radius: 4px;
+    font-size: 10px; font-weight: 600;
+    border: 1px solid var(--accent);
+    white-space: nowrap; z-index: 10;
+    pointer-events: none;
+  }
+  body.edit-mode .avatar:hover .pos-hint,
+  body.edit-mode .avatar.dragging .pos-hint { display: block; }
+
+  /* Modal for exporting config */
+  .modal-bg {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 100; align-items: center; justify-content: center;
+  }
+  .modal-bg.show { display: flex; }
+  .modal {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    max-width: 600px; width: 90%;
+    max-height: 80vh; overflow-y: auto;
+  }
+  .modal h3 { margin: 0 0 12px 0; color: var(--text); }
+  .modal pre {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 12px;
+    overflow-x: auto;
+    color: var(--accent);
+    white-space: pre-wrap; word-break: break-all;
+  }
+  .modal .row { display: flex; gap: 10px; margin-top: 12px; justify-content: flex-end; }
+  .modal button {
+    background: var(--primary); color: #fff; border: none;
+    padding: 8px 16px; border-radius: 8px; cursor: pointer;
+    font-family: inherit; font-size: 13px;
+  }
+  .modal button.ghost { background: transparent; border: 1px solid var(--border); color: var(--text); }
+  .leader-info .delta.zero { color: var(--text-dim); font-weight: 500; }
+  .leader-info .delta.muted { color: var(--text-dim); font-weight: 400; font-style: italic; }
 
   /* TABLE */
   .table-wrap { overflow-x: auto; }
@@ -238,6 +316,26 @@
       <div>อัปเดตล่าสุด</div>
       <b id="asOf"></b>
     </div>
+    <div class="edit-controls">
+      <button class="edit-btn" id="editBtn" title="ลาก = ขยับ • ล้อ/shift+ลาก = ซูม">📐 ปรับรูป</button>
+      <button class="edit-btn" id="exportBtn" title="คัดลอก config เพื่อบันทึกถาวร" style="display:none">💾 Copy</button>
+      <button class="edit-btn" id="resetBtn" title="คืนค่าตำแหน่งรูปทุกคน" style="display:none">↺ Reset</button>
+    </div>
+  </div>
+
+  <!-- Modal for exporting -->
+  <div class="modal-bg" id="modalBg">
+    <div class="modal">
+      <h3>คัดลอกค่าตำแหน่ง + ซูมรูปไปวางใน build_dashboard.py</h3>
+      <p style="color: var(--text-dim); font-size: 13px; margin: 0 0 12px 0;">
+        แทนที่ EMPLOYEES list ทั้งก้อนด้วยค่าด้านล่างเพื่อบันทึกถาวร (มิฉะนั้นค่าจะอยู่เฉพาะในเบราว์เซอร์นี้)
+      </p>
+      <pre id="exportSnippet"></pre>
+      <div class="row">
+        <button class="ghost" onclick="document.getElementById('modalBg').classList.remove('show')">ปิด</button>
+        <button onclick="navigator.clipboard.writeText(document.getElementById('exportSnippet').textContent); this.textContent='✓ คัดลอกแล้ว'">📋 Copy ทั้งหมด</button>
+      </div>
+    </div>
   </div>
 
   <!-- KPI ROW 1: CALLS -->
@@ -280,7 +378,7 @@
 
 </div>
 
-<script id="payload" type="application/json">{"rows": [{"ext": "202", "name": "มล", "color": "#E91E63", "initial": "ม", "photo": null, "total_calls": 116, "answered": 62, "over30": 45, "talk_total_sec": 7037, "talk_out_sec": 7037, "sales_today": 10620.0, "orders_today": 4, "avg_basket": 2655.0, "target_daily": 20599.0, "month_sales": 96730.0, "month_target": 374500.0, "conversion": 53.44827586206896, "achieved_pct": 51.555900771882136}, {"ext": "204", "name": "สาคู", "color": "#9C27B0", "initial": "ส", "photo": null, "total_calls": 86, "answered": 46, "over30": 28, "talk_total_sec": 2629, "talk_out_sec": 2629, "sales_today": 4070.0, "orders_today": 2, "avg_basket": 2035.0, "target_daily": 10306.0, "month_sales": 72410.0, "month_target": 214000.0, "conversion": 53.48837209302325, "achieved_pct": 39.491558315544346}, {"ext": "206", "name": "นิจ", "color": "#009688", "initial": "น", "photo": null, "total_calls": 150, "answered": 60, "over30": 40, "talk_total_sec": 6786, "talk_out_sec": 6786, "sales_today": 10840.0, "orders_today": 3, "avg_basket": 3613.0, "target_daily": 17420.0, "month_sales": 77260.0, "month_target": 310300.0, "conversion": 40.0, "achieved_pct": 62.227324913892076}, {"ext": "230", "name": "อุ้ม", "color": "#FF5722", "initial": "อ", "photo": null, "total_calls": 117, "answered": 41, "over30": 34, "talk_total_sec": 6919, "talk_out_sec": 6919, "sales_today": 0.0, "orders_today": 0, "avg_basket": 0.0, "target_daily": 0.0, "month_sales": 0.0, "month_target": 235400.0, "conversion": 35.04273504273504, "achieved_pct": 0}, {"ext": "231", "name": "แพร", "color": "#FF9800", "initial": "แ", "photo": null, "total_calls": 111, "answered": 53, "over30": 36, "talk_total_sec": 7498, "talk_out_sec": 7498, "sales_today": 1380.0, "orders_today": 2, "avg_basket": 690.0, "target_daily": 9305.0, "month_sales": 63710.0, "month_target": 192600.0, "conversion": 47.74774774774775, "achieved_pct": 14.830736163353036}, {"ext": "234", "name": "บุศ", "color": "#795548", "initial": "บ", "photo": null, "total_calls": 131, "answered": 76, "over30": 55, "talk_total_sec": 9370, "talk_out_sec": 9370, "sales_today": 4070.0, "orders_today": 2, "avg_basket": 2035.0, "target_daily": 9830.0, "month_sales": 48350.0, "month_target": 181900.0, "conversion": 58.01526717557252, "achieved_pct": 41.40386571719227}, {"ext": "243", "name": "ไอซ์", "color": "#00BCD4", "initial": "ไ", "photo": null, "total_calls": 235, "answered": 93, "over30": 51, "talk_total_sec": 6413, "talk_out_sec": 6413, "sales_today": 1380.0, "orders_today": 2, "avg_basket": 690.0, "target_daily": 10272.0, "month_sales": 30360.0, "month_target": 171200.0, "conversion": 39.57446808510638, "achieved_pct": 13.434579439252337}, {"ext": "244", "name": "จอย", "color": "#4CAF50", "initial": "จ", "photo": null, "total_calls": 99, "answered": 36, "over30": 30, "talk_total_sec": 7228, "talk_out_sec": 7228, "sales_today": 5880.0, "orders_today": 2, "avg_basket": 2940.0, "target_daily": 11200.0, "month_sales": 41680.0, "month_target": 192600.0, "conversion": 36.36363636363637, "achieved_pct": 52.5}, {"ext": "247", "name": "บี", "color": "#2196F3", "initial": "บ", "photo": null, "total_calls": 125, "answered": 55, "over30": 35, "talk_total_sec": 8466, "talk_out_sec": 8466, "sales_today": 10240.0, "orders_today": 5, "avg_basket": 2048.0, "target_daily": 10446.0, "month_sales": 56590.0, "month_target": 192600.0, "conversion": 44.0, "achieved_pct": 98.02795328355352}, {"ext": "248", "name": "น้ำ", "color": "#673AB7", "initial": "น", "photo": null, "total_calls": 180, "answered": 85, "over30": 47, "talk_total_sec": 6508, "talk_out_sec": 6508, "sales_today": 2480.0, "orders_today": 2, "avg_basket": 1240.0, "target_daily": 9348.0, "month_sales": 32110.0, "month_target": 160500.0, "conversion": 47.22222222222222, "achieved_pct": 26.529738981600342}], "kpis": {"total_calls": 1350, "total_over15": 401, "talk_total_sec": 68854, "talk_out_sec": 68854, "total_sales": 50960.0, "total_orders": 24, "avg_basket_all": 2123.3333333333335, "conv_all": 44.96296296296297, "target_daily_all": 108726.0, "month_sales_all": 519200.0, "month_target_all": 2225600.0, "achieved_all": 46.87011386420911, "month_pct": 23.328540618260245}, "as_of": "14/05/2026 17:00 น."}</script>
+<script id="payload" type="application/json">{"rows": [{"ext": "202", "name": "มล", "color": "#E91E63", "initial": "ม", "photo": "photos/202.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 133, "answered": 70, "over30": 52, "talk_total_sec": 8921, "talk_out_sec": 8921, "delta_talk_sec": 0, "delta_calls": 0, "has_prev": false, "sales_today": 10620.0, "orders_today": 4, "avg_basket": 2655.0, "target_daily": 20599.0, "month_sales": 96730.0, "month_target": 374500.0, "conversion": 52.63157894736842, "achieved_pct": 51.555900771882136}, {"ext": "204", "name": "สาคู", "color": "#9C27B0", "initial": "ส", "photo": "photos/204.jpg", "photo_pos": "0% 6%", "photo_zoom": 1.75, "total_calls": 86, "answered": 46, "over30": 28, "talk_total_sec": 2629, "talk_out_sec": 2629, "delta_talk_sec": 0, "delta_calls": 0, "has_prev": false, "sales_today": 4070.0, "orders_today": 2, "avg_basket": 2035.0, "target_daily": 10306.0, "month_sales": 72410.0, "month_target": 214000.0, "conversion": 53.48837209302325, "achieved_pct": 39.491558315544346}, {"ext": "206", "name": "นิจ", "color": "#009688", "initial": "น", "photo": "photos/206.jpg", "photo_pos": "54% 48%", "photo_zoom": 2.85, "total_calls": 176, "answered": 73, "over30": 52, "talk_total_sec": 8036, "talk_out_sec": 8036, "delta_talk_sec": 0, "delta_calls": 0, "has_prev": false, "sales_today": 10840.0, "orders_today": 3, "avg_basket": 3613.0, "target_daily": 17420.0, "month_sales": 77260.0, "month_target": 310300.0, "conversion": 41.47727272727273, "achieved_pct": 62.227324913892076}, {"ext": "230", "name": "อุ้ม", "color": "#FF5722", "initial": "อ", "photo": "photos/230.jpg", "photo_pos": "50% 80%", "photo_zoom": 1.25, "total_calls": 136, "answered": 50, "over30": 39, "talk_total_sec": 8482, "talk_out_sec": 8482, "delta_talk_sec": 0, "delta_calls": 0, "has_prev": false, "sales_today": 0.0, "orders_today": 0, "avg_basket": 0.0, "target_daily": 0.0, "month_sales": 0.0, "month_target": 235400.0, "conversion": 36.76470588235294, "achieved_pct": 0}, {"ext": "231", "name": "แพร", "color": "#FF9800", "initial": "แ", "photo": "photos/231.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 143, "answered": 66, "over30": 45, "talk_total_sec": 8344, "talk_out_sec": 8344, "delta_talk_sec": 0, "delta_calls": 0, "has_prev": false, "sales_today": 1380.0, "orders_today": 2, "avg_basket": 690.0, "target_daily": 9305.0, "month_sales": 63710.0, "month_target": 192600.0, "conversion": 46.15384615384615, "achieved_pct": 14.830736163353036}, {"ext": "234", "name": "บุศ", "color": "#795548", "initial": "บ", "photo": "photos/234.jpg", "photo_pos": "50% 96%", "photo_zoom": 2.05, "total_calls": 162, "answered": 82, "over30": 58, "talk_total_sec": 9718, "talk_out_sec": 9718, "delta_talk_sec": 0, "delta_calls": 0, "has_prev": false, "sales_today": 4070.0, "orders_today": 2, "avg_basket": 2035.0, "target_daily": 9830.0, "month_sales": 48350.0, "month_target": 181900.0, "conversion": 50.617283950617285, "achieved_pct": 41.40386571719227}, {"ext": "243", "name": "ไอซ์", "color": "#00BCD4", "initial": "ไ", "photo": "photos/243.jpg", "photo_pos": "67% 100%", "photo_zoom": 1.85, "total_calls": 261, "answered": 107, "over30": 62, "talk_total_sec": 7530, "talk_out_sec": 7530, "delta_talk_sec": 0, "delta_calls": 0, "has_prev": false, "sales_today": 1380.0, "orders_today": 2, "avg_basket": 690.0, "target_daily": 10272.0, "month_sales": 30360.0, "month_target": 171200.0, "conversion": 40.99616858237548, "achieved_pct": 13.434579439252337}, {"ext": "244", "name": "จอย", "color": "#4CAF50", "initial": "จ", "photo": "photos/244.jpg", "photo_pos": "65% 68%", "photo_zoom": 1.5, "total_calls": 136, "answered": 52, "over30": 45, "talk_total_sec": 8632, "talk_out_sec": 8632, "delta_talk_sec": 0, "delta_calls": 0, "has_prev": false, "sales_today": 5880.0, "orders_today": 2, "avg_basket": 2940.0, "target_daily": 11200.0, "month_sales": 41680.0, "month_target": 192600.0, "conversion": 38.23529411764706, "achieved_pct": 52.5}, {"ext": "247", "name": "บี", "color": "#2196F3", "initial": "บ", "photo": "photos/247.jpg", "photo_pos": "53% 19%", "photo_zoom": 2.75, "total_calls": 154, "answered": 66, "over30": 41, "talk_total_sec": 9310, "talk_out_sec": 9310, "delta_talk_sec": 0, "delta_calls": 0, "has_prev": false, "sales_today": 10240.0, "orders_today": 5, "avg_basket": 2048.0, "target_daily": 10446.0, "month_sales": 56590.0, "month_target": 192600.0, "conversion": 42.857142857142854, "achieved_pct": 98.02795328355352}, {"ext": "248", "name": "น้ำ", "color": "#673AB7", "initial": "น", "photo": "photos/248.jpg", "photo_pos": "18% 84%", "photo_zoom": 1.7, "total_calls": 206, "answered": 94, "over30": 54, "talk_total_sec": 7362, "talk_out_sec": 7362, "delta_talk_sec": 0, "delta_calls": 0, "has_prev": false, "sales_today": 2480.0, "orders_today": 2, "avg_basket": 1240.0, "target_daily": 9348.0, "month_sales": 32110.0, "month_target": 160500.0, "conversion": 45.63106796116505, "achieved_pct": 26.529738981600342}], "kpis": {"total_calls": 1593, "total_over15": 476, "talk_total_sec": 78964, "talk_out_sec": 78964, "total_sales": 50960.0, "total_orders": 24, "avg_basket_all": 2123.3333333333335, "conv_all": 44.318895166352796, "target_daily_all": 108726.0, "month_sales_all": 519200.0, "month_target_all": 2225600.0, "achieved_all": 46.87011386420911, "month_pct": 23.328540618260245}, "as_of": "14/05/2026 18:00 น."}</script>
 <script>
 const D = JSON.parse(document.getElementById('payload').textContent);
 
@@ -335,17 +433,69 @@ D.rows.forEach(r => {
 
 // Sort by score desc (Leaders + Board ใช้ลำดับเดียวกัน)
 const sorted = [...D.rows].sort((a,b) => (b.score||0) - (a.score||0));
-function avatarHTML(r, size) {
-  if (r.photo) {
-    return `<div class="avatar" style="background:${r.color};padding:0;overflow:hidden;"><img src="${r.photo}" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>`;
+// localStorage override ของตำแหน่งรูป — เก็บ {pos, zoom} ต่อ ext
+const PHOTO_KEY = 'hq-photo-settings';
+let photoOverrides = {};
+try {
+  const raw = JSON.parse(localStorage.getItem(PHOTO_KEY) || '{}');
+  // รองรับ schema เก่า: ถ้าค่าเป็น string (pos อย่างเดียว) → wrap เป็น object
+  for (const k in raw) {
+    photoOverrides[k] = (typeof raw[k] === 'string') ? {pos: raw[k], zoom: 1.0} : raw[k];
   }
-  return `<div class="avatar" style="background: linear-gradient(135deg, ${r.color}, ${r.color}99);">${r.initial}</div>`;
+} catch(e) { photoOverrides = {}; }
+
+function getSettings(r) {
+  const ov = photoOverrides[r.ext] || {};
+  return {
+    pos: ov.pos || r.photo_pos || '50% 25%',
+    zoom: (typeof ov.zoom === 'number' ? ov.zoom : (r.photo_zoom || 1.0)),
+  };
+}
+function setSettings(ext, patch) {
+  const cur = photoOverrides[ext] || {};
+  photoOverrides[ext] = {...cur, ...patch};
+  localStorage.setItem(PHOTO_KEY, JSON.stringify(photoOverrides));
+  applyToImages(ext);
+}
+function applyToImages(ext) {
+  const r = D.rows.find(x => x.ext === ext);
+  if (!r) return;
+  const {pos, zoom} = getSettings(r);
+  document.querySelectorAll(`[data-ext="${ext}"] img`).forEach(img => {
+    img.style.objectPosition = pos;
+    img.style.transform = `scale(${zoom})`;
+    img.style.transformOrigin = pos;
+  });
+  document.querySelectorAll(`[data-ext="${ext}"] .pos-hint`).forEach(h => {
+    h.textContent = `${pos} · ${zoom.toFixed(2)}x`;
+  });
+}
+
+function avatarHTML(r) {
+  const {pos, zoom} = getSettings(r);
+  if (r.photo) {
+    return `<div class="avatar" data-ext="${r.ext}" style="background:${r.color};padding:0;overflow:hidden;position:relative;"><img src="${r.photo}" style="width:100%;height:100%;object-fit:cover;object-position:${pos};transform:scale(${zoom});transform-origin:${pos};display:block;"/><span class="pos-hint">${pos} · ${zoom.toFixed(2)}x</span></div>`;
+  }
+  return `<div class="avatar" data-ext="${r.ext}" style="background: linear-gradient(135deg, ${r.color}, ${r.color}99);">${r.initial}</div>`;
 }
 function miniAvatarHTML(r) {
+  const {pos, zoom} = getSettings(r);
   if (r.photo) {
-    return `<div class="mini-avatar" style="background:${r.color};padding:0;overflow:hidden;"><img src="${r.photo}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:50%;"/></div>`;
+    return `<div class="mini-avatar" data-ext="${r.ext}" style="background:${r.color};padding:0;overflow:hidden;"><img src="${r.photo}" style="width:100%;height:100%;object-fit:cover;object-position:${pos};transform:scale(${zoom});transform-origin:${pos};display:block;border-radius:50%;"/></div>`;
   }
-  return `<div class="mini-avatar" style="background:${r.color};">${r.initial}</div>`;
+  return `<div class="mini-avatar" data-ext="${r.ext}" style="background:${r.color};">${r.initial}</div>`;
+}
+
+function deltaHTML(r) {
+  if (!r.has_prev) {
+    return `<div class="delta muted">— ยังไม่มีข้อมูลชั่วโมงก่อน</div>`;
+  }
+  const t = r.delta_talk_sec || 0;
+  const c = r.delta_calls || 0;
+  if (t === 0 && c === 0) {
+    return `<div class="delta zero">↑ +00:00 · +0 สาย</div>`;
+  }
+  return `<div class="delta">↑ +${fmtHMS(t)} · +${fmtInt(c)} สาย</div>`;
 }
 
 document.getElementById('leaders').innerHTML = sorted.map((r,i) => `
@@ -359,6 +509,7 @@ document.getElementById('leaders').innerHTML = sorted.map((r,i) => `
         <span>⏱️ <b>${fmtHMS(r.talk_total_sec)}</b></span>
         <span>📞 <b>${fmtInt(r.total_calls)}</b></span>
       </div>
+      ${deltaHTML(r)}
     </div>
   </div>
 `).join('');
@@ -369,6 +520,124 @@ function badgeFor(pct) {
   if (pct >= 70)  return `<span class="badge warn">${pct.toFixed(0)}%</span>`;
   return `<span class="badge bad">${pct.toFixed(0)}%</span>`;
 }
+// ===== EDIT MODE — drag เพื่อปรับ object-position =====
+const editBtn = document.getElementById('editBtn');
+const exportBtn = document.getElementById('exportBtn');
+const resetBtn = document.getElementById('resetBtn');
+
+editBtn.addEventListener('click', () => {
+  const on = document.body.classList.toggle('edit-mode');
+  editBtn.classList.toggle('active', on);
+  editBtn.textContent = on ? '✓ เสร็จ' : '📐 ปรับรูป';
+  exportBtn.style.display = on ? 'inline-block' : 'none';
+  resetBtn.style.display = on ? 'inline-block' : 'none';
+});
+
+resetBtn.addEventListener('click', () => {
+  if (!confirm('คืนค่าตำแหน่ง + ซูมรูปทุกคนเป็นค่าเริ่มต้น?')) return;
+  photoOverrides = {};
+  localStorage.removeItem(PHOTO_KEY);
+  D.rows.forEach(r => applyToImages(r.ext));
+});
+
+exportBtn.addEventListener('click', () => {
+  // สร้าง snippet ของ EMPLOYEES list พร้อมค่า pos + zoom
+  const lines = D.rows.map(r => {
+    const {pos, zoom} = getSettings(r);
+    const ext = r.ext, nm = r.name, color = r.color;
+    return `    ("${ext}", "${nm}", ["${nm}"], "${color}", "${pos}", ${zoom.toFixed(2)}),`;
+  });
+  const snippet = 'EMPLOYEES = [\n' + lines.join('\n') + '\n]';
+  document.getElementById('exportSnippet').textContent = snippet;
+  document.getElementById('modalBg').classList.add('show');
+});
+
+// Drag handler: คลิก-ลากเพื่อขยับ; scroll wheel / shift+drag เพื่อซูม
+function attachDrag(el) {
+  el.addEventListener('mousedown', startDrag);
+  el.addEventListener('touchstart', startDrag, {passive: false});
+  el.addEventListener('wheel', onWheel, {passive: false});
+}
+
+function onWheel(e) {
+  if (!document.body.classList.contains('edit-mode')) return;
+  const ext = e.currentTarget.dataset.ext;
+  if (!ext) return;
+  e.preventDefault();
+  const r = D.rows.find(x => x.ext === ext);
+  if (!r) return;
+  const cur = getSettings(r);
+  // เลื่อนล้อขึ้น = ซูมเข้า (เพิ่ม), ล้อลง = ซูมออก
+  const step = e.deltaY > 0 ? -0.05 : 0.05;
+  const newZoom = Math.max(1.0, Math.min(3.0, cur.zoom + step));
+  setSettings(ext, {zoom: newZoom});
+}
+
+let dragState = null;
+function startDrag(e) {
+  if (!document.body.classList.contains('edit-mode')) return;
+  const el = e.currentTarget;
+  const ext = el.dataset.ext;
+  if (!ext) return;
+  e.preventDefault();
+  const img = el.querySelector('img');
+  if (!img) return;
+
+  const rect = el.getBoundingClientRect();
+  const r = D.rows.find(x => x.ext === ext);
+  const cur = getSettings(r);
+  const [curX, curY] = cur.pos.split(/\s+/).map(v => parseFloat(v));
+  const startX = (e.touches ? e.touches[0].clientX : e.clientX);
+  const startY = (e.touches ? e.touches[0].clientY : e.clientY);
+  const shift = e.shiftKey;
+  const startZoom = cur.zoom;
+
+  dragState = { el, ext, rect, curX, curY, startX, startY, shift, startZoom };
+  el.classList.add('dragging');
+
+  window.addEventListener('mousemove', onDrag);
+  window.addEventListener('mouseup', endDrag);
+  window.addEventListener('touchmove', onDrag, {passive: false});
+  window.addEventListener('touchend', endDrag);
+}
+
+function onDrag(e) {
+  if (!dragState) return;
+  e.preventDefault();
+  const cx = (e.touches ? e.touches[0].clientX : e.clientX);
+  const cy = (e.touches ? e.touches[0].clientY : e.clientY);
+  if (dragState.shift) {
+    // shift+drag — ขึ้น/ลงเพื่อซูม
+    const dy = (dragState.startY - cy) / 100;  // ลากขึ้น = ซูมเข้า
+    const newZoom = Math.max(1.0, Math.min(3.0, dragState.startZoom + dy));
+    setSettings(dragState.ext, {zoom: newZoom});
+  } else {
+    // drag ปกติ — ขยับตำแหน่ง
+    const dx = ((cx - dragState.startX) / dragState.rect.width) * 100;
+    const dy = ((cy - dragState.startY) / dragState.rect.height) * 100;
+    let nx = dragState.curX - dx;
+    let ny = dragState.curY - dy;
+    nx = Math.max(0, Math.min(100, nx));
+    ny = Math.max(0, Math.min(100, ny));
+    const pos = `${nx.toFixed(0)}% ${ny.toFixed(0)}%`;
+    setSettings(dragState.ext, {pos});
+  }
+}
+
+function endDrag() {
+  if (dragState) dragState.el.classList.remove('dragging');
+  dragState = null;
+  window.removeEventListener('mousemove', onDrag);
+  window.removeEventListener('mouseup', endDrag);
+  window.removeEventListener('touchmove', onDrag);
+  window.removeEventListener('touchend', endDrag);
+}
+
+// ผูก drag handlers ทุก avatar
+function bindAllAvatars() {
+  document.querySelectorAll('.avatar[data-ext], .mini-avatar[data-ext]').forEach(attachDrag);
+}
+
 document.getElementById('board').innerHTML = sorted.map((r, i) => `
   <tr>
     <td class="center"><b>${i+1}</b></td>
@@ -386,6 +655,9 @@ document.getElementById('board').innerHTML = sorted.map((r, i) => `
     <td class="num score-cell">${(r.score||0).toFixed(1)}</td>
   </tr>
 `).join('');
+
+// ผูก drag handlers หลังจาก render เสร็จทุก avatar
+bindAllAvatars();
 
 </script>
 </body>
