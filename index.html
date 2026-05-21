@@ -300,6 +300,32 @@
     height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent));
   }
 
+  /* HISTORY CONTROLS */
+  .hist-bar {
+    display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 12px 16px; margin-bottom: 16px;
+  }
+  .hist-label { font-weight: 700; font-size: 14px; color: var(--text); }
+  .hist-select {
+    background: var(--bg-card2); color: var(--text);
+    border: 1px solid var(--border); border-radius: 8px;
+    padding: 7px 12px; font-family: inherit; font-size: 13px; cursor: pointer;
+  }
+  .hist-select:disabled { opacity: .5; cursor: not-allowed; }
+  .hist-live {
+    background: var(--primary); color: #fff; border: none;
+    border-radius: 8px; padding: 7px 14px; font-family: inherit;
+    font-size: 13px; cursor: pointer; font-weight: 600;
+  }
+  .hist-live:hover { filter: brightness(1.1); }
+  .hist-banner {
+    display: flex; align-items: center; gap: 8px;
+    background: rgba(245,158,11,.14); border: 1px solid var(--gold);
+    color: var(--gold); border-radius: 10px;
+    padding: 10px 16px; margin-bottom: 16px; font-size: 14px; font-weight: 600;
+  }
+
   @media (max-width: 980px) {
     .kpi-grid, .kpi-grid.kpi-grid-4 { grid-template-columns: repeat(2, 1fr); }
     .header .meta { position: static; transform: none; margin-top: 12px; text-align: left; }
@@ -336,6 +362,17 @@
         <button onclick="navigator.clipboard.writeText(document.getElementById('exportSnippet').textContent); this.textContent='✓ คัดลอกแล้ว'">📋 Copy ทั้งหมด</button>
       </div>
     </div>
+  </div>
+
+  <!-- HISTORY CONTROLS -->
+  <div class="hist-bar">
+    <span class="hist-label">📅 ดูผลย้อนหลัง</span>
+    <select id="histDate" class="hist-select"><option value="">— เลือกวัน —</option></select>
+    <select id="histTime" class="hist-select" disabled><option value="">— เลือกเวลา —</option></select>
+    <button id="histLive" class="hist-live">⏺ ปัจจุบัน</button>
+  </div>
+  <div class="hist-banner" id="histBanner" style="display:none">
+    <span>🕒 กำลังดูข้อมูลย้อนหลัง: <b class="hist-when"></b></span>
   </div>
 
   <!-- KPI ROW 1: CALLS -->
@@ -378,9 +415,10 @@
 
 </div>
 
-<script id="payload" type="application/json">{"rows": [{"ext": "202", "name": "มล", "color": "#E91E63", "initial": "ม", "photo": "photos/202.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 99, "answered": 58, "over30": 41, "talk_total_sec": 7076, "talk_out_sec": 7076, "delta_talk_sec": 996, "delta_calls": 21, "has_prev": true, "sales_today": 8730.0, "orders_today": 4, "avg_basket": 2183.0, "target_daily": 29910.0, "month_sales": 143950.0, "month_target": 374500.0, "conversion": 58.58585858585859, "achieved_pct": 29.187562688064194}, {"ext": "204", "name": "สาคู", "color": "#9C27B0", "initial": "ส", "photo": "photos/204.jpg", "photo_pos": "0% 6%", "photo_zoom": 1.75, "total_calls": 113, "answered": 40, "over30": 23, "talk_total_sec": 6732, "talk_out_sec": 6732, "delta_talk_sec": 112, "delta_calls": 22, "has_prev": true, "sales_today": 3470.0, "orders_today": 2, "avg_basket": 1735.0, "target_daily": 15914.0, "month_sales": 88780.0, "month_target": 214000.0, "conversion": 35.39823008849557, "achieved_pct": 21.804700263918562}, {"ext": "206", "name": "นิจ", "color": "#009688", "initial": "น", "photo": "photos/206.jpg", "photo_pos": "54% 48%", "photo_zoom": 2.85, "total_calls": 122, "answered": 40, "over30": 29, "talk_total_sec": 5888, "talk_out_sec": 5888, "delta_talk_sec": 649, "delta_calls": 42, "has_prev": true, "sales_today": 3580.0, "orders_today": 2, "avg_basket": 1790.0, "target_daily": 21945.0, "month_sales": 138320.0, "month_target": 310300.0, "conversion": 32.78688524590164, "achieved_pct": 16.313511050353156}, {"ext": "230", "name": "อุ้ม", "color": "#FF5722", "initial": "อ", "photo": "photos/230.jpg", "photo_pos": "50% 80%", "photo_zoom": 1.25, "total_calls": 99, "answered": 45, "over30": 36, "talk_total_sec": 5989, "talk_out_sec": 5989, "delta_talk_sec": 501, "delta_calls": 21, "has_prev": true, "sales_today": 6660.0, "orders_today": 3, "avg_basket": 2220.0, "target_daily": 15660.0, "month_sales": 15130.0, "month_target": 235400.0, "conversion": 45.45454545454545, "achieved_pct": 42.5287356321839}, {"ext": "231", "name": "แพร", "color": "#FF9800", "initial": "แ", "photo": "photos/231.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 149, "answered": 72, "over30": 46, "talk_total_sec": 3805, "talk_out_sec": 3805, "delta_talk_sec": 834, "delta_calls": 44, "has_prev": true, "sales_today": 2590.0, "orders_today": 1, "avg_basket": 2590.0, "target_daily": 13630.0, "month_sales": 86840.0, "month_target": 192600.0, "conversion": 48.322147651006716, "achieved_pct": 19.002201027146}, {"ext": "234", "name": "บุศ", "color": "#795548", "initial": "บ", "photo": "photos/234.jpg", "photo_pos": "50% 96%", "photo_zoom": 2.05, "total_calls": 122, "answered": 59, "over30": 44, "talk_total_sec": 6860, "talk_out_sec": 6860, "delta_talk_sec": 869, "delta_calls": 26, "has_prev": true, "sales_today": 8050.0, "orders_today": 3, "avg_basket": 2683.0, "target_daily": 14360.0, "month_sales": 75070.0, "month_target": 181900.0, "conversion": 48.36065573770492, "achieved_pct": 56.058495821727014}, {"ext": "243", "name": "ไอซ์", "color": "#00BCD4", "initial": "ไ", "photo": "photos/243.jpg", "photo_pos": "67% 100%", "photo_zoom": 1.85, "total_calls": 96, "answered": 44, "over30": 30, "talk_total_sec": 2641, "talk_out_sec": 2641, "delta_talk_sec": 0, "delta_calls": 0, "has_prev": true, "sales_today": 690.0, "orders_today": 1, "avg_basket": 690.0, "target_daily": 16351.0, "month_sales": 44950.0, "month_target": 171200.0, "conversion": 45.83333333333333, "achieved_pct": 4.219925386826493}, {"ext": "244", "name": "จอย", "color": "#4CAF50", "initial": "จ", "photo": "photos/244.jpg", "photo_pos": "65% 68%", "photo_zoom": 1.5, "total_calls": 121, "answered": 51, "over30": 30, "talk_total_sec": 5206, "talk_out_sec": 5206, "delta_talk_sec": 654, "delta_calls": 24, "has_prev": true, "sales_today": 7270.0, "orders_today": 3, "avg_basket": 2423.0, "target_daily": 16988.0, "month_sales": 66250.0, "month_target": 192600.0, "conversion": 42.14876033057851, "achieved_pct": 42.7949140569814}, {"ext": "247", "name": "บี", "color": "#2196F3", "initial": "บ", "photo": "photos/247.jpg", "photo_pos": "53% 19%", "photo_zoom": 2.75, "total_calls": 94, "answered": 48, "over30": 32, "talk_total_sec": 9884, "talk_out_sec": 9884, "delta_talk_sec": 3091, "delta_calls": 21, "has_prev": true, "sales_today": 2880.0, "orders_today": 2, "avg_basket": 1440.0, "target_daily": 15450.0, "month_sales": 73670.0, "month_target": 192600.0, "conversion": 51.06382978723404, "achieved_pct": 18.640776699029125}, {"ext": "248", "name": "น้ำ", "color": "#673AB7", "initial": "น", "photo": "photos/248.jpg", "photo_pos": "18% 84%", "photo_zoom": 1.7, "total_calls": 103, "answered": 58, "over30": 40, "talk_total_sec": 7924, "talk_out_sec": 7924, "delta_talk_sec": 1003, "delta_calls": 25, "has_prev": true, "sales_today": 4270.0, "orders_today": 3, "avg_basket": 1423.0, "target_daily": 13436.0, "month_sales": 59070.0, "month_target": 160500.0, "conversion": 56.310679611650485, "achieved_pct": 31.780291753498062}], "kpis": {"total_calls": 1118, "total_over15": 351, "talk_total_sec": 62005, "talk_out_sec": 62005, "total_sales": 48190.0, "total_orders": 24, "avg_basket_all": 2007.9166666666667, "conv_all": 46.06440071556351, "target_daily_all": 173644.0, "month_sales_all": 792030.0, "month_target_all": 2225600.0, "achieved_all": 27.75218262652323, "month_pct": 35.58725736879943}, "as_of": "21/05/2026 16:30 น."}</script>
+<script id="payload" type="application/json">{"rows": [{"ext": "202", "name": "มล", "color": "#E91E63", "initial": "ม", "photo": "photos/202.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 104, "answered": 61, "over30": 44, "talk_total_sec": 7887, "talk_out_sec": 7887, "delta_talk_sec": 1057, "delta_calls": 17, "has_prev": true, "sales_today": 12900.0, "orders_today": 6, "avg_basket": 2150.0, "target_daily": 29910.0, "month_sales": 148120.0, "month_target": 374500.0, "conversion": 58.65384615384615, "achieved_pct": 43.129388164493484}, {"ext": "204", "name": "สาคู", "color": "#9C27B0", "initial": "ส", "photo": "photos/204.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 113, "answered": 40, "over30": 23, "talk_total_sec": 6732, "talk_out_sec": 6732, "delta_talk_sec": 16, "delta_calls": 12, "has_prev": true, "sales_today": 3470.0, "orders_today": 2, "avg_basket": 1735.0, "target_daily": 15914.0, "month_sales": 88780.0, "month_target": 214000.0, "conversion": 35.39823008849557, "achieved_pct": 21.804700263918562}, {"ext": "206", "name": "นิจ", "color": "#009688", "initial": "น", "photo": "photos/206.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 130, "answered": 46, "over30": 34, "talk_total_sec": 6517, "talk_out_sec": 6517, "delta_talk_sec": 966, "delta_calls": 31, "has_prev": true, "sales_today": 3580.0, "orders_today": 2, "avg_basket": 1790.0, "target_daily": 21945.0, "month_sales": 138320.0, "month_target": 310300.0, "conversion": 35.38461538461539, "achieved_pct": 16.313511050353156}, {"ext": "230", "name": "อุ้ม", "color": "#FF5722", "initial": "อ", "photo": "photos/230.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 106, "answered": 48, "over30": 38, "talk_total_sec": 6369, "talk_out_sec": 6369, "delta_talk_sec": 586, "delta_calls": 19, "has_prev": true, "sales_today": 6660.0, "orders_today": 3, "avg_basket": 2220.0, "target_daily": 15660.0, "month_sales": 15130.0, "month_target": 235400.0, "conversion": 45.28301886792453, "achieved_pct": 42.5287356321839}, {"ext": "231", "name": "แพร", "color": "#FF9800", "initial": "แ", "photo": "photos/231.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 169, "answered": 76, "over30": 48, "talk_total_sec": 4459, "talk_out_sec": 4459, "delta_talk_sec": 1140, "delta_calls": 44, "has_prev": true, "sales_today": 2590.0, "orders_today": 1, "avg_basket": 2590.0, "target_daily": 13630.0, "month_sales": 86840.0, "month_target": 192600.0, "conversion": 44.97041420118343, "achieved_pct": 19.002201027146}, {"ext": "234", "name": "บุศ", "color": "#795548", "initial": "บ", "photo": "photos/234.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 136, "answered": 63, "over30": 47, "talk_total_sec": 7078, "talk_out_sec": 7078, "delta_talk_sec": 695, "delta_calls": 24, "has_prev": true, "sales_today": 8050.0, "orders_today": 3, "avg_basket": 2683.0, "target_daily": 14360.0, "month_sales": 75070.0, "month_target": 181900.0, "conversion": 46.32352941176471, "achieved_pct": 56.058495821727014}, {"ext": "243", "name": "ไอซ์", "color": "#00BCD4", "initial": "ไ", "photo": "photos/243.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 96, "answered": 44, "over30": 30, "talk_total_sec": 2641, "talk_out_sec": 2641, "delta_talk_sec": 0, "delta_calls": 0, "has_prev": true, "sales_today": 690.0, "orders_today": 1, "avg_basket": 690.0, "target_daily": 16351.0, "month_sales": 44950.0, "month_target": 171200.0, "conversion": 45.83333333333333, "achieved_pct": 4.219925386826493}, {"ext": "244", "name": "จอย", "color": "#4CAF50", "initial": "จ", "photo": "photos/244.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 129, "answered": 57, "over30": 35, "talk_total_sec": 5552, "talk_out_sec": 5552, "delta_talk_sec": 438, "delta_calls": 16, "has_prev": true, "sales_today": 7270.0, "orders_today": 3, "avg_basket": 2423.0, "target_daily": 16988.0, "month_sales": 66250.0, "month_target": 192600.0, "conversion": 44.18604651162791, "achieved_pct": 42.7949140569814}, {"ext": "247", "name": "บี", "color": "#2196F3", "initial": "บ", "photo": "photos/247.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 107, "answered": 55, "over30": 39, "talk_total_sec": 10681, "talk_out_sec": 10681, "delta_talk_sec": 1717, "delta_calls": 28, "has_prev": true, "sales_today": 2880.0, "orders_today": 2, "avg_basket": 1440.0, "target_daily": 15450.0, "month_sales": 73670.0, "month_target": 192600.0, "conversion": 51.4018691588785, "achieved_pct": 18.640776699029125}, {"ext": "248", "name": "น้ำ", "color": "#673AB7", "initial": "น", "photo": "photos/248.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 107, "answered": 59, "over30": 41, "talk_total_sec": 8295, "talk_out_sec": 8295, "delta_talk_sec": 817, "delta_calls": 16, "has_prev": true, "sales_today": 4270.0, "orders_today": 3, "avg_basket": 1423.0, "target_daily": 13436.0, "month_sales": 59070.0, "month_target": 160500.0, "conversion": 55.140186915887845, "achieved_pct": 31.780291753498062}], "kpis": {"total_calls": 1197, "total_over15": 379, "talk_total_sec": 66211, "talk_out_sec": 66211, "total_sales": 52360.0, "total_orders": 26, "avg_basket_all": 2013.8461538461538, "conv_all": 45.86466165413533, "target_daily_all": 173644.0, "month_sales_all": 796200.0, "month_target_all": 2225600.0, "achieved_all": 30.15364769298104, "month_pct": 35.77462257368799}, "as_of": "21/05/2026 16:52 น."}</script>
 <script>
-const D = JSON.parse(document.getElementById('payload').textContent);
+let D = JSON.parse(document.getElementById('payload').textContent);
+const LIVE = D;
 
 const fmtInt = n => (n||0).toLocaleString('th-TH');
 const fmtMoney = n => '฿' + Math.round(n||0).toLocaleString('th-TH');
@@ -392,8 +430,6 @@ const fmtHMS = s => {
   return `${h}:${m}:${sec}`;
 };
 
-document.getElementById('asOf').textContent = D.as_of;
-
 // KPI cards
 function kpi(label, value, sub, icon, cls) {
   return `<div class="kpi ${cls||''}">
@@ -404,35 +440,77 @@ function kpi(label, value, sub, icon, cls) {
   </div>`;
 }
 
-const k = D.kpis;
-document.getElementById('kpiRow1').innerHTML = [
-  kpi('จำนวนสายโทรออก', fmtInt(k.total_calls), 'รวมทุกพนักงาน', '📞', 'info'),
-  kpi('ลูกค้าคุย > 15 วิ', fmtInt(k.total_over15), `จาก ${fmtInt(k.total_calls)} สาย`, '👥', 'good'),
-  kpi('TALK TIME รวม', fmtHMS(k.talk_total_sec), '', '⏱️', ''),
-].join('');
+// ===== RENDER — ใช้ได้ทั้งข้อมูลปัจจุบันและย้อนหลัง =====
+function renderDashboard(data) {
+  D = data;
+  document.getElementById('asOf').textContent = D.as_of;
 
-document.getElementById('kpiRow2').innerHTML = [
-  kpi('ยอดขายวันนี้', fmtMoney(k.total_sales), `เป้า ${fmtMoney(k.target_daily_all)}`, '💰', 'good'),
-  kpi('จำนวนออเดอร์', fmtInt(k.total_orders), 'วันนี้', '🛒', 'info'),
-  kpi('SIZE BUCKET', fmtMoney(k.avg_basket_all), 'เฉลี่ยบิล', '📦', 'warn'),
-  kpi('CONVERSION', (k.conv_all||0).toFixed(1) + '%', 'รับสาย/ทั้งหมด', '🎯', 'purple'),
-  kpi('ACHIEVED', (k.achieved_all||0).toFixed(1) + '%', `เป้ารวม ${fmtMoney(k.target_daily_all)}`, '🏁', (k.achieved_all>=100?'good':(k.achieved_all>=70?'warn':''))),
-].join('');
+  const k = D.kpis;
+  document.getElementById('kpiRow1').innerHTML = [
+    kpi('จำนวนสายโทรออก', fmtInt(k.total_calls), 'รวมทุกพนักงาน', '📞', 'info'),
+    kpi('ลูกค้าคุย > 15 วิ', fmtInt(k.total_over15), `จาก ${fmtInt(k.total_calls)} สาย`, '👥', 'good'),
+    kpi('TALK TIME รวม', fmtHMS(k.talk_total_sec), '', '⏱️', ''),
+  ].join('');
 
-// === SCORE: ยอดขาย 40% + ทอล์กไทม์ 30% + รับสาย>15วิ 30% ===
-// ทอล์กไทม์เต็มที่ 150 นาที, รับสาย>15วิ เต็มที่ 50 สาย, ยอดขายใช้ max ของกลุ่ม
-const TARGET_TALK_SEC   = 150 * 60;
-const TARGET_CALLS_OV15 = 50;
-const maxSales = Math.max(1, ...D.rows.map(r => r.sales_today || 0));
-D.rows.forEach(r => {
-  const sN = Math.min(1, (r.sales_today || 0) / maxSales);
-  const tN = Math.min(1, (r.talk_total_sec || 0) / TARGET_TALK_SEC);
-  const cN = Math.min(1, (r.over30 || 0) / TARGET_CALLS_OV15);
-  r.score = (sN * 0.40 + tN * 0.30 + cN * 0.30) * 100;
-});
+  document.getElementById('kpiRow2').innerHTML = [
+    kpi('ยอดขายวันนี้', fmtMoney(k.total_sales), `เป้า ${fmtMoney(k.target_daily_all)}`, '💰', 'good'),
+    kpi('จำนวนออเดอร์', fmtInt(k.total_orders), 'วันนี้', '🛒', 'info'),
+    kpi('SIZE BUCKET', fmtMoney(k.avg_basket_all), 'เฉลี่ยบิล', '📦', 'warn'),
+    kpi('CONVERSION', (k.conv_all||0).toFixed(1) + '%', 'รับสาย/ทั้งหมด', '🎯', 'purple'),
+    kpi('ACHIEVED', (k.achieved_all||0).toFixed(1) + '%', `เป้ารวม ${fmtMoney(k.target_daily_all)}`, '🏁', (k.achieved_all>=100?'good':(k.achieved_all>=70?'warn':''))),
+  ].join('');
 
-// Sort by score desc (Leaders + Board ใช้ลำดับเดียวกัน)
-const sorted = [...D.rows].sort((a,b) => (b.score||0) - (a.score||0));
+  // === SCORE: ยอดขาย 40% + ทอล์กไทม์ 30% + รับสาย>15วิ 30% ===
+  // ทอล์กไทม์เต็มที่ 150 นาที, รับสาย>15วิ เต็มที่ 50 สาย, ยอดขายใช้ max ของกลุ่ม
+  const TARGET_TALK_SEC   = 150 * 60;
+  const TARGET_CALLS_OV15 = 50;
+  const maxSales = Math.max(1, ...D.rows.map(r => r.sales_today || 0));
+  D.rows.forEach(r => {
+    const sN = Math.min(1, (r.sales_today || 0) / maxSales);
+    const tN = Math.min(1, (r.talk_total_sec || 0) / TARGET_TALK_SEC);
+    const cN = Math.min(1, (r.over30 || 0) / TARGET_CALLS_OV15);
+    r.score = (sN * 0.40 + tN * 0.30 + cN * 0.30) * 100;
+  });
+
+  // Sort by score desc (Leaders + Board ใช้ลำดับเดียวกัน)
+  const sorted = [...D.rows].sort((a,b) => (b.score||0) - (a.score||0));
+
+  document.getElementById('leaders').innerHTML = sorted.map((r,i) => `
+    <div class="leader-card ${i===0?'top1':''}">
+      <span class="rank">#${i+1}</span>
+      ${avatarHTML(r)}
+      <div class="leader-info">
+        <div class="name">${r.name}</div>
+        <div class="ext">ext ${r.ext}</div>
+        <div class="stats">
+          <span>⏱️ <b>${fmtHMS(r.talk_total_sec)}</b></span>
+          <span>📞 <b>${fmtInt(r.total_calls)}</b></span>
+        </div>
+        ${deltaHTML(r)}
+      </div>
+    </div>
+  `).join('');
+
+  document.getElementById('board').innerHTML = sorted.map((r, i) => `
+    <tr>
+      <td class="center"><b>${i+1}</b></td>
+      <td><div class="name-cell">${miniAvatarHTML(r)}${r.name}</div></td>
+      <td class="center">${r.ext}</td>
+      <td class="num">${fmtInt(r.total_calls)}</td>
+      <td class="num">${fmtInt(r.answered)}</td>
+      <td class="num">${fmtInt(r.over30)}</td>
+      <td class="num"><b>${fmtHMS(r.talk_total_sec)}</b></td>
+      <td class="num">${fmtMoney(r.sales_today)}</td>
+      <td class="num">${fmtInt(r.orders_today)}</td>
+      <td class="num">${fmtMoney(r.avg_basket)}</td>
+      <td class="num">${(r.conversion||0).toFixed(1)}%</td>
+      <td class="num">${badgeFor(r.achieved_pct||0)}</td>
+      <td class="num score-cell">${(r.score||0).toFixed(1)}</td>
+    </tr>
+  `).join('');
+
+  bindAllAvatars();
+}
 // localStorage override ของตำแหน่งรูป — เก็บ {pos, zoom} ต่อ ext
 const PHOTO_KEY = 'hq-photo-settings';
 let photoOverrides = {};
@@ -498,21 +576,7 @@ function deltaHTML(r) {
   return `<div class="delta">↑ +${fmtHMS(t)} · +${fmtInt(c)} สาย</div>`;
 }
 
-document.getElementById('leaders').innerHTML = sorted.map((r,i) => `
-  <div class="leader-card ${i===0?'top1':''}">
-    <span class="rank">#${i+1}</span>
-    ${avatarHTML(r)}
-    <div class="leader-info">
-      <div class="name">${r.name}</div>
-      <div class="ext">ext ${r.ext}</div>
-      <div class="stats">
-        <span>⏱️ <b>${fmtHMS(r.talk_total_sec)}</b></span>
-        <span>📞 <b>${fmtInt(r.total_calls)}</b></span>
-      </div>
-      ${deltaHTML(r)}
-    </div>
-  </div>
-`).join('');
+// (leaders render ย้ายไปอยู่ใน renderDashboard แล้ว)
 
 // Performance Board Table — sort by talktime desc
 function badgeFor(pct) {
@@ -638,26 +702,80 @@ function bindAllAvatars() {
   document.querySelectorAll('.avatar[data-ext], .mini-avatar[data-ext]').forEach(attachDrag);
 }
 
-document.getElementById('board').innerHTML = sorted.map((r, i) => `
-  <tr>
-    <td class="center"><b>${i+1}</b></td>
-    <td><div class="name-cell">${miniAvatarHTML(r)}${r.name}</div></td>
-    <td class="center">${r.ext}</td>
-    <td class="num">${fmtInt(r.total_calls)}</td>
-    <td class="num">${fmtInt(r.answered)}</td>
-    <td class="num">${fmtInt(r.over30)}</td>
-    <td class="num"><b>${fmtHMS(r.talk_total_sec)}</b></td>
-    <td class="num">${fmtMoney(r.sales_today)}</td>
-    <td class="num">${fmtInt(r.orders_today)}</td>
-    <td class="num">${fmtMoney(r.avg_basket)}</td>
-    <td class="num">${(r.conversion||0).toFixed(1)}%</td>
-    <td class="num">${badgeFor(r.achieved_pct||0)}</td>
-    <td class="num score-cell">${(r.score||0).toFixed(1)}</td>
-  </tr>
-`).join('');
+// ===== แสดงข้อมูลปัจจุบันตอนเปิดหน้า =====
+renderDashboard(LIVE);
 
-// ผูก drag handlers หลังจาก render เสร็จทุก avatar
-bindAllAvatars();
+// ===== HISTORY MODE — เลือกวัน/เวลาดูผลย้อนหลังได้ =====
+const histDate = document.getElementById('histDate');
+const histTime = document.getElementById('histTime');
+const histLive = document.getElementById('histLive');
+const histBanner = document.getElementById('histBanner');
+const dayCache = {};
+
+async function loadManifest() {
+  try {
+    const res = await fetch('history/manifest.json?_=' + Date.now());
+    if (!res.ok) throw 0;
+    const m = await res.json();
+    const dates = (m.dates || []).slice().sort().reverse();
+    if (!dates.length) throw 0;
+    histDate.innerHTML = '<option value="">— เลือกวัน —</option>' +
+      dates.map(d => `<option value="${d}">${d}</option>`).join('');
+  } catch(e) {
+    histDate.innerHTML = '<option value="">(ยังไม่มีประวัติ)</option>';
+    histDate.disabled = true;
+  }
+}
+
+async function loadDay(date) {
+  if (dayCache[date]) return dayCache[date];
+  const res = await fetch(`history/${date}.json?_=` + Date.now());
+  if (!res.ok) throw new Error('โหลดไม่ได้');
+  const day = await res.json();
+  dayCache[date] = day;
+  return day;
+}
+
+histDate.addEventListener('change', async () => {
+  const date = histDate.value;
+  histTime.innerHTML = '<option value="">— เลือกเวลา —</option>';
+  histTime.disabled = true;
+  if (!date) return;
+  try {
+    const day = await loadDay(date);
+    const snaps = day.snapshots || [];
+    histTime.innerHTML = '<option value="">— เลือกเวลา —</option>' +
+      snaps.map((s,i) => `<option value="${i}">${(s.ts||'').slice(11,16)} น.</option>`).join('');
+    histTime.disabled = false;
+  } catch(e) {
+    histTime.innerHTML = '<option value="">(โหลดไม่ได้)</option>';
+  }
+});
+
+histTime.addEventListener('change', async () => {
+  const date = histDate.value;
+  const idx = histTime.value;
+  if (!date || idx === '') return;
+  try {
+    const day = await loadDay(date);
+    const snap = (day.snapshots || [])[parseInt(idx)];
+    if (!snap || !snap.payload) return;
+    renderDashboard(snap.payload);
+    histBanner.style.display = 'flex';
+    histBanner.querySelector('.hist-when').textContent =
+      `${date} เวลา ${(snap.ts||'').slice(11,16)} น.`;
+  } catch(e) {}
+});
+
+histLive.addEventListener('click', () => {
+  histBanner.style.display = 'none';
+  histDate.value = '';
+  histTime.innerHTML = '<option value="">— เลือกเวลา —</option>';
+  histTime.disabled = true;
+  renderDashboard(LIVE);
+});
+
+loadManifest();
 
 </script>
 </body>
