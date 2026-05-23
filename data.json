@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-05-23T06:00:25",
-  "updated_label": "23/05/2026 06:00",
+  "updated_at": "2026-05-23T06:30:24",
+  "updated_label": "23/05/2026 06:30",
   "source": "https://client.yalecom.co.th/custom_menu/extension_summary_outbound",
   "row_count": 3,
   "rows": [
@@ -43,22 +43,22 @@
     {
       "extension": "202",
       "name": "มล",
-      "total_calls": 1,
-      "answered": 1,
+      "total_calls": 2,
+      "answered": 2,
       "missed": 0,
-      "talktime": 524,
-      "avg": 524,
+      "talktime": 825,
+      "avg": 412,
       "_raw": [
         "202",
         "มล",
-        "1",
-        "1",
+        "2",
+        "2",
         "0",
         "0",
-        "0:00:15",
-        "0:08:44",
-        "1",
-        "1",
+        "0:00:39",
+        "0:13:45",
+        "2",
+        "2",
         "0"
       ],
       "_headers": [
