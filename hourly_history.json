@@ -1,84 +1,6 @@
 {
   "snapshots": [
     {
-      "ts": "2026-05-28T09:30:23.385108+07:00",
-      "by_ext": {
-        "247": {
-          "talktime": 759,
-          "calls": 3
-        },
-        "234": {
-          "talktime": 240,
-          "calls": 7
-        },
-        "204": {
-          "talktime": 200,
-          "calls": 6
-        },
-        "231": {
-          "talktime": 132,
-          "calls": 3
-        },
-        "202": {
-          "talktime": 93,
-          "calls": 3
-        },
-        "244": {
-          "talktime": 70,
-          "calls": 8
-        },
-        "230": {
-          "talktime": 52,
-          "calls": 4
-        },
-        "206": {
-          "talktime": 42,
-          "calls": 10
-        }
-      }
-    },
-    {
-      "ts": "2026-05-28T10:00:28.148578+07:00",
-      "by_ext": {
-        "247": {
-          "talktime": 1912,
-          "calls": 6
-        },
-        "248": {
-          "talktime": 1066,
-          "calls": 6
-        },
-        "230": {
-          "talktime": 767,
-          "calls": 8
-        },
-        "231": {
-          "talktime": 603,
-          "calls": 6
-        },
-        "206": {
-          "talktime": 568,
-          "calls": 14
-        },
-        "234": {
-          "talktime": 537,
-          "calls": 18
-        },
-        "204": {
-          "talktime": 438,
-          "calls": 12
-        },
-        "244": {
-          "talktime": 400,
-          "calls": 13
-        },
-        "202": {
-          "talktime": 284,
-          "calls": 10
-        }
-      }
-    },
-    {
       "ts": "2026-05-28T10:30:24.004023+07:00",
       "by_ext": {
         "247": {
@@ -2902,6 +2824,35 @@
         "247": {
           "talktime": 62,
           "calls": 4
+        }
+      }
+    },
+    {
+      "ts": "2026-05-30T10:00:30.526019+07:00",
+      "by_ext": {
+        "206": {
+          "talktime": 655,
+          "calls": 11
+        },
+        "244": {
+          "talktime": 450,
+          "calls": 18
+        },
+        "234": {
+          "talktime": 277,
+          "calls": 19
+        },
+        "247": {
+          "talktime": 175,
+          "calls": 10
+        },
+        "248": {
+          "talktime": 168,
+          "calls": 10
+        },
+        "231": {
+          "talktime": 122,
+          "calls": 7
         }
       }
     }
