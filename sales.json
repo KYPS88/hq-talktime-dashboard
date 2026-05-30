@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-05-30T14:30:33+07:00",
+  "as_of": "2026-05-30T14:41:50+07:00",
   "by_employee": {
     "มล": {
       "sales_today": 4380.0,
@@ -18,11 +18,11 @@
       "month_target": 160500.0
     },
     "นิจ": {
-      "sales_today": 20570.0,
-      "orders_today": 10,
-      "avg_basket_today": 2057.0,
+      "sales_today": 22360.0,
+      "orders_today": 11,
+      "avg_basket_today": 2033.0,
       "target_daily": 63235.0,
-      "month_sales": 216830.0,
+      "month_sales": 218620.0,
       "month_target": 310300.0
     },
     "สาคู": {
