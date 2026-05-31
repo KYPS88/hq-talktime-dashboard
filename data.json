@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-05-31T09:00:27",
-  "updated_label": "31/05/2026 09:00",
+  "updated_at": "2026-05-31T09:30:22",
+  "updated_label": "31/05/2026 09:30",
   "source": "https://client.yalecom.co.th/custom_menu/extension_summary_outbound",
   "row_count": 6,
   "rows": [
@@ -43,23 +43,23 @@
     {
       "extension": "205",
       "name": "อ้อ",
-      "total_calls": 31,
-      "answered": 16,
-      "missed": 15,
-      "talktime": 783,
-      "avg": 48,
+      "total_calls": 37,
+      "answered": 18,
+      "missed": 19,
+      "talktime": 946,
+      "avg": 52,
       "_raw": [
         "205",
         "อ้อ",
-        "31",
-        "16",
-        "15",
+        "37",
+        "18",
+        "19",
         "0",
-        "0:21:39",
-        "0:13:03",
-        "9",
+        "0:26:25",
+        "0:15:46",
+        "11",
         "7",
-        "9"
+        "11"
       ],
       "_headers": [
         "หมายเลข",
