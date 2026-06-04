@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-06-04T15:00:34+07:00",
+  "as_of": "2026-06-04T15:30:37+07:00",
   "by_employee": {
     "มล": {
       "sales_today": 1080.0,
@@ -314,11 +314,11 @@
       "month_target": 0.0
     },
     "น้ำ": {
-      "sales_today": 5570.0,
-      "orders_today": 2,
-      "avg_basket_today": 2785.0,
+      "sales_today": 9950.0,
+      "orders_today": 4,
+      "avg_basket_today": 2488.0,
       "target_daily": 6563.0,
-      "month_sales": 16342.0,
+      "month_sales": 20722.0,
       "month_target": 155150.0
     },
     "อุ้ม": {
