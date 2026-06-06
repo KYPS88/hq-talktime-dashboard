@@ -1,141 +1,6 @@
 {
   "snapshots": [
     {
-      "ts": "2026-06-04T12:30:28.544413+07:00",
-      "by_ext": {
-        "244": {
-          "talktime": 4656,
-          "calls": 60
-        },
-        "204": {
-          "talktime": 4648,
-          "calls": 50
-        },
-        "234": {
-          "talktime": 4307,
-          "calls": 63
-        },
-        "247": {
-          "talktime": 4155,
-          "calls": 95
-        },
-        "206": {
-          "talktime": 3216,
-          "calls": 93
-        },
-        "248": {
-          "talktime": 2994,
-          "calls": 65
-        },
-        "230": {
-          "talktime": 2346,
-          "calls": 64
-        },
-        "202": {
-          "talktime": 2278,
-          "calls": 50
-        },
-        "231": {
-          "talktime": 1585,
-          "calls": 77
-        },
-        "205": {
-          "talktime": 195,
-          "calls": 4
-        }
-      }
-    },
-    {
-      "ts": "2026-06-04T12:57:07.775238+07:00",
-      "by_ext": {
-        "247": {
-          "talktime": 5841,
-          "calls": 108
-        },
-        "234": {
-          "talktime": 5167,
-          "calls": 80
-        },
-        "244": {
-          "talktime": 5098,
-          "calls": 74
-        },
-        "204": {
-          "talktime": 4991,
-          "calls": 60
-        },
-        "206": {
-          "talktime": 3546,
-          "calls": 109
-        },
-        "248": {
-          "talktime": 3508,
-          "calls": 74
-        },
-        "230": {
-          "talktime": 3340,
-          "calls": 72
-        },
-        "202": {
-          "talktime": 2956,
-          "calls": 54
-        },
-        "231": {
-          "talktime": 2518,
-          "calls": 87
-        },
-        "205": {
-          "talktime": 299,
-          "calls": 7
-        }
-      }
-    },
-    {
-      "ts": "2026-06-04T13:00:28.220513+07:00",
-      "by_ext": {
-        "247": {
-          "talktime": 5851,
-          "calls": 111
-        },
-        "244": {
-          "talktime": 5198,
-          "calls": 75
-        },
-        "234": {
-          "talktime": 5167,
-          "calls": 82
-        },
-        "204": {
-          "talktime": 4991,
-          "calls": 60
-        },
-        "206": {
-          "talktime": 3546,
-          "calls": 109
-        },
-        "248": {
-          "talktime": 3508,
-          "calls": 75
-        },
-        "230": {
-          "talktime": 3340,
-          "calls": 75
-        },
-        "202": {
-          "talktime": 2956,
-          "calls": 54
-        },
-        "231": {
-          "talktime": 2617,
-          "calls": 88
-        },
-        "205": {
-          "talktime": 299,
-          "calls": 7
-        }
-      }
-    },
-    {
       "ts": "2026-06-04T13:30:27.666719+07:00",
       "by_ext": {
         "247": {
@@ -2592,6 +2457,51 @@
         "248": {
           "talktime": 2386,
           "calls": 69
+        },
+        "205": {
+          "talktime": 305,
+          "calls": 5
+        },
+        "204": {
+          "talktime": 107,
+          "calls": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-06-06T13:00:31.209133+07:00",
+      "by_ext": {
+        "234": {
+          "talktime": 6370,
+          "calls": 72
+        },
+        "247": {
+          "talktime": 4864,
+          "calls": 62
+        },
+        "230": {
+          "talktime": 4389,
+          "calls": 63
+        },
+        "244": {
+          "talktime": 4297,
+          "calls": 75
+        },
+        "202": {
+          "talktime": 3959,
+          "calls": 57
+        },
+        "231": {
+          "talktime": 3596,
+          "calls": 74
+        },
+        "206": {
+          "talktime": 3333,
+          "calls": 98
+        },
+        "248": {
+          "talktime": 3025,
+          "calls": 76
         },
         "205": {
           "talktime": 305,
