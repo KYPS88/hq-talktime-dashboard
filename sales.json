@@ -1,12 +1,12 @@
 {
-  "as_of": "2026-06-08T10:00:38+07:00",
+  "as_of": "2026-06-08T10:30:34+07:00",
   "by_employee": {
     "มล": {
-      "sales_today": 2180.0,
-      "orders_today": 2,
-      "avg_basket_today": 1090.0,
+      "sales_today": 4460.0,
+      "orders_today": 3,
+      "avg_basket_today": 1487.0,
       "target_daily": 14440.0,
-      "month_sales": 49100.0,
+      "month_sales": 51380.0,
       "month_target": 321000.0
     },
     "อ้อ": {
