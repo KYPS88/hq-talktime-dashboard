@@ -1,11 +1,11 @@
 {
-  "as_of": "2026-06-12T09:00:31+07:00",
+  "as_of": "2026-06-12T09:30:32+07:00",
   "by_employee": {
     "มล": {
       "sales_today": 0.0,
       "orders_today": 0,
       "avg_basket_today": 0.0,
-      "target_daily": 15571.0,
+      "target_daily": 16271.0,
       "month_sales": 76940.0,
       "month_target": 321000.0
     },
@@ -21,7 +21,7 @@
       "sales_today": 0.0,
       "orders_today": 0,
       "avg_basket_today": 0.0,
-      "target_daily": 14251.0,
+      "target_daily": 14207.0,
       "month_sales": 75790.0,
       "month_target": 288900.0
     },
@@ -29,7 +29,7 @@
       "sales_today": 0.0,
       "orders_today": 0,
       "avg_basket_today": 0.0,
-      "target_daily": 9314.0,
+      "target_daily": 9313.0,
       "month_sales": 74310.0,
       "month_target": 214000.0
     },
@@ -197,7 +197,7 @@
       "sales_today": 0.0,
       "orders_today": 0,
       "avg_basket_today": 0.0,
-      "target_daily": 9401.0,
+      "target_daily": 9723.0,
       "month_sales": 36050.0,
       "month_target": 181900.0
     },
@@ -269,7 +269,7 @@
       "sales_today": 0.0,
       "orders_today": 0,
       "avg_basket_today": 0.0,
-      "target_daily": 9077.0,
+      "target_daily": 9443.0,
       "month_sales": 29550.0,
       "month_target": 171200.0
     },
@@ -301,7 +301,7 @@
       "sales_today": 0.0,
       "orders_today": 0,
       "avg_basket_today": 0.0,
-      "target_daily": 9011.0,
+      "target_daily": 9439.0,
       "month_sales": 40310.0,
       "month_target": 181900.0
     },
@@ -317,7 +317,7 @@
       "sales_today": 0.0,
       "orders_today": 0,
       "avg_basket_today": 0.0,
-      "target_daily": 6956.0,
+      "target_daily": 6602.0,
       "month_sales": 56122.0,
       "month_target": 155150.0
     },
@@ -325,7 +325,7 @@
       "sales_today": 0.0,
       "orders_today": 0,
       "avg_basket_today": 0.0,
-      "target_daily": 10201.0,
+      "target_daily": 10437.0,
       "month_sales": 57450.0,
       "month_target": 214000.0
     }
