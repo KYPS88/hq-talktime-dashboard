@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-06-15T17:30:38+07:00",
+  "as_of": "2026-06-15T18:00:49+07:00",
   "by_employee": {
     "มล": {
       "sales_today": 12420.0,
@@ -322,11 +322,11 @@
       "month_target": 155150.0
     },
     "อุ้ม": {
-      "sales_today": 12270.0,
-      "orders_today": 3,
-      "avg_basket_today": 4090.0,
+      "sales_today": 14550.0,
+      "orders_today": 4,
+      "avg_basket_today": 3638.0,
       "target_daily": 10285.0,
-      "month_sales": 73300.0,
+      "month_sales": 75580.0,
       "month_target": 214000.0
     }
   }
