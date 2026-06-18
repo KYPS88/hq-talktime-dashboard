@@ -1,12 +1,12 @@
 {
-  "as_of": "2026-06-18T09:30:48+07:00",
+  "as_of": "2026-06-18T10:00:47+07:00",
   "by_employee": {
     "มล": {
-      "sales_today": 0.0,
-      "orders_today": 0,
-      "avg_basket_today": 0.0,
+      "sales_today": 4660.0,
+      "orders_today": 3,
+      "avg_basket_today": 1553.0,
       "target_daily": 19451.0,
-      "month_sales": 107040.0,
+      "month_sales": 111700.0,
       "month_target": 321000.0
     },
     "อ้อ": {
@@ -194,11 +194,11 @@
       "month_target": 0.0
     },
     "บุศ": {
-      "sales_today": 0.0,
-      "orders_today": 0,
-      "avg_basket_today": 0.0,
+      "sales_today": 1790.0,
+      "orders_today": 1,
+      "avg_basket_today": 1790.0,
       "target_daily": 10765.0,
-      "month_sales": 63490.0,
+      "month_sales": 65280.0,
       "month_target": 181900.0
     },
     "ฟลุ๊ค": {
