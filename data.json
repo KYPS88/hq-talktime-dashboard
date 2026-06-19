@@ -1,29 +1,29 @@
 {
-  "updated_at": "2026-06-19T06:30:33",
-  "updated_label": "19/06/2026 06:30",
+  "updated_at": "2026-06-19T07:00:36",
+  "updated_label": "19/06/2026 07:00",
   "source": "https://client.yalecom.co.th/custom_menu/extension_summary_outbound",
   "row_count": 11,
   "rows": [
     {
       "extension": "230",
       "name": "อุ้ม",
-      "total_calls": 59,
-      "answered": 28,
+      "total_calls": 61,
+      "answered": 30,
       "missed": 30,
-      "talktime": 4903,
-      "avg": 175,
+      "talktime": 4994,
+      "avg": 166,
       "_raw": [
         "230",
         "อุ้ม",
-        "59",
-        "28",
+        "61",
+        "30",
         "30",
         "1",
-        "0:31:10",
-        "1:21:43",
-        "23",
+        "0:31:29",
+        "1:23:14",
+        "24",
         "11",
-        "17"
+        "19"
       ],
       "_headers": [
         "หมายเลข",
