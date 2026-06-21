@@ -1,9 +1,45 @@
 {
-  "updated_at": "2026-06-21T06:02:16",
-  "updated_label": "21/06/2026 06:02",
+  "updated_at": "2026-06-21T06:30:30",
+  "updated_label": "21/06/2026 06:30",
   "source": "https://client.yalecom.co.th/custom_menu/extension_summary_outbound",
-  "row_count": 2,
+  "row_count": 3,
   "rows": [
+    {
+      "extension": "231",
+      "name": "แพร",
+      "total_calls": 17,
+      "answered": 11,
+      "missed": 6,
+      "talktime": 522,
+      "avg": 47,
+      "_raw": [
+        "231",
+        "แพร",
+        "17",
+        "11",
+        "6",
+        "0",
+        "0:08:09",
+        "0:08:42",
+        "5",
+        "2",
+        "9"
+      ],
+      "_headers": [
+        "หมายเลข",
+        "ชื่อ",
+        "จำนวนสาย",
+        "รับสาย",
+        "ไม่รับสาย",
+        "ไม่สำเร็จ",
+        "รอสายรวม",
+        "ระยะเวลาคุยสาย",
+        "คุยเกิน30วิ",
+        "จำนวนวางสายก่อน",
+        "จำนวนถูกตัดสาย"
+      ],
+      "delta": null
+    },
     {
       "extension": "205",
       "name": "อ้อ",
