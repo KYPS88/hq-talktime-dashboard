@@ -1,29 +1,29 @@
 {
-  "updated_at": "2026-06-21T09:00:34",
-  "updated_label": "21/06/2026 09:00",
+  "updated_at": "2026-06-21T09:30:30",
+  "updated_label": "21/06/2026 09:30",
   "source": "https://client.yalecom.co.th/custom_menu/extension_summary_outbound",
   "row_count": 3,
   "rows": [
     {
       "extension": "231",
       "name": "แพร",
-      "total_calls": 98,
-      "answered": 57,
-      "missed": 40,
-      "talktime": 2164,
-      "avg": 37,
+      "total_calls": 104,
+      "answered": 59,
+      "missed": 44,
+      "talktime": 2272,
+      "avg": 38,
       "_raw": [
         "231",
         "แพร",
-        "98",
-        "57",
-        "40",
+        "104",
+        "59",
+        "44",
         "1",
-        "0:36:17",
-        "0:36:04",
-        "24",
+        "0:39:51",
+        "0:37:52",
+        "25",
         "8",
-        "49"
+        "51"
       ],
       "_headers": [
         "หมายเลข",
