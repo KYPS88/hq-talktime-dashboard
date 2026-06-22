@@ -1,11 +1,11 @@
 {
-  "as_of": "2026-06-21T22:52:37+07:00",
+  "as_of": "2026-06-22T09:30:41+07:00",
   "by_employee": {
     "มล": {
       "sales_today": 0.0,
       "orders_today": 0,
       "avg_basket_today": 0.0,
-      "target_daily": 21788.0,
+      "target_daily": 22946.0,
       "month_sales": 137430.0,
       "month_target": 321000.0
     },
@@ -21,7 +21,7 @@
       "sales_today": 0.0,
       "orders_today": 0,
       "avg_basket_today": 0.0,
-      "target_daily": 18571.0,
+      "target_daily": 20481.0,
       "month_sales": 125050.0,
       "month_target": 288900.0
     },
@@ -29,7 +29,7 @@
       "sales_today": 0.0,
       "orders_today": 0,
       "avg_basket_today": 0.0,
-      "target_daily": 9577.0,
+      "target_daily": 10774.0,
       "month_sales": 127810.0,
       "month_target": 214000.0
     },
@@ -173,7 +173,7 @@
       "sales_today": 0.0,
       "orders_today": 0,
       "avg_basket_today": 0.0,
-      "target_daily": 11812.0,
+      "target_daily": 13065.0,
       "month_sales": 66680.0,
       "month_target": 171200.0
     },
@@ -197,7 +197,7 @@
       "sales_today": 0.0,
       "orders_today": 0,
       "avg_basket_today": 0.0,
-      "target_daily": 12494.0,
+      "target_daily": 12578.0,
       "month_sales": 81280.0,
       "month_target": 181900.0
     },
@@ -269,7 +269,7 @@
       "sales_today": 0.0,
       "orders_today": 0,
       "avg_basket_today": 0.0,
-      "target_daily": 12573.0,
+      "target_daily": 13798.0,
       "month_sales": 60820.0,
       "month_target": 171200.0
     },
@@ -301,7 +301,7 @@
       "sales_today": 0.0,
       "orders_today": 0,
       "avg_basket_today": 0.0,
-      "target_daily": 11579.0,
+      "target_daily": 12716.0,
       "month_sales": 80170.0,
       "month_target": 181900.0
     },
@@ -317,7 +317,7 @@
       "sales_today": 0.0,
       "orders_today": 0,
       "avg_basket_today": 0.0,
-      "target_daily": 7720.0,
+      "target_daily": 7649.0,
       "month_sales": 93962.0,
       "month_target": 155150.0
     },
@@ -325,7 +325,7 @@
       "sales_today": 0.0,
       "orders_today": 0,
       "avg_basket_today": 0.0,
-      "target_daily": 13500.0,
+      "target_daily": 13808.0,
       "month_sales": 103540.0,
       "month_target": 214000.0
     },
@@ -333,7 +333,7 @@
       "sales_today": 0.0,
       "orders_today": 0,
       "avg_basket_today": 0.0,
-      "target_daily": 5691.0,
+      "target_daily": 6118.0,
       "month_sales": 4560.0,
       "month_target": 53500.0
     },
@@ -341,7 +341,7 @@
       "sales_today": 0.0,
       "orders_today": 0,
       "avg_basket_today": 0.0,
-      "target_daily": 5944.0,
+      "target_daily": 6688.0,
       "month_sales": 2480.0,
       "month_target": 0.0
     },
