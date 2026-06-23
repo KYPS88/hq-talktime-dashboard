@@ -1975,6 +1975,55 @@
           "calls": 9
         }
       }
+    },
+    {
+      "ts": "2026-06-23T11:30:29.669482+07:00",
+      "by_ext": {
+        "247": {
+          "talktime": 5036,
+          "calls": 70
+        },
+        "248": {
+          "talktime": 3123,
+          "calls": 30
+        },
+        "234": {
+          "talktime": 2771,
+          "calls": 39
+        },
+        "249": {
+          "talktime": 2752,
+          "calls": 35
+        },
+        "244": {
+          "talktime": 2604,
+          "calls": 45
+        },
+        "230": {
+          "talktime": 2105,
+          "calls": 41
+        },
+        "206": {
+          "talktime": 1875,
+          "calls": 42
+        },
+        "204": {
+          "talktime": 1804,
+          "calls": 89
+        },
+        "250": {
+          "talktime": 1713,
+          "calls": 57
+        },
+        "231": {
+          "talktime": 1629,
+          "calls": 56
+        },
+        "205": {
+          "talktime": 470,
+          "calls": 9
+        }
+      }
     }
   ]
 }
