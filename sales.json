@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-06-24T16:31:21+07:00",
+  "as_of": "2026-06-24T17:00:38+07:00",
   "by_employee": {
     "มล": {
       "sales_today": 14220.0,
@@ -314,19 +314,19 @@
       "month_target": 0.0
     },
     "น้ำ": {
-      "sales_today": 7150.0,
-      "orders_today": 3,
-      "avg_basket_today": 2383.0,
+      "sales_today": 15440.0,
+      "orders_today": 4,
+      "avg_basket_today": 3860.0,
       "target_daily": 7548.0,
-      "month_sales": 117012.0,
+      "month_sales": 125302.0,
       "month_target": 155150.0
     },
     "อุ้ม": {
-      "sales_today": 7150.0,
-      "orders_today": 3,
-      "avg_basket_today": 2383.0,
+      "sales_today": 9740.0,
+      "orders_today": 4,
+      "avg_basket_today": 2435.0,
       "target_daily": 15880.0,
-      "month_sales": 125870.0,
+      "month_sales": 128460.0,
       "month_target": 214000.0
     },
     "ลูกโซ่": {
