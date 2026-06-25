@@ -2858,6 +2858,47 @@
           "calls": 4
         }
       }
+    },
+    {
+      "ts": "2026-06-25T10:00:36.015839+07:00",
+      "by_ext": {
+        "234": {
+          "talktime": 731,
+          "calls": 17
+        },
+        "204": {
+          "talktime": 696,
+          "calls": 26
+        },
+        "231": {
+          "talktime": 592,
+          "calls": 11
+        },
+        "244": {
+          "talktime": 526,
+          "calls": 12
+        },
+        "248": {
+          "talktime": 523,
+          "calls": 4
+        },
+        "250": {
+          "talktime": 442,
+          "calls": 18
+        },
+        "202": {
+          "talktime": 323,
+          "calls": 10
+        },
+        "206": {
+          "talktime": 120,
+          "calls": 13
+        },
+        "247": {
+          "talktime": 69,
+          "calls": 13
+        }
+      }
     }
   ]
 }
