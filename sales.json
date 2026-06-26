@@ -1,12 +1,12 @@
 {
-  "as_of": "2026-06-26T16:30:44+07:00",
+  "as_of": "2026-06-26T17:00:37+07:00",
   "by_employee": {
     "มล": {
-      "sales_today": 9270.0,
-      "orders_today": 3,
-      "avg_basket_today": 3090.0,
+      "sales_today": 11550.0,
+      "orders_today": 4,
+      "avg_basket_today": 2888.0,
       "target_daily": 34755.0,
-      "month_sales": 191250.0,
+      "month_sales": 193530.0,
       "month_target": 321000.0
     },
     "อ้อ": {
@@ -194,11 +194,11 @@
       "month_target": 0.0
     },
     "บุศ": {
-      "sales_today": 7230.0,
-      "orders_today": 4,
-      "avg_basket_today": 1808.0,
+      "sales_today": 10010.0,
+      "orders_today": 5,
+      "avg_basket_today": 2002.0,
       "target_daily": 19685.0,
-      "month_sales": 110390.0,
+      "month_sales": 113170.0,
       "month_target": 181900.0
     },
     "ฟลุ๊ค": {
@@ -266,11 +266,11 @@
       "month_target": 0.0
     },
     "จอย": {
-      "sales_today": 12710.0,
-      "orders_today": 6,
-      "avg_basket_today": 2118.0,
+      "sales_today": 14500.0,
+      "orders_today": 7,
+      "avg_basket_today": 2071.0,
       "target_daily": 22678.0,
-      "month_sales": 93200.0,
+      "month_sales": 94990.0,
       "month_target": 171200.0
     },
     "กร": {
@@ -298,11 +298,11 @@
       "month_target": 0.0
     },
     "บี": {
-      "sales_today": 4760.0,
-      "orders_today": 3,
-      "avg_basket_today": 1587.0,
+      "sales_today": 6550.0,
+      "orders_today": 4,
+      "avg_basket_today": 1638.0,
       "target_daily": 19565.0,
-      "month_sales": 108400.0,
+      "month_sales": 110190.0,
       "month_target": 181900.0
     },
     "ไอซ์": {
@@ -322,11 +322,11 @@
       "month_target": 155150.0
     },
     "อุ้ม": {
-      "sales_today": 4070.0,
-      "orders_today": 2,
-      "avg_basket_today": 2035.0,
+      "sales_today": 6350.0,
+      "orders_today": 3,
+      "avg_basket_today": 2117.0,
       "target_daily": 20690.0,
-      "month_sales": 135310.0,
+      "month_sales": 137590.0,
       "month_target": 214000.0
     },
     "ลูกโซ่": {
