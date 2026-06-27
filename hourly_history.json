@@ -2698,6 +2698,59 @@
           "calls": 1
         }
       }
+    },
+    {
+      "ts": "2026-06-27T12:00:34.447149+07:00",
+      "by_ext": {
+        "248": {
+          "talktime": 3011,
+          "calls": 45
+        },
+        "206": {
+          "talktime": 2752,
+          "calls": 42
+        },
+        "234": {
+          "talktime": 2575,
+          "calls": 63
+        },
+        "247": {
+          "talktime": 2467,
+          "calls": 48
+        },
+        "230": {
+          "talktime": 2352,
+          "calls": 67
+        },
+        "249": {
+          "talktime": 1975,
+          "calls": 42
+        },
+        "244": {
+          "talktime": 1940,
+          "calls": 61
+        },
+        "250": {
+          "talktime": 1939,
+          "calls": 44
+        },
+        "204": {
+          "talktime": 1684,
+          "calls": 73
+        },
+        "231": {
+          "talktime": 1519,
+          "calls": 57
+        },
+        "202": {
+          "talktime": 1018,
+          "calls": 41
+        },
+        "205": {
+          "talktime": 134,
+          "calls": 1
+        }
+      }
     }
   ]
 }
