@@ -1,47 +1,6 @@
 {
   "snapshots": [
     {
-      "ts": "2026-06-25T10:00:36.015839+07:00",
-      "by_ext": {
-        "234": {
-          "talktime": 731,
-          "calls": 17
-        },
-        "204": {
-          "talktime": 696,
-          "calls": 26
-        },
-        "231": {
-          "talktime": 592,
-          "calls": 11
-        },
-        "244": {
-          "talktime": 526,
-          "calls": 12
-        },
-        "248": {
-          "talktime": 523,
-          "calls": 4
-        },
-        "250": {
-          "talktime": 442,
-          "calls": 18
-        },
-        "202": {
-          "talktime": 323,
-          "calls": 10
-        },
-        "206": {
-          "talktime": 120,
-          "calls": 13
-        },
-        "247": {
-          "talktime": 69,
-          "calls": 13
-        }
-      }
-    },
-    {
       "ts": "2026-06-25T10:30:31.412041+07:00",
       "by_ext": {
         "206": {
@@ -2668,6 +2627,55 @@
         "247": {
           "talktime": 45,
           "calls": 4
+        }
+      }
+    },
+    {
+      "ts": "2026-06-27T10:30:31.070879+07:00",
+      "by_ext": {
+        "248": {
+          "talktime": 1730,
+          "calls": 13
+        },
+        "247": {
+          "talktime": 1370,
+          "calls": 16
+        },
+        "234": {
+          "talktime": 1355,
+          "calls": 22
+        },
+        "230": {
+          "talktime": 1171,
+          "calls": 38
+        },
+        "249": {
+          "talktime": 1000,
+          "calls": 16
+        },
+        "206": {
+          "talktime": 988,
+          "calls": 15
+        },
+        "244": {
+          "talktime": 905,
+          "calls": 29
+        },
+        "204": {
+          "talktime": 728,
+          "calls": 29
+        },
+        "202": {
+          "talktime": 674,
+          "calls": 19
+        },
+        "250": {
+          "talktime": 626,
+          "calls": 23
+        },
+        "231": {
+          "talktime": 399,
+          "calls": 17
         }
       }
     }
