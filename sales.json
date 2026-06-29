@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-06-29T11:30:33+07:00",
+  "as_of": "2026-06-29T12:00:37+07:00",
   "by_employee": {
     "มล": {
       "sales_today": 8660.0,
@@ -26,11 +26,11 @@
       "month_target": 288900.0
     },
     "สาคู": {
-      "sales_today": 10750.0,
-      "orders_today": 5,
+      "sales_today": 12340.0,
+      "orders_today": 6,
       "avg_basket_today": 0.0,
       "target_daily": 23220.0,
-      "month_sales": 201530.0,
+      "month_sales": 203120.0,
       "month_target": 214000.0
     },
     "ซา": {
@@ -298,11 +298,11 @@
       "month_target": 0.0
     },
     "บี": {
-      "sales_today": 12120.0,
-      "orders_today": 5,
+      "sales_today": 13910.0,
+      "orders_today": 6,
       "avg_basket_today": 0.0,
       "target_daily": 64870.0,
-      "month_sales": 129150.0,
+      "month_sales": 130940.0,
       "month_target": 181900.0
     },
     "ไอซ์": {
@@ -322,19 +322,19 @@
       "month_target": 155150.0
     },
     "อุ้ม": {
-      "sales_today": 5570.0,
-      "orders_today": 2,
+      "sales_today": 7360.0,
+      "orders_today": 3,
       "avg_basket_today": 0.0,
       "target_daily": 63400.0,
-      "month_sales": 156170.0,
+      "month_sales": 157960.0,
       "month_target": 214000.0
     },
     "ลูกโซ่": {
-      "sales_today": 2590.0,
-      "orders_today": 1,
+      "sales_today": 4380.0,
+      "orders_today": 2,
       "avg_basket_today": 0.0,
       "target_daily": 28180.0,
-      "month_sales": 27910.0,
+      "month_sales": 29700.0,
       "month_target": 53500.0
     },
     "ลูกแก้ว": {
