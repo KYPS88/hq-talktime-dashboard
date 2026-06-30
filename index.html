@@ -432,6 +432,30 @@
     .kpi-grid, .kpi-grid.kpi-grid-4 { grid-template-columns: repeat(2, 1fr); }
     .header .meta { position: static; transform: none; margin-top: 12px; text-align: left; }
   }
+  /* ===== CALL FEEDBACK ===== */
+  .fb-head { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-bottom:12px; }
+  .fb-updated { font-size:12px; color:var(--text-dim); }
+  .fb-guide { border:1px solid var(--border); border-radius:12px; background:var(--bg-card2); margin-bottom:16px; overflow:hidden; }
+  .fb-guide summary { cursor:pointer; padding:12px 16px; font-weight:600; color:var(--accent); list-style:none; }
+  .fb-guide summary::-webkit-details-marker { display:none; }
+  .fb-guide .fb-guide-body { padding:0 16px 14px; color:var(--text-dim); font-size:13px; line-height:1.7; }
+  .fb-guide .fb-guide-body b { color:var(--text); }
+  .fb-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(290px,1fr)); gap:14px; }
+  .fb-card { background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:14px 16px; }
+  .fb-card.empty { opacity:.5; }
+  .fb-card-top { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+  .fb-ava { width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; color:#fff; font-size:14px; flex:0 0 auto; }
+  .fb-name { font-weight:600; }
+  .fb-ext { font-size:11px; color:var(--text-dim); }
+  .fb-score { margin-left:auto; font-size:12px; font-weight:700; padding:3px 9px; border-radius:999px; background:var(--bg-card2); color:var(--gold); }
+  .fb-row { margin:8px 0; font-size:13px; line-height:1.55; }
+  .fb-label { font-size:11px; font-weight:700; letter-spacing:.3px; display:block; margin-bottom:2px; }
+  .fb-pros .fb-label { color:var(--good); }
+  .fb-fix .fb-label { color:var(--warn); }
+  .fb-how .fb-label { color:var(--accent); }
+  .fb-how .fb-text { background:var(--bg-card2); border-radius:8px; padding:7px 10px; display:block; }
+  .fb-date { font-size:11px; color:var(--text-dim); margin-top:8px; text-align:right; }
+  .fb-empty-msg { color:var(--text-dim); font-size:13px; }
 </style>
 </head>
 <body>
@@ -532,9 +556,27 @@
     </div>
   </div>
 
+  <!-- ฟีดแบกการฟังสาย -->
+  <div class="section">
+    <div class="fb-head">
+      <h2 class="section-title" style="margin:0">📞 ฟีดแบกการฟังสาย</h2>
+      <span class="fb-updated" id="fbUpdated"></span>
+    </div>
+    <details class="fb-guide">
+      <summary>📘 คู่มือให้ฟีดแบก — ฟังหาอะไร / สรุปยังไง</summary>
+      <div class="fb-guide-body">
+        ฟังตาม <b>5 ช่วงของสายที่ดี</b>: (1) เปิดสายอบอุ่น (2) จับความต้องการ—ถามแล้วฟัง (3) นำเสนอคุณค่าให้ตรงปัญหา (4) ปิดการขาย+อัปเซลให้ถึง 3,000 (5) ดูแลต่อ/นัดติดตาม<br>
+        ดันยอดเกิน 3,000: ขายเป็นแพ็ก, ถาม "เอาอันไหน" ไม่ใช่ "เอาไหม", ใช้เส้น 3,000 เป็นเป้าของแถม, อัปเซลของคู่กัน<br>
+        รักษาลูกค้า: จดจำลูกค้า, นัดติดตาม, ขายความจริงใจไม่ยัดเยียด<br>
+        สรุปทุกครั้งเป็น 3 ช่อง: <b>ข้อดี → ข้อควรแก้ → ควรพูดอย่างไร</b> (ชมก่อน แล้วบอกจุดแก้ 1–2 จุด พร้อมประโยคที่ใช้ได้เลย)
+      </div>
+    </details>
+    <div class="fb-grid" id="fbGrid"></div>
+  </div>
+
 </div>
 
-<script id="payload" type="application/json">{"rows": [{"ext": "202", "name": "มล", "color": "#E91E63", "initial": "ม", "photo": "photos/202.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 95, "answered": 36, "over30": 26, "talk_total_sec": 3770, "talk_out_sec": 3770, "delta_talk_sec": 690, "delta_calls": 15, "has_prev": true, "sales_today": 8450.0, "orders_today": 4, "avg_basket": 2113.0, "target_daily": 83900.0, "month_sales": 245550.0, "month_target": 321000.0, "conversion": 11.11111111111111, "conv_sales": 4.2105263157894735, "achieved_pct": 10.071513706793803, "deadair_sec": 19403, "longest_sec": 947, "avg_per_call_sec": 107}, {"ext": "204", "name": "สาคู", "color": "#9C27B0", "initial": "ส", "photo": "photos/204.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 119, "answered": 49, "over30": 29, "talk_total_sec": 5917, "talk_out_sec": 5917, "delta_talk_sec": 1951, "delta_calls": 15, "has_prev": true, "sales_today": 16150.0, "orders_today": 7, "avg_basket": 2307.0, "target_daily": 3540.0, "month_sales": 226610.0, "month_target": 220000.0, "conversion": 14.285714285714285, "conv_sales": 5.88235294117647, "achieved_pct": 456.2146892655368, "deadair_sec": 16531, "longest_sec": 571, "avg_per_call_sec": 98}, {"ext": "206", "name": "นิจ", "color": "#009688", "initial": "น", "photo": "photos/206.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 89, "answered": 36, "over30": 28, "talk_total_sec": 4304, "talk_out_sec": 4304, "delta_talk_sec": 1168, "delta_calls": 10, "has_prev": true, "sales_today": 16210.0, "orders_today": 9, "avg_basket": 1801.0, "target_daily": 105180.0, "month_sales": 199930.0, "month_target": 288900.0, "conversion": 25.0, "conv_sales": 10.112359550561797, "achieved_pct": 15.411675223426508, "deadair_sec": 18198, "longest_sec": 452, "avg_per_call_sec": 122}, {"ext": "230", "name": "อุ้ม", "color": "#FF5722", "initial": "อ", "photo": "photos/230.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 108, "answered": 46, "over30": 30, "talk_total_sec": 4059, "talk_out_sec": 4059, "delta_talk_sec": 765, "delta_calls": 27, "has_prev": true, "sales_today": 12930.0, "orders_today": 5, "avg_basket": 2586.0, "target_daily": 39610.0, "month_sales": 187320.0, "month_target": 214000.0, "conversion": 10.869565217391305, "conv_sales": 4.62962962962963, "achieved_pct": 32.64327190103509, "deadair_sec": 17140, "longest_sec": 915, "avg_per_call_sec": 97}, {"ext": "231", "name": "แพร", "color": "#FF9800", "initial": "แ", "photo": "photos/231.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 112, "answered": 63, "over30": 36, "talk_total_sec": 3070, "talk_out_sec": 3070, "delta_talk_sec": 390, "delta_calls": 20, "has_prev": true, "sales_today": 5770.0, "orders_today": 3, "avg_basket": 1923.0, "target_daily": 51180.0, "month_sales": 123300.0, "month_target": 171200.0, "conversion": 4.761904761904762, "conv_sales": 2.6785714285714284, "achieved_pct": 11.273935130910512, "deadair_sec": 18174, "longest_sec": 389, "avg_per_call_sec": 48}, {"ext": "234", "name": "บุศ", "color": "#795548", "initial": "บ", "photo": "photos/234.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 132, "answered": 57, "over30": 40, "talk_total_sec": 5473, "talk_out_sec": 5473, "delta_talk_sec": 1960, "delta_calls": 11, "has_prev": true, "sales_today": 4560.0, "orders_today": 2, "avg_basket": 2280.0, "target_daily": 53850.0, "month_sales": 132610.0, "month_target": 181900.0, "conversion": 3.508771929824561, "conv_sales": 1.5151515151515151, "achieved_pct": 8.467966573816156, "deadair_sec": 16467, "longest_sec": 1736, "avg_per_call_sec": 97}, {"ext": "244", "name": "จอย", "color": "#4CAF50", "initial": "จ", "photo": "photos/244.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 96, "answered": 32, "over30": 25, "talk_total_sec": 4958, "talk_out_sec": 4958, "delta_talk_sec": 1037, "delta_calls": 7, "has_prev": true, "sales_today": 11570.0, "orders_today": 2, "avg_basket": 5785.0, "target_daily": 42930.0, "month_sales": 139840.0, "month_target": 171200.0, "conversion": 6.25, "conv_sales": 2.083333333333333, "achieved_pct": 26.950850221290473, "deadair_sec": 16936, "longest_sec": 965, "avg_per_call_sec": 142}, {"ext": "247", "name": "บี", "color": "#2196F3", "initial": "บ", "photo": "photos/247.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 85, "answered": 30, "over30": 23, "talk_total_sec": 3703, "talk_out_sec": 3703, "delta_talk_sec": 1122, "delta_calls": 9, "has_prev": true, "sales_today": 10420.0, "orders_today": 5, "avg_basket": 2084.0, "target_daily": 50270.0, "month_sales": 142050.0, "month_target": 181900.0, "conversion": 16.666666666666664, "conv_sales": 5.88235294117647, "achieved_pct": 20.72806843047543, "deadair_sec": 17627, "longest_sec": 741, "avg_per_call_sec": 116}, {"ext": "248", "name": "น้ำ", "color": "#673AB7", "initial": "น", "photo": "photos/248.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 77, "answered": 37, "over30": 27, "talk_total_sec": 5552, "talk_out_sec": 5552, "delta_talk_sec": 508, "delta_calls": 21, "has_prev": true, "sales_today": 4380.0, "orders_today": 2, "avg_basket": 2190.0, "target_daily": -1392.0, "month_sales": 159132.0, "month_target": 155150.0, "conversion": 5.405405405405405, "conv_sales": 2.5974025974025974, "achieved_pct": -314.6551724137931, "deadair_sec": 16025, "longest_sec": 2222, "avg_per_call_sec": 155}, {"ext": "249", "name": "ลูกโซ่", "color": "#00BCD4", "initial": "ล", "photo": "photos/249.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 115, "answered": 41, "over30": 25, "talk_total_sec": 3560, "talk_out_sec": 3560, "delta_talk_sec": 772, "delta_calls": 19, "has_prev": true, "sales_today": 4070.0, "orders_today": 2, "avg_basket": 2035.0, "target_daily": 22010.0, "month_sales": 35560.0, "month_target": 53500.0, "conversion": 4.878048780487805, "conv_sales": 1.7391304347826086, "achieved_pct": 18.491594729668332, "deadair_sec": 17716, "longest_sec": 762, "avg_per_call_sec": 91}, {"ext": "250", "name": "ลูกแก้ว", "color": "#FFC107", "initial": "ล", "photo": "photos/250.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 102, "answered": 46, "over30": 31, "talk_total_sec": 3845, "talk_out_sec": 3845, "delta_talk_sec": 571, "delta_calls": 15, "has_prev": true, "sales_today": 10030.0, "orders_today": 5, "avg_basket": 2006.0, "target_daily": 53500.0, "month_sales": 36570.0, "month_target": 0.0, "conversion": 10.869565217391305, "conv_sales": 4.901960784313726, "achieved_pct": 18.747663551401867, "deadair_sec": 18074, "longest_sec": 886, "avg_per_call_sec": 89}], "kpis": {"total_calls": 1130, "total_over15": 320, "talk_total_sec": 48211, "talk_out_sec": 48211, "total_sales": 104540.0, "total_orders": 46, "avg_basket_all": 2272.608695652174, "conv_all": 41.858407079646014, "target_daily_all": 504578.0, "month_sales_all": 1628472.0, "month_target_all": 1958750.0, "achieved_all": 20.718303215756535, "month_pct": 83.13832801531589, "today_date": "2026-06-30", "today_quote": "คนที่บ้านคือเหตุผลที่เราไม่ยอมแพ้ในวันที่ท้อ"}, "as_of": "30/06/2026 16:30 น."}</script>
+<script id="payload" type="application/json">{"rows": [{"ext": "202", "name": "มล", "color": "#E91E63", "initial": "ม", "photo": "photos/202.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 97, "answered": 38, "over30": 28, "talk_total_sec": 3954, "talk_out_sec": 3954, "delta_talk_sec": 874, "delta_calls": 17, "has_prev": true, "sales_today": 10730.0, "orders_today": 5, "avg_basket": 2146.0, "target_daily": 83900.0, "month_sales": 247830.0, "month_target": 321000.0, "conversion": 13.157894736842104, "conv_sales": 5.154639175257731, "achieved_pct": 12.789034564958286, "deadair_sec": 1228, "longest_sec": 165, "avg_per_call_sec": 79, "feedback": null}, {"ext": "204", "name": "สาคู", "color": "#9C27B0", "initial": "ส", "photo": "photos/204.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 120, "answered": 49, "over30": 29, "talk_total_sec": 5917, "talk_out_sec": 5917, "delta_talk_sec": 1951, "delta_calls": 16, "has_prev": true, "sales_today": 19440.0, "orders_today": 8, "avg_basket": 2430.0, "target_daily": 3540.0, "month_sales": 229900.0, "month_target": 220000.0, "conversion": 16.3265306122449, "conv_sales": 6.666666666666667, "achieved_pct": 549.1525423728813, "deadair_sec": 836, "longest_sec": 1220, "avg_per_call_sec": 325, "feedback": null}, {"ext": "206", "name": "นิจ", "color": "#009688", "initial": "น", "photo": "photos/206.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 92, "answered": 38, "over30": 28, "talk_total_sec": 4346, "talk_out_sec": 4346, "delta_talk_sec": 1210, "delta_calls": 13, "has_prev": true, "sales_today": 16210.0, "orders_today": 9, "avg_basket": 1801.0, "target_daily": 105180.0, "month_sales": 199930.0, "month_target": 288900.0, "conversion": 23.684210526315788, "conv_sales": 9.782608695652174, "achieved_pct": 15.411675223426508, "deadair_sec": 802, "longest_sec": 452, "avg_per_call_sec": 260, "feedback": null}, {"ext": "230", "name": "อุ้ม", "color": "#FF5722", "initial": "อ", "photo": "photos/230.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 113, "answered": 47, "over30": 30, "talk_total_sec": 4060, "talk_out_sec": 4060, "delta_talk_sec": 766, "delta_calls": 32, "has_prev": true, "sales_today": 12930.0, "orders_today": 5, "avg_basket": 2586.0, "target_daily": 39610.0, "month_sales": 187320.0, "month_target": 214000.0, "conversion": 10.638297872340425, "conv_sales": 4.424778761061947, "achieved_pct": 32.64327190103509, "deadair_sec": 961, "longest_sec": 85, "avg_per_call_sec": 67, "feedback": null}, {"ext": "231", "name": "แพร", "color": "#FF9800", "initial": "แ", "photo": "photos/231.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 114, "answered": 64, "over30": 37, "talk_total_sec": 3124, "talk_out_sec": 3124, "delta_talk_sec": 444, "delta_calls": 22, "has_prev": true, "sales_today": 6460.0, "orders_today": 4, "avg_basket": 1615.0, "target_daily": 51180.0, "month_sales": 123990.0, "month_target": 171200.0, "conversion": 6.25, "conv_sales": 3.508771929824561, "achieved_pct": 12.622118014849551, "deadair_sec": 1547, "longest_sec": 133, "avg_per_call_sec": 40, "feedback": null}, {"ext": "234", "name": "บุศ", "color": "#795548", "initial": "บ", "photo": "photos/234.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 137, "answered": 60, "over30": 41, "talk_total_sec": 5583, "talk_out_sec": 5583, "delta_talk_sec": 2070, "delta_calls": 16, "has_prev": true, "sales_today": 4560.0, "orders_today": 2, "avg_basket": 2280.0, "target_daily": 53850.0, "month_sales": 132610.0, "month_target": 181900.0, "conversion": 3.3333333333333335, "conv_sales": 1.4598540145985401, "achieved_pct": 8.467966573816156, "deadair_sec": 66, "longest_sec": 1736, "avg_per_call_sec": 1736, "feedback": null}, {"ext": "244", "name": "จอย", "color": "#4CAF50", "initial": "จ", "photo": "photos/244.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 98, "answered": 34, "over30": 27, "talk_total_sec": 5149, "talk_out_sec": 5149, "delta_talk_sec": 1228, "delta_calls": 9, "has_prev": true, "sales_today": 11570.0, "orders_today": 2, "avg_basket": 5785.0, "target_daily": 42930.0, "month_sales": 139840.0, "month_target": 171200.0, "conversion": 5.88235294117647, "conv_sales": 2.0408163265306123, "achieved_pct": 26.950850221290473, "deadair_sec": 870, "longest_sec": 526, "avg_per_call_sec": 226, "feedback": null}, {"ext": "247", "name": "บี", "color": "#2196F3", "initial": "บ", "photo": "photos/247.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 88, "answered": 33, "over30": 25, "talk_total_sec": 3931, "talk_out_sec": 3931, "delta_talk_sec": 1350, "delta_calls": 12, "has_prev": true, "sales_today": 10420.0, "orders_today": 5, "avg_basket": 2084.0, "target_daily": 50270.0, "month_sales": 142050.0, "month_target": 181900.0, "conversion": 15.151515151515152, "conv_sales": 5.681818181818182, "achieved_pct": 20.72806843047543, "deadair_sec": 1226, "longest_sec": 227, "avg_per_call_sec": 128, "feedback": null}, {"ext": "248", "name": "น้ำ", "color": "#673AB7", "initial": "น", "photo": "photos/248.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 79, "answered": 38, "over30": 28, "talk_total_sec": 5667, "talk_out_sec": 5667, "delta_talk_sec": 623, "delta_calls": 23, "has_prev": true, "sales_today": 5070.0, "orders_today": 3, "avg_basket": 1690.0, "target_daily": -1392.0, "month_sales": 159822.0, "month_target": 155150.0, "conversion": 7.894736842105263, "conv_sales": 3.79746835443038, "achieved_pct": -364.2241379310345, "deadair_sec": 1299, "longest_sec": 89, "avg_per_call_sec": 72, "feedback": null}, {"ext": "249", "name": "ลูกโซ่", "color": "#00BCD4", "initial": "ล", "photo": "photos/249.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 116, "answered": 42, "over30": 26, "talk_total_sec": 3625, "talk_out_sec": 3625, "delta_talk_sec": 837, "delta_calls": 20, "has_prev": true, "sales_today": 4070.0, "orders_today": 2, "avg_basket": 2035.0, "target_daily": 22010.0, "month_sales": 35560.0, "month_target": 53500.0, "conversion": 4.761904761904762, "conv_sales": 1.7241379310344827, "achieved_pct": 18.491594729668332, "deadair_sec": 1148, "longest_sec": 237, "avg_per_call_sec": 133, "feedback": null}, {"ext": "250", "name": "ลูกแก้ว", "color": "#FFC107", "initial": "ล", "photo": "photos/250.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 103, "answered": 46, "over30": 31, "talk_total_sec": 3845, "talk_out_sec": 3845, "delta_talk_sec": 571, "delta_calls": 16, "has_prev": true, "sales_today": 10030.0, "orders_today": 5, "avg_basket": 2006.0, "target_daily": 53500.0, "month_sales": 36570.0, "month_target": 0.0, "conversion": 10.869565217391305, "conv_sales": 4.854368932038835, "achieved_pct": 18.747663551401867, "deadair_sec": 895, "longest_sec": 177, "avg_per_call_sec": 93, "feedback": null}], "kpis": {"total_calls": 1157, "total_over15": 330, "talk_total_sec": 49201, "talk_out_sec": 49201, "total_sales": 111490.0, "total_orders": 50, "avg_basket_all": 2229.8, "conv_all": 42.26447709593777, "target_daily_all": 504578.0, "month_sales_all": 1635422.0, "month_target_all": 1958750.0, "achieved_all": 22.09569184546294, "month_pct": 83.49314613911933, "feedback_updated": "", "today_date": "2026-06-30", "today_quote": "คนที่บ้านคือเหตุผลที่เราไม่ยอมแพ้ในวันที่ท้อ"}, "as_of": "30/06/2026 16:37 น."}</script>
 <script>
 let D = JSON.parse(document.getElementById('payload').textContent);
 const LIVE = D;
@@ -920,8 +962,39 @@ function bindAllAvatars() {
   document.querySelectorAll('.avatar[data-ext], .mini-avatar[data-ext]').forEach(attachDrag);
 }
 
+// ===== ฟีดแบกการฟังสาย =====
+function renderFeedback(data) {
+  const grid = document.getElementById('fbGrid');
+  const upd = document.getElementById('fbUpdated');
+  if (!grid) return;
+  const fbUpd = (data.kpis && data.kpis.feedback_updated) || '';
+  if (upd) upd.textContent = fbUpd ? ('อัปเดตฟีดแบก: ' + String(fbUpd).replace('T',' ').slice(0,16)) : '';
+  const esc = s => (s==null?'':String(s)).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+  let html = '';
+  (data.rows||[]).forEach(r => {
+    const fb = r.feedback;
+    const top = '<div class="fb-card-top"><div class="fb-ava" style="background:'+esc(r.color)+'">'+esc(r.initial||'')+'</div>'
+      + '<div><div class="fb-name">'+esc(r.name)+'</div><div class="fb-ext">ext '+esc(r.ext)+'</div></div>';
+    if (fb && (fb.pros || fb.fix || fb.how)) {
+      const score = fb.score ? '<span class="fb-score">★ '+esc(fb.score)+'</span>' : '';
+      html += '<div class="fb-card">' + top + score + '</div>'
+        + (fb.pros ? '<div class="fb-row fb-pros"><span class="fb-label">✅ ข้อดี</span><span class="fb-text">'+esc(fb.pros)+'</span></div>' : '')
+        + (fb.fix ? '<div class="fb-row fb-fix"><span class="fb-label">⚠️ ข้อควรแก้</span><span class="fb-text">'+esc(fb.fix)+'</span></div>' : '')
+        + (fb.how ? '<div class="fb-row fb-how"><span class="fb-label">💬 ควรพูดอย่างไร</span><span class="fb-text">'+esc(fb.how)+'</span></div>' : '')
+        + (fb.date ? '<div class="fb-date">'+esc(fb.date)+'</div>' : '')
+        + '</div>';
+    } else {
+      html += '<div class="fb-card empty">' + top + '</div>'
+        + '<div class="fb-empty-msg">ยังไม่มีฟีดแบก — ฟังสายแล้วพิมพ์ลงชีตได้เลย</div>'
+        + '</div>';
+    }
+  });
+  grid.innerHTML = html;
+}
+
 // ===== แสดงข้อมูลปัจจุบันตอนเปิดหน้า =====
 renderDashboard(LIVE);
+renderFeedback(LIVE);
 
 // ===== HISTORY MODE — เลือกวัน/เวลาดูผลย้อนหลังได้ =====
 const histDate = document.getElementById('histDate');
