@@ -1,12 +1,12 @@
 {
-  "as_of": "2026-06-30T22:28:29+07:00",
+  "as_of": "2026-07-01T09:30:39+07:00",
   "by_employee": {
     "มล": {
-      "sales_today": 12520.0,
-      "orders_today": 6,
-      "avg_basket_today": 2087.0,
+      "sales_today": 0.0,
+      "orders_today": 0,
+      "avg_basket_today": 0.0,
       "target_daily": 83900.0,
-      "month_sales": 249620.0,
+      "month_sales": 0.0,
       "month_target": 321000.0
     },
     "อ้อ": {
@@ -18,19 +18,19 @@
       "month_target": 203300.0
     },
     "นิจ": {
-      "sales_today": 19100.0,
-      "orders_today": 10,
-      "avg_basket_today": 1910.0,
+      "sales_today": 0.0,
+      "orders_today": 0,
+      "avg_basket_today": 0.0,
       "target_daily": 105180.0,
-      "month_sales": 202820.0,
+      "month_sales": 0.0,
       "month_target": 288900.0
     },
     "สาคู": {
-      "sales_today": 22730.0,
-      "orders_today": 9,
-      "avg_basket_today": 2526.0,
+      "sales_today": 0.0,
+      "orders_today": 0,
+      "avg_basket_today": 0.0,
       "target_daily": 3540.0,
-      "month_sales": 233190.0,
+      "month_sales": 0.0,
       "month_target": 220000.0
     },
     "ซา": {
@@ -170,11 +170,11 @@
       "month_target": 0.0
     },
     "แพร": {
-      "sales_today": 9050.0,
-      "orders_today": 5,
-      "avg_basket_today": 1810.0,
+      "sales_today": 0.0,
+      "orders_today": 0,
+      "avg_basket_today": 0.0,
       "target_daily": 51180.0,
-      "month_sales": 126580.0,
+      "month_sales": 0.0,
       "month_target": 171200.0
     },
     "เม": {
@@ -194,11 +194,11 @@
       "month_target": 0.0
     },
     "บุศ": {
-      "sales_today": 9130.0,
-      "orders_today": 4,
-      "avg_basket_today": 2283.0,
+      "sales_today": 0.0,
+      "orders_today": 0,
+      "avg_basket_today": 0.0,
       "target_daily": 53850.0,
-      "month_sales": 137180.0,
+      "month_sales": 0.0,
       "month_target": 181900.0
     },
     "ฟลุ๊ค": {
@@ -266,11 +266,11 @@
       "month_target": 0.0
     },
     "จอย": {
-      "sales_today": 14540.0,
-      "orders_today": 4,
-      "avg_basket_today": 3635.0,
+      "sales_today": 0.0,
+      "orders_today": 0,
+      "avg_basket_today": 0.0,
       "target_daily": 42930.0,
-      "month_sales": 142810.0,
+      "month_sales": 0.0,
       "month_target": 171200.0
     },
     "กร": {
@@ -298,11 +298,11 @@
       "month_target": 0.0
     },
     "บี": {
-      "sales_today": 10420.0,
-      "orders_today": 5,
-      "avg_basket_today": 2084.0,
+      "sales_today": 0.0,
+      "orders_today": 0,
+      "avg_basket_today": 0.0,
       "target_daily": 50270.0,
-      "month_sales": 142050.0,
+      "month_sales": 0.0,
       "month_target": 181900.0
     },
     "ไอซ์": {
@@ -314,35 +314,35 @@
       "month_target": 0.0
     },
     "น้ำ": {
-      "sales_today": 7660.0,
-      "orders_today": 4,
-      "avg_basket_today": 1915.0,
+      "sales_today": 0.0,
+      "orders_today": 0,
+      "avg_basket_today": 0.0,
       "target_daily": -1392.0,
-      "month_sales": 162412.0,
+      "month_sales": 0.0,
       "month_target": 155150.0
     },
     "อุ้ม": {
-      "sales_today": 14720.0,
-      "orders_today": 6,
-      "avg_basket_today": 2453.0,
+      "sales_today": 0.0,
+      "orders_today": 0,
+      "avg_basket_today": 0.0,
       "target_daily": 39610.0,
-      "month_sales": 189110.0,
+      "month_sales": 0.0,
       "month_target": 214000.0
     },
     "ลูกโซ่": {
-      "sales_today": 4070.0,
-      "orders_today": 2,
-      "avg_basket_today": 2035.0,
+      "sales_today": 0.0,
+      "orders_today": 0,
+      "avg_basket_today": 0.0,
       "target_daily": 22010.0,
-      "month_sales": 35560.0,
+      "month_sales": 0.0,
       "month_target": 53500.0
     },
     "ลูกแก้ว": {
-      "sales_today": 10030.0,
-      "orders_today": 5,
-      "avg_basket_today": 2006.0,
+      "sales_today": 0.0,
+      "orders_today": 0,
+      "avg_basket_today": 0.0,
       "target_daily": 53500.0,
-      "month_sales": 36570.0,
+      "month_sales": 0.0,
       "month_target": 0.0
     },
     "ลููกแก้ว": {
