@@ -2333,6 +2333,55 @@
           "calls": 2
         }
       }
+    },
+    {
+      "ts": "2026-07-01T12:21:39.345692+07:00",
+      "by_ext": {
+        "234": {
+          "talktime": 5008,
+          "calls": 34
+        },
+        "206": {
+          "talktime": 4469,
+          "calls": 36
+        },
+        "204": {
+          "talktime": 2745,
+          "calls": 15
+        },
+        "202": {
+          "talktime": 2699,
+          "calls": 42
+        },
+        "231": {
+          "talktime": 2600,
+          "calls": 29
+        },
+        "248": {
+          "talktime": 2459,
+          "calls": 44
+        },
+        "244": {
+          "talktime": 2321,
+          "calls": 31
+        },
+        "249": {
+          "talktime": 1991,
+          "calls": 47
+        },
+        "230": {
+          "talktime": 1843,
+          "calls": 60
+        },
+        "247": {
+          "talktime": 1552,
+          "calls": 25
+        },
+        "205": {
+          "talktime": 389,
+          "calls": 2
+        }
+      }
     }
   ]
 }
