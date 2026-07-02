@@ -1,55 +1,6 @@
 {
   "snapshots": [
     {
-      "ts": "2026-06-30T09:30:28.605391+07:00",
-      "by_ext": {
-        "248": {
-          "talktime": 495,
-          "calls": 8
-        },
-        "250": {
-          "talktime": 493,
-          "calls": 7
-        },
-        "206": {
-          "talktime": 325,
-          "calls": 8
-        },
-        "202": {
-          "talktime": 302,
-          "calls": 1
-        },
-        "204": {
-          "talktime": 215,
-          "calls": 18
-        },
-        "234": {
-          "talktime": 175,
-          "calls": 9
-        },
-        "249": {
-          "talktime": 141,
-          "calls": 13
-        },
-        "230": {
-          "talktime": 128,
-          "calls": 5
-        },
-        "231": {
-          "talktime": 124,
-          "calls": 3
-        },
-        "244": {
-          "talktime": 100,
-          "calls": 16
-        },
-        "247": {
-          "talktime": 0,
-          "calls": 3
-        }
-      }
-    },
-    {
       "ts": "2026-06-30T15:41:14.109975+07:00",
       "by_ext": {
         "248": {
@@ -2288,6 +2239,55 @@
         "250": {
           "talktime": 55,
           "calls": 3
+        }
+      }
+    },
+    {
+      "ts": "2026-07-02T09:30:35.971873+07:00",
+      "by_ext": {
+        "206": {
+          "talktime": 639,
+          "calls": 5
+        },
+        "234": {
+          "talktime": 531,
+          "calls": 5
+        },
+        "250": {
+          "talktime": 243,
+          "calls": 13
+        },
+        "202": {
+          "talktime": 207,
+          "calls": 8
+        },
+        "244": {
+          "talktime": 199,
+          "calls": 13
+        },
+        "230": {
+          "talktime": 174,
+          "calls": 4
+        },
+        "231": {
+          "talktime": 129,
+          "calls": 8
+        },
+        "249": {
+          "talktime": 90,
+          "calls": 5
+        },
+        "248": {
+          "talktime": 73,
+          "calls": 6
+        },
+        "204": {
+          "talktime": 58,
+          "calls": 13
+        },
+        "247": {
+          "talktime": 7,
+          "calls": 1
         }
       }
     }
