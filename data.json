@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-07-15T13:00:56",
-  "updated_label": "15/07/2026 13:00",
+  "updated_at": "2026-07-15T13:30:52",
+  "updated_label": "15/07/2026 13:30",
   "source": "https://client.yalecom.co.th/custom_menu/extension_summary_outbound",
   "row_count": 10,
   "rows": [
@@ -259,23 +259,23 @@
     {
       "extension": "204",
       "name": "สาคู",
-      "total_calls": 155,
-      "answered": 62,
-      "missed": 90,
-      "talktime": 5738,
-      "avg": 92,
+      "total_calls": 172,
+      "answered": 69,
+      "missed": 100,
+      "talktime": 6081,
+      "avg": 88,
       "_raw": [
         "204",
         "สาคู",
-        "155",
-        "62",
-        "90",
+        "172",
+        "69",
+        "100",
         "3",
-        "0:58:07",
-        "1:35:38",
-        "35",
-        "32",
-        "30"
+        "1:03:30",
+        "1:41:21",
+        "39",
+        "34",
+        "35"
       ],
       "_headers": [
         "หมายเลข",
