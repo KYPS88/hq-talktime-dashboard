@@ -2653,6 +2653,43 @@
           "calls": 1
         }
       }
+    },
+    {
+      "ts": "2026-07-16T09:30:51.566017+07:00",
+      "by_ext": {
+        "230": {
+          "talktime": 870,
+          "calls": 1
+        },
+        "206": {
+          "talktime": 501,
+          "calls": 8
+        },
+        "247": {
+          "talktime": 445,
+          "calls": 6
+        },
+        "234": {
+          "talktime": 351,
+          "calls": 8
+        },
+        "204": {
+          "talktime": 280,
+          "calls": 7
+        },
+        "202": {
+          "talktime": 241,
+          "calls": 7
+        },
+        "248": {
+          "talktime": 96,
+          "calls": 6
+        },
+        "244": {
+          "talktime": 74,
+          "calls": 17
+        }
+      }
     }
   ]
 }
