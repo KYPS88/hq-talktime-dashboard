@@ -658,6 +658,51 @@
           "calls": 1
         }
       }
+    },
+    {
+      "ts": "2026-07-20T11:30:35.625309+07:00",
+      "by_ext": {
+        "206": {
+          "talktime": 3319,
+          "calls": 25
+        },
+        "247": {
+          "talktime": 3172,
+          "calls": 21
+        },
+        "248": {
+          "talktime": 2521,
+          "calls": 13
+        },
+        "234": {
+          "talktime": 2416,
+          "calls": 49
+        },
+        "202": {
+          "talktime": 1899,
+          "calls": 24
+        },
+        "244": {
+          "talktime": 1840,
+          "calls": 40
+        },
+        "231": {
+          "talktime": 1298,
+          "calls": 20
+        },
+        "204": {
+          "talktime": 1197,
+          "calls": 30
+        },
+        "230": {
+          "talktime": 1180,
+          "calls": 30
+        },
+        "205": {
+          "talktime": 0,
+          "calls": 1
+        }
+      }
     }
   ]
 }
