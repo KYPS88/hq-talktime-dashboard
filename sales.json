@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-07-27T15:00:52+07:00",
+  "as_of": "2026-07-27T15:30:42+07:00",
   "by_employee": {
     "มล": {
       "sales_today": 18570.0,
@@ -298,11 +298,11 @@
       "month_target": 0.0
     },
     "บี": {
-      "sales_today": 6870.0,
-      "orders_today": 3,
-      "avg_basket_today": 2290.0,
+      "sales_today": 10160.0,
+      "orders_today": 4,
+      "avg_basket_today": 2540.0,
       "target_daily": 18492.0,
-      "month_sales": 107010.0,
+      "month_sales": 110300.0,
       "month_target": 192600.0
     },
     "ไอซ์": {
