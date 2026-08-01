@@ -12,6 +12,39 @@
           "calls": 3
         }
       }
+    },
+    {
+      "ts": "2026-08-01T10:00:45.482617+07:00",
+      "by_ext": {
+        "248": {
+          "talktime": 501,
+          "calls": 4
+        },
+        "234": {
+          "talktime": 294,
+          "calls": 12
+        },
+        "231": {
+          "talktime": 93,
+          "calls": 5
+        },
+        "244": {
+          "talktime": 66,
+          "calls": 8
+        },
+        "230": {
+          "talktime": 61,
+          "calls": 4
+        },
+        "202": {
+          "talktime": 13,
+          "calls": 2
+        },
+        "247": {
+          "talktime": 0,
+          "calls": 2
+        }
+      }
     }
   ]
 }
