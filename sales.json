@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-08-03T11:31:12+07:00",
+  "as_of": "2026-08-03T12:00:53+07:00",
   "by_employee": {
     "มล": {
       "sales_today": 6080.0,
@@ -21,7 +21,7 @@
       "sales_today": 5570.0,
       "orders_today": 2,
       "avg_basket_today": 2785.0,
-      "target_daily": 103820.0,
+      "target_daily": 12174.0,
       "month_sales": 5570.0,
       "month_target": 270000.0
     },
@@ -29,7 +29,7 @@
       "sales_today": 0.0,
       "orders_today": 0,
       "avg_basket_today": 0.0,
-      "target_daily": 124358.0,
+      "target_daily": 15798.0,
       "month_sales": 0.0,
       "month_target": 280000.0
     },
@@ -173,7 +173,7 @@
       "sales_today": 0.0,
       "orders_today": 0,
       "avg_basket_today": 0.0,
-      "target_daily": 96672.0,
+      "target_daily": 9110.0,
       "month_sales": 0.0,
       "month_target": 170000.0
     },
@@ -197,7 +197,7 @@
       "sales_today": 0.0,
       "orders_today": 0,
       "avg_basket_today": 0.0,
-      "target_daily": 88136.0,
+      "target_daily": 7391.0,
       "month_sales": 6260.0,
       "month_target": 170000.0
     },
@@ -269,7 +269,7 @@
       "sales_today": 1790.0,
       "orders_today": 1,
       "avg_basket_today": 1790.0,
-      "target_daily": 198210.0,
+      "target_daily": 7119.0,
       "month_sales": 3580.0,
       "month_target": 200000.0
     },
@@ -301,7 +301,7 @@
       "sales_today": 0.0,
       "orders_today": 0,
       "avg_basket_today": 0.0,
-      "target_daily": 178210.0,
+      "target_daily": 8540.0,
       "month_sales": 1790.0,
       "month_target": 180000.0
     },
@@ -317,7 +317,7 @@
       "sales_today": 0.0,
       "orders_today": 0,
       "avg_basket_today": 0.0,
-      "target_daily": 166420.0,
+      "target_daily": 7748.0,
       "month_sales": 3580.0,
       "month_target": 170000.0
     },
@@ -325,7 +325,7 @@
       "sales_today": 0.0,
       "orders_today": 0,
       "avg_basket_today": 0.0,
-      "target_daily": 105918.0,
+      "target_daily": 11497.0,
       "month_sales": 10460.0,
       "month_target": 220000.0
     },
