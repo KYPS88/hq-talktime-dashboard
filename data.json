@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-03T12:23:37",
-  "updated_label": "03/08/2026 12:23",
+  "updated_at": "2026-08-03T12:30:39",
+  "updated_label": "03/08/2026 12:30",
   "source": "https://client.yalecom.co.th/custom_menu/extension_summary_outbound",
   "row_count": 9,
   "rows": [
@@ -43,23 +43,23 @@
     {
       "extension": "244",
       "name": "จอย",
-      "total_calls": 157,
-      "answered": 74,
-      "missed": 81,
-      "talktime": 8046,
-      "avg": 108,
+      "total_calls": 159,
+      "answered": 75,
+      "missed": 82,
+      "talktime": 8083,
+      "avg": 107,
       "_raw": [
         "244",
         "จอย",
-        "157",
-        "74",
-        "81",
+        "159",
+        "75",
+        "82",
         "2",
-        "0:44:14",
-        "2:14:06",
-        "51",
+        "0:45:06",
+        "2:14:43",
+        "52",
         "53",
-        "21"
+        "22"
       ],
       "_headers": [
         "หมายเลข",
