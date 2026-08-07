@@ -1,29 +1,29 @@
 {
-  "updated_at": "2026-08-07T07:00:49",
-  "updated_label": "07/08/2026 07:00",
+  "updated_at": "2026-08-07T07:15:43",
+  "updated_label": "07/08/2026 07:15",
   "source": "https://client.yalecom.co.th/custom_menu/extension_summary_outbound",
   "row_count": 8,
   "rows": [
     {
       "extension": "206",
       "name": "นิจ",
-      "total_calls": 54,
-      "answered": 27,
+      "total_calls": 55,
+      "answered": 28,
       "missed": 26,
-      "talktime": 5252,
-      "avg": 194,
+      "talktime": 5307,
+      "avg": 189,
       "_raw": [
         "206",
         "นิจ",
-        "54",
-        "27",
+        "55",
+        "28",
         "26",
         "1",
-        "0:18:02",
-        "1:27:32",
-        "23",
+        "0:18:12",
+        "1:28:27",
+        "24",
         "19",
-        "8"
+        "9"
       ],
       "_headers": [
         "หมายเลข",
