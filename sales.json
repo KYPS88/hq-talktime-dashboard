@@ -1,10 +1,10 @@
 {
-  "as_of": "2026-08-10T21:58:33+07:00",
+  "as_of": "2026-08-11T09:00:51+07:00",
   "by_employee": {
     "มล": {
-      "sales_today": 10910.0,
-      "orders_today": 5,
-      "avg_basket_today": 2182.0,
+      "sales_today": 0.0,
+      "orders_today": 0,
+      "avg_basket_today": 0.0,
       "target_daily": 20191.0,
       "month_sales": 48730.0,
       "month_target": 401250.0
@@ -18,17 +18,17 @@
       "month_target": 181900.0
     },
     "นิจ": {
-      "sales_today": 14610.0,
-      "orders_today": 7,
-      "avg_basket_today": 2087.0,
+      "sales_today": 0.0,
+      "orders_today": 0,
+      "avg_basket_today": 0.0,
       "target_daily": 14729.0,
       "month_sales": 38380.0,
       "month_target": 288900.0
     },
     "สาคู": {
-      "sales_today": 5910.0,
-      "orders_today": 3,
-      "avg_basket_today": 1970.0,
+      "sales_today": 0.0,
+      "orders_today": 0,
+      "avg_basket_today": 0.0,
       "target_daily": 14549.0,
       "month_sales": 43620.0,
       "month_target": 299600.0
@@ -170,9 +170,9 @@
       "month_target": 0.0
     },
     "แพร": {
-      "sales_today": 8550.0,
-      "orders_today": 5,
-      "avg_basket_today": 1710.0,
+      "sales_today": 0.0,
+      "orders_today": 0,
+      "avg_basket_today": 0.0,
       "target_daily": 8888.0,
       "month_sales": 30460.0,
       "month_target": 181900.0
@@ -298,9 +298,9 @@
       "month_target": 0.0
     },
     "บี": {
-      "sales_today": 5370.0,
-      "orders_today": 3,
-      "avg_basket_today": 1790.0,
+      "sales_today": 0.0,
+      "orders_today": 0,
+      "avg_basket_today": 0.0,
       "target_daily": 9489.0,
       "month_sales": 27170.0,
       "month_target": 192600.0
@@ -314,9 +314,9 @@
       "month_target": 0.0
     },
     "น้ำ": {
-      "sales_today": 9460.0,
-      "orders_today": 4,
-      "avg_basket_today": 2365.0,
+      "sales_today": 0.0,
+      "orders_today": 0,
+      "avg_basket_today": 0.0,
       "target_daily": 9254.0,
       "month_sales": 24780.0,
       "month_target": 181900.0
