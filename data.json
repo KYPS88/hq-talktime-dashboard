@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-09-01T06:00:41",
-  "updated_label": "01/09/2026 06:00",
+  "updated_at": "2026-09-01T06:03:28",
+  "updated_label": "01/09/2026 06:03",
   "source": "https://client.yalecom.co.th/custom_menu/extension_summary_outbound",
   "row_count": 9,
   "rows": [
@@ -79,19 +79,19 @@
     {
       "extension": "234",
       "name": "บุศ",
-      "total_calls": 69,
+      "total_calls": 70,
       "answered": 35,
-      "missed": 33,
+      "missed": 34,
       "talktime": 2946,
       "avg": 84,
       "_raw": [
         "234",
         "บุศ",
-        "69",
+        "70",
         "35",
-        "33",
+        "34",
         "1",
-        "0:33:22",
+        "0:34:26",
         "0:49:06",
         "21",
         "3",
