@@ -2383,6 +2383,51 @@
           "calls": 4
         }
       }
+    },
+    {
+      "ts": "2026-09-03T12:30:43.909853+07:00",
+      "by_ext": {
+        "247": {
+          "talktime": 5804,
+          "calls": 49
+        },
+        "206": {
+          "talktime": 4553,
+          "calls": 44
+        },
+        "204": {
+          "talktime": 3816,
+          "calls": 57
+        },
+        "230": {
+          "talktime": 3787,
+          "calls": 45
+        },
+        "248": {
+          "talktime": 3628,
+          "calls": 55
+        },
+        "234": {
+          "talktime": 3254,
+          "calls": 67
+        },
+        "244": {
+          "talktime": 2962,
+          "calls": 61
+        },
+        "231": {
+          "talktime": 2483,
+          "calls": 69
+        },
+        "205": {
+          "talktime": 620,
+          "calls": 5
+        },
+        "202": {
+          "talktime": 0,
+          "calls": 4
+        }
+      }
     }
   ]
 }
