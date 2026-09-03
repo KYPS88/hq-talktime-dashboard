@@ -2334,6 +2334,51 @@
           "calls": 1
         }
       }
+    },
+    {
+      "ts": "2026-09-03T12:00:46.188629+07:00",
+      "by_ext": {
+        "247": {
+          "talktime": 5546,
+          "calls": 40
+        },
+        "206": {
+          "talktime": 3950,
+          "calls": 36
+        },
+        "230": {
+          "talktime": 3363,
+          "calls": 44
+        },
+        "204": {
+          "talktime": 3127,
+          "calls": 37
+        },
+        "248": {
+          "talktime": 2973,
+          "calls": 53
+        },
+        "244": {
+          "talktime": 2637,
+          "calls": 55
+        },
+        "234": {
+          "talktime": 2604,
+          "calls": 56
+        },
+        "231": {
+          "talktime": 1686,
+          "calls": 59
+        },
+        "205": {
+          "talktime": 265,
+          "calls": 3
+        },
+        "202": {
+          "talktime": 0,
+          "calls": 1
+        }
+      }
     }
   ]
 }
