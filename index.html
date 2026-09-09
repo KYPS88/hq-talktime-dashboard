@@ -245,6 +245,12 @@
     <div class="cmp-list" id="cmpList"><div class="load-note">⏳ กำลังโหลดข้อมูล…</div></div>
   </div>
 
+  <!-- เปรียบเทียบเฉลี่ยต่อคน -->
+  <div class="section">
+    <h2 class="section-title">⚖️ เทียบเฉลี่ยต่อคน <span class="note" id="perHeadNote">หารด้วยจำนวนพนักงานของแต่ละสาขา — วัดฟอร์มต่อหัวแบบแฟร์ๆ</span></h2>
+    <div class="cmp-list" id="cmpPerList"><div class="load-note">⏳ กำลังโหลดข้อมูล…</div></div>
+  </div>
+
   <!-- เป้าหมาย -->
   <div class="section">
     <h2 class="section-title">🏁 ความคืบหน้าเทียบเป้า</h2>
@@ -415,6 +421,19 @@ function render(hq, r2) {
     cmpRow('👥 สายที่คุย > 15 วิ', kH.total_over15, kR.total_over15, fmtInt, true),
     cmpRow('🛒 จำนวนออเดอร์', kH.total_orders, kR.total_orders, fmtInt, false),
     cmpRow('📦 เฉลี่ยต่อบิล', kH.avg_basket_all, kR.avg_basket_all, fmtMoney, false),
+  ].join('');
+
+  // เปรียบเทียบเฉลี่ยต่อคน (หารด้วยจำนวนพนักงานของแต่ละสาขา)
+  const noteEl = document.getElementById('perHeadNote');
+  if (noteEl) noteEl.textContent = `หารด้วยจำนวนพนักงาน (HQ ${nHQ} คน / RAMA2 ${nR2} คน) — วัดฟอร์มต่อหัวแบบแฟร์ๆ`;
+  const perH = v => (v||0) / nHQ, perR = v => (v||0) / nR2;
+  const fmtOrd = n => (n||0).toLocaleString('th-TH', {maximumFractionDigits: 1});
+  document.getElementById('cmpPerList').innerHTML = [
+    cmpRow('💰 ยอดขาย/คน', perH(kH.total_sales), perR(kR.total_sales), fmtMoney, false),
+    cmpRow('📞 สายโทรออก/คน', perH(kH.total_calls), perR(kR.total_calls), fmtInt, false),
+    cmpRow('⏱️ Talktime/คน', perH(kH.talk_total_sec), perR(kR.talk_total_sec), fmtHMS, false),
+    cmpRow('👥 สาย > 15 วิ/คน', perH(kH.total_over15), perR(kR.total_over15), fmtInt, false),
+    cmpRow('🛒 ออเดอร์/คน', perH(kH.total_orders), perR(kR.total_orders), fmtOrd, false),
   ].join('');
 
   // เป้าหมาย
