@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>HQ RAM CRM Performance Dashboard</title>
+<title>Talktime Center — เปรียบเทียบ 2 สาขา</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -22,85 +22,95 @@
     --text: #e6ecf5;
     --text-dim: #8aa0c2;
     --gold: #fbbf24;
+    /* สีประจำสาขา (ตรวจแล้วแยกกันชัดสำหรับตาบอดสี) */
+    --hq: #4A90FF;
+    --rama2: #00A87E;
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: 'Prompt', sans-serif; }
   body { background: linear-gradient(135deg, #0a1628 0%, #0f1f3a 100%); min-height: 100vh; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 24px; }
 
-  .wrap { max-width: 1500px; margin: 0 auto; padding: 24px; }
+  /* ===== TOP NAV — เมนูรวมเว็บ 2 สาขา ===== */
+  .topnav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(10,22,40,.92);
+    -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  .topnav-inner {
+    max-width: 1200px; margin: 0 auto; padding: 10px 24px;
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  }
+  .topnav-brand {
+    font-weight: 700; font-size: 14px; color: var(--text);
+    letter-spacing: .5px; white-space: nowrap; text-decoration: none;
+  }
+  .topnav-links { display: flex; gap: 6px; flex-wrap: wrap; }
+  .topnav-links a {
+    color: var(--text-dim); text-decoration: none;
+    font-size: 13px; font-weight: 600;
+    padding: 6px 14px; border-radius: 999px;
+    border: 1px solid transparent; transition: all .15s ease;
+  }
+  .topnav-links a:hover { color: var(--text); background: var(--bg-card2); }
+  .topnav-links a.active {
+    color: #fff; background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  }
 
-  /* HEADER */
+  /* ===== HEADER ===== */
   .header {
     background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #2563eb 100%);
     border-radius: 16px;
-    padding: 28px 32px;
-    margin-bottom: 24px;
+    padding: 26px 32px;
+    margin-bottom: 18px;
     box-shadow: 0 8px 32px rgba(30,64,175,0.3);
-    position: relative;
-    overflow: hidden;
+    position: relative; overflow: hidden;
   }
   .header::before {
     content: ''; position: absolute; right: -50px; top: -50px;
     width: 200px; height: 200px; border-radius: 50%;
     background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
   }
-  .header h1 {
-    margin: 0 0 6px 0;
-    font-size: 28px;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    color: #ffffff;
-  }
-  .header .sub {
-    color: #bfdbfe;
-    font-size: 14px;
-    letter-spacing: 2px;
-    font-weight: 500;
-  }
-  .header .meta {
-    position: absolute; right: 32px; top: 50%; transform: translateY(-50%);
-    text-align: right; color: #dbeafe; font-size: 13px;
-  }
-  .header .meta b { color: #fff; font-size: 15px; }
+  .header h1 { margin: 0 0 6px 0; font-size: 26px; font-weight: 800; letter-spacing: 1px; color: #fff; }
+  .header .sub { color: #bfdbfe; font-size: 14px; letter-spacing: 2px; font-weight: 500; }
+  .updated-row { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 12px; font-size: 12px; color: #dbeafe; }
+  .updated-row b { color: #fff; font-weight: 600; }
 
-  /* KPI GRID */
-  .kpi-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 14px;
-    margin-bottom: 16px;
-  }
-  .kpi-grid.kpi-grid-4 { grid-template-columns: repeat(4, 1fr); }
-  .kpi-grid.kpi-grid-3 { grid-template-columns: repeat(3, 1fr); }
-  .kpi {
+  /* legend สาขา */
+  .legend { display: flex; gap: 16px; align-items: center; margin: 0 0 16px 2px; font-size: 13px; color: var(--text-dim); flex-wrap: wrap; }
+  .legend .chip { display: inline-flex; align-items: center; gap: 7px; font-weight: 600; color: var(--text); }
+  .legend .dot { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+  .legend .dot.hq { background: var(--hq); }
+  .legend .dot.rama2 { background: var(--rama2); }
+
+  /* ===== SECTION ===== */
+  .section {
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 16px 18px;
-    position: relative;
-    overflow: hidden;
-    transition: transform .15s ease;
+    border-radius: 14px;
+    padding: 20px 22px;
+    margin-bottom: 16px;
   }
-  .kpi:hover { transform: translateY(-2px); }
-  .kpi .label {
-    color: var(--text-dim);
-    font-size: 11px;
-    letter-spacing: 1px;
-    font-weight: 500;
-    text-transform: uppercase;
-    margin-bottom: 8px;
+  .section-title {
+    font-size: 16px; font-weight: 700; margin: 0 0 16px 0;
+    display: flex; align-items: center; gap: 10px; color: var(--text); flex-wrap: wrap;
   }
-  .kpi .value {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--text);
-    line-height: 1.1;
+  .section-title::before {
+    content: ''; width: 4px; height: 18px; border-radius: 2px;
+    background: linear-gradient(180deg, var(--primary), var(--accent));
   }
-  .kpi .sub {
-    color: var(--text-dim);
-    font-size: 12px;
-    margin-top: 4px;
+  .section-title .note { font-size: 12px; font-weight: 400; color: var(--text-dim); margin-left: auto; }
+
+  /* ===== KPI รวมทั้งบริษัท ===== */
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 16px; }
+  .kpi {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 16px 18px; position: relative; overflow: hidden;
   }
+  .kpi .label { color: var(--text-dim); font-size: 11px; letter-spacing: 1px; font-weight: 500; text-transform: uppercase; margin-bottom: 8px; padding-right: 44px; }
+  .kpi .value { font-size: 24px; font-weight: 700; color: var(--text); line-height: 1.1; }
+  .kpi .sub { color: var(--text-dim); font-size: 12px; margin-top: 4px; }
   .kpi-icon {
     position: absolute; right: 14px; top: 14px;
     width: 36px; height: 36px; border-radius: 8px;
@@ -111,502 +121,158 @@
   .kpi.good .kpi-icon { background: linear-gradient(135deg, #10b981, #059669); }
   .kpi.warn .kpi-icon { background: linear-gradient(135deg, #f59e0b, #d97706); }
   .kpi.info .kpi-icon { background: linear-gradient(135deg, #06b6d4, #0891b2); }
-  .kpi.purple .kpi-icon { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
 
-  /* SECTION */
-  .section {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 20px 22px;
-    margin-bottom: 16px;
+  /* ===== แถวเปรียบเทียบ (paired bars) ===== */
+  .cmp-list { display: flex; flex-direction: column; gap: 18px; }
+  .cmp-metric {
+    display: flex; align-items: baseline; gap: 10px;
+    font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 8px;
   }
-  .section-title {
-    font-size: 16px;
-    font-weight: 700;
-    margin: 0 0 16px 0;
-    display: flex; align-items: center; gap: 10px;
-    color: var(--text);
+  .cmp-metric .win { font-size: 11px; font-weight: 600; color: var(--gold); background: rgba(251,191,36,.12); border-radius: 999px; padding: 2px 10px; }
+  .cmp-bars { display: flex; flex-direction: column; gap: 6px; }
+  .cmp-bar-line { display: grid; grid-template-columns: 64px 1fr 170px; gap: 10px; align-items: center; }
+  .cmp-branch { font-size: 12px; font-weight: 600; color: var(--text-dim); text-align: right; }
+  .cmp-track { background: rgba(255,255,255,.05); border-radius: 4px; height: 14px; position: relative; overflow: hidden; }
+  .cmp-fill {
+    height: 100%; border-radius: 0 4px 4px 0;
+    min-width: 2px;
+    transition: filter .15s ease;
   }
-  .section-title::before {
-    content: ''; width: 4px; height: 18px; border-radius: 2px;
-    background: linear-gradient(180deg, var(--primary), var(--accent));
-  }
+  .cmp-bar-line:hover .cmp-fill { filter: brightness(1.2); }
+  .cmp-fill.hq { background: var(--hq); }
+  .cmp-fill.rama2 { background: var(--rama2); }
+  .cmp-val { font-size: 13px; font-weight: 700; color: var(--text); font-variant-numeric: tabular-nums; }
+  .cmp-val .per { display: block; font-size: 11px; font-weight: 400; color: var(--text-dim); }
 
-  /* PERFORMANCE LEADERS */
-  .leaders {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 12px;
-  }
-  .leader-card {
-    background: var(--bg-card2);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 14px;
-    display: flex; gap: 12px; align-items: center;
-    position: relative;
-    transition: all .15s ease;
-  }
-  .leader-card:hover { border-color: var(--primary); transform: translateY(-2px); }
-  .leader-card .rank {
-    position: absolute; top: 8px; right: 10px;
-    font-size: 11px; color: var(--text-dim); font-weight: 600;
-  }
-  .leader-card.top1 {
-    grid-column: 1 / -1;
-    border-color: var(--gold);
-    box-shadow: 0 0 30px rgba(251,191,36,0.18);
-    padding: 32px 36px;
-    gap: 26px;
-  }
-  .leader-card.top1 .rank { color: var(--gold); font-size: 20px; font-weight: 800; top: 14px; right: 18px; }
-  .leader-card.top1 .avatar { width: 150px; height: 150px; font-size: 50px; }
-  .leader-card.top1 .leader-info .name { font-size: 38px; line-height: 1.1; }
-  .leader-card.top1 .leader-info .ext { font-size: 18px; margin-top: 6px; }
-  .leader-card.top1 .leader-info .stats { font-size: 20px; gap: 18px; margin-top: 12px; }
-  .leader-card.top1 .leader-info .stats b { font-size: 26px; }
-  .leader-card.top1 .leader-info .delta { font-size: 15px; margin-top: 10px; }
+  /* ===== เป้าหมาย (progress สู่ 100%) ===== */
+  .target-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .target-card { background: var(--bg-card2); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; }
+  .target-card h3 { margin: 0 0 12px; font-size: 14px; font-weight: 700; color: var(--text); }
+  .tg-line { margin-bottom: 12px; }
+  .tg-line:last-child { margin-bottom: 0; }
+  .tg-top { display: flex; justify-content: space-between; align-items: baseline; font-size: 12px; color: var(--text-dim); margin-bottom: 5px; }
+  .tg-top .branch { font-weight: 600; color: var(--text); }
+  .tg-top .pct { font-weight: 700; color: var(--text); font-size: 14px; font-variant-numeric: tabular-nums; }
+  .tg-track { background: rgba(255,255,255,.05); border-radius: 4px; height: 12px; overflow: hidden; }
+  .tg-fill { height: 100%; border-radius: 0 4px 4px 0; min-width: 2px; }
+  .tg-fill.hq { background: var(--hq); }
+  .tg-fill.rama2 { background: var(--rama2); }
+  .tg-sub { font-size: 11px; color: var(--text-dim); margin-top: 4px; }
 
-  .leader-card.top2 {
-    grid-column: span 2;
-    border-color: #C0C0C0;
-    box-shadow: 0 0 20px rgba(192,192,192,0.14);
-    padding: 24px 26px;
-    gap: 20px;
-  }
-  .leader-card.top2 .rank { color: #C0C0C0; font-size: 16px; font-weight: 800; top: 10px; right: 14px; }
-  .leader-card.top2 .avatar { width: 110px; height: 110px; font-size: 38px; }
-  .leader-card.top2 .leader-info .name { font-size: 28px; line-height: 1.1; }
-  .leader-card.top2 .leader-info .ext { font-size: 14px; margin-top: 4px; }
-  .leader-card.top2 .leader-info .stats { font-size: 16px; margin-top: 8px; }
-  .leader-card.top2 .leader-info .stats b { font-size: 20px; }
-  .leader-card.top2 .leader-info .delta { font-size: 13px; margin-top: 8px; }
-
-  .leader-card.top3 {
-    grid-column: span 2;
-    border-color: #CD7F32;
-    box-shadow: 0 0 20px rgba(205,127,50,0.14);
-    padding: 24px 26px;
-    gap: 20px;
-  }
-  .leader-card.top3 .rank { color: #CD7F32; font-size: 16px; font-weight: 800; top: 10px; right: 14px; }
-  .leader-card.top3 .avatar { width: 110px; height: 110px; font-size: 38px; }
-  .leader-card.top3 .leader-info .name { font-size: 28px; line-height: 1.1; }
-  .leader-card.top3 .leader-info .ext { font-size: 14px; margin-top: 4px; }
-  .leader-card.top3 .leader-info .stats { font-size: 16px; margin-top: 8px; }
-  .leader-card.top3 .leader-info .stats b { font-size: 20px; }
-  .leader-card.top3 .leader-info .delta { font-size: 13px; margin-top: 8px; }
-
-  /* QUOTE BAR */
-  .quote-bar {
-    background: linear-gradient(135deg, rgba(74,144,255,0.10), rgba(0,212,255,0.08));
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 22px 32px;
-    margin-bottom: 16px;
-    text-align: center;
-  }
-  .quote-text {
-    font-size: 30px;
-    font-weight: 800;
-    color: var(--text);
-    letter-spacing: 0.3px;
-    line-height: 1.3;
-  }
-  .quote-prefix {
-    display: inline-block;
-    color: var(--accent);
-    font-size: 18px;
-    margin-right: 8px;
-    vertical-align: middle;
-  }
-  .avatar {
-    width: 56px; height: 56px; border-radius: 50%;
+  /* ===== Top performers ต่อสาขา ===== */
+  .top-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .top-col { background: var(--bg-card2); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; border-top: 3px solid var(--border); }
+  .top-col.hq { border-top-color: var(--hq); }
+  .top-col.rama2 { border-top-color: var(--rama2); }
+  .top-col h3 { margin: 0 0 12px; font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+  .top-col h3 .dot { width: 10px; height: 10px; border-radius: 3px; }
+  .top-col h3 a { margin-left: auto; font-size: 11px; font-weight: 500; color: var(--text-dim); }
+  .top-col h3 a:hover { color: var(--accent); }
+  .tp-row { display: flex; align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,.05); }
+  .tp-row:last-child { border-bottom: none; }
+  .tp-rank { font-size: 13px; font-weight: 800; color: var(--text-dim); width: 26px; text-align: center; flex-shrink: 0; }
+  .tp-rank.r1 { color: var(--gold); }
+  .tp-ava {
+    width: 40px; height: 40px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
     display: flex; align-items: center; justify-content: center;
-    font-weight: 700; font-size: 22px; color: #fff;
-    flex-shrink: 0;
+    font-weight: 700; color: #fff; font-size: 16px;
     border: 2px solid rgba(255,255,255,.1);
-    overflow: hidden;
   }
-  .leader-info .name {
-    font-weight: 600; font-size: 15px;
-  }
-  .leader-info .ext { color: var(--text-dim); font-size: 12px; }
-  .leader-info .stats {
-    display: flex; gap: 10px; margin-top: 4px;
-    font-size: 12px;
-  }
-  .leader-info .stats span b { color: var(--accent); }
-  .leader-info .delta {
-    margin-top: 6px;
-    font-size: 11px;
-    color: var(--good);
-    font-weight: 600;
-    display: flex; gap: 8px; align-items: center;
-  }
+  .tp-ava img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .tp-info .name { font-weight: 600; font-size: 14px; }
+  .tp-info .stats { font-size: 11px; color: var(--text-dim); margin-top: 1px; }
+  .tp-score { margin-left: auto; font-size: 14px; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; flex-shrink: 0; }
 
-  /* EDIT MODE for photo positioning */
-  .edit-btn {
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.25);
-    color: #fff;
-    padding: 6px 14px;
-    border-radius: 8px;
-    font-size: 12px;
-    cursor: pointer;
-    font-family: inherit;
-    transition: all .15s ease;
-  }
-  .edit-btn:hover { background: rgba(255,255,255,0.22); }
-  .edit-btn.active { background: var(--accent); color: #0a1628; border-color: var(--accent); font-weight: 600; }
-  .edit-controls { position: absolute; right: 32px; bottom: 18px; display: flex; gap: 8px; }
-  body.edit-mode .avatar, body.edit-mode .mini-avatar {
-    cursor: move !important;
-    box-shadow: 0 0 0 2px var(--accent), 0 0 16px rgba(0,212,255,0.4);
-  }
-  body.edit-mode .avatar img, body.edit-mode .mini-avatar img { pointer-events: none; }
-  body.edit-mode .leader-card { position: relative; }
-  .pos-hint {
+  /* สถานะโหลด/ผิดพลาด */
+  .load-note { color: var(--text-dim); font-size: 13px; padding: 8px 2px; }
+  .err-note {
     display: none;
-    position: absolute; top: -8px; left: 50%; transform: translate(-50%, -100%);
-    background: var(--bg-card2); color: var(--accent);
-    padding: 2px 6px; border-radius: 4px;
-    font-size: 10px; font-weight: 600;
-    border: 1px solid var(--accent);
-    white-space: nowrap; z-index: 10;
-    pointer-events: none;
-  }
-  body.edit-mode .avatar:hover .pos-hint,
-  body.edit-mode .avatar.dragging .pos-hint { display: block; }
-
-  /* Modal for exporting config */
-  .modal-bg {
-    display: none;
-    position: fixed; inset: 0;
-    background: rgba(0,0,0,0.7);
-    z-index: 100; align-items: center; justify-content: center;
-  }
-  .modal-bg.show { display: flex; }
-  .modal {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px;
-    max-width: 600px; width: 90%;
-    max-height: 80vh; overflow-y: auto;
-  }
-  .modal h3 { margin: 0 0 12px 0; color: var(--text); }
-  .modal pre {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 14px;
-    font-size: 12px;
-    overflow-x: auto;
-    color: var(--accent);
-    white-space: pre-wrap; word-break: break-all;
-  }
-  .modal .row { display: flex; gap: 10px; margin-top: 12px; justify-content: flex-end; }
-  .modal button {
-    background: var(--primary); color: #fff; border: none;
-    padding: 8px 16px; border-radius: 8px; cursor: pointer;
-    font-family: inherit; font-size: 13px;
-  }
-  .modal button.ghost { background: transparent; border: 1px solid var(--border); color: var(--text); }
-  .leader-info .delta.zero { color: var(--text-dim); font-weight: 500; }
-  .leader-info .delta.muted { color: var(--text-dim); font-weight: 400; font-style: italic; }
-
-  /* TABLE */
-  .table-wrap { overflow-x: auto; }
-  table {
-    width: 100%; border-collapse: collapse; font-size: 13px;
-  }
-  th, td {
-    padding: 10px 12px;
-    text-align: left;
-    border-bottom: 1px solid var(--border);
-    vertical-align: middle;
-  }
-  th {
-    background: var(--bg-card2);
-    color: var(--text-dim);
-    font-weight: 600;
-    font-size: 11px;
-    letter-spacing: .5px;
-    text-transform: uppercase;
-    position: sticky; top: 0;
-    white-space: nowrap;
-  }
-  tbody tr:hover { background: rgba(74,144,255,0.05); }
-  th.num, td.num { text-align: right; font-variant-numeric: tabular-nums; }
-  th.center, td.center { text-align: center; }
-  td.score-cell { font-weight: 700; color: var(--accent); }
-  td.name-cell { display: flex; align-items: center; gap: 10px; }
-  td .mini-avatar {
-    width: 32px; height: 32px; border-radius: 50%;
-    display: inline-flex; align-items: center; justify-content: center;
-    font-weight: 700; color: #fff; font-size: 14px;
-    overflow: hidden; flex-shrink: 0;
-  }
-  .badge {
-    display: inline-block; padding: 3px 10px;
-    border-radius: 12px; font-size: 11px; font-weight: 600;
-  }
-  .badge.good { background: rgba(34,197,94,.15); color: #4ade80; }
-  .badge.warn { background: rgba(245,158,11,.15); color: #fbbf24; }
-  .badge.bad  { background: rgba(239,68,68,.15);  color: #f87171; }
-
-  /* PROGRESS BAR */
-  .progress {
-    width: 100%; height: 6px; background: var(--bg);
-    border-radius: 3px; overflow: hidden; margin-top: 4px;
-  }
-  .progress .bar {
-    height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent));
+    background: rgba(245,158,11,.12); border: 1px solid var(--warn); color: var(--warn);
+    border-radius: 10px; padding: 10px 16px; margin-bottom: 16px; font-size: 13px; font-weight: 600;
   }
 
-  /* HISTORY CONTROLS */
-  .hist-bar {
-    display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
-    background: var(--bg-card); border: 1px solid var(--border);
-    border-radius: 12px; padding: 12px 16px; margin-bottom: 16px;
-  }
-  .hist-label { font-weight: 700; font-size: 14px; color: var(--text); }
-  .hist-select {
-    background: var(--bg-card2); color: var(--text);
-    border: 1px solid var(--border); border-radius: 8px;
-    padding: 7px 12px; font-family: inherit; font-size: 13px; cursor: pointer;
-  }
-  .hist-select:disabled { opacity: .5; cursor: not-allowed; }
-  .hist-live {
-    background: var(--primary); color: #fff; border: none;
-    border-radius: 8px; padding: 7px 14px; font-family: inherit;
-    font-size: 13px; cursor: pointer; font-weight: 600;
-  }
-  .hist-live:hover { filter: brightness(1.1); }
-  .hist-banner {
-    display: flex; align-items: center; gap: 8px;
-    background: rgba(245,158,11,.14); border: 1px solid var(--gold);
-    color: var(--gold); border-radius: 10px;
-    padding: 10px 16px; margin-bottom: 16px; font-size: 14px; font-weight: 600;
-  }
+  a { color: var(--accent); text-decoration: none; }
 
-  /* HEATMAP */
-  .heatmap-wrap { overflow-x: auto; }
-  table.heatmap {
-    border-collapse: separate; border-spacing: 2px;
-    font-size: 12px; min-width: 100%;
+  @media (max-width: 800px) {
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .target-grid, .top-grid { grid-template-columns: 1fr; }
+    .cmp-bar-line { grid-template-columns: 52px 1fr 130px; }
+    .wrap { padding: 16px; }
+    .section-title .note { margin-left: 0; width: 100%; }
   }
-  table.heatmap th, table.heatmap td {
-    padding: 6px 8px; text-align: center; min-width: 78px;
-    font-variant-numeric: tabular-nums;
-  }
-  table.heatmap th {
-    background: var(--bg-card2); color: var(--text-dim);
-    font-weight: 600; font-size: 11px;
-    text-transform: uppercase; letter-spacing: .5px;
-  }
-  table.heatmap th.name-col, table.heatmap td.name-col {
-    text-align: left; min-width: 160px; padding-left: 12px;
-    background: var(--bg-card2);
-  }
-  table.heatmap td.name-col { color: var(--text); font-weight: 600; }
-  table.heatmap td.name-col .ext-tag { color: var(--text-dim); font-size: 11px; margin-left: 8px; }
-  table.heatmap td.heat-cell {
-    color: #0a1628; font-weight: 700; border-radius: 4px;
-  }
-  table.heatmap td.lunch {
-    background: rgba(255,255,255,.06) !important;
-    color: var(--text-dim);
-    font-style: italic; font-weight: 500;
-  }
-  table.heatmap td.total {
-    background: rgba(74,144,255,.18); color: var(--accent);
-    font-weight: 800; font-size: 13px;
-    border-radius: 4px;
-  }
-  table.heatmap .heat-empty { color: var(--text-dim); text-align: center; padding: 20px; }
-
-  /* CELEBRATION for new #1 */
-  .celebrate-banner {
-    position: fixed; top: 40%; left: 50%;
-    transform: translate(-50%, -50%) scale(0.3);
-    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-    color: #0a1628;
-    padding: 40px 60px;
-    border-radius: 24px;
-    box-shadow: 0 0 80px rgba(255,215,0,0.6), 0 20px 60px rgba(0,0,0,0.4);
-    z-index: 9999;
-    opacity: 0;
-    transition: transform .6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity .4s ease;
-    text-align: center; pointer-events: none;
-    font-family: inherit;
-  }
-  .celebrate-banner.show {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
-  }
-  .celebrate-emoji { font-size: 90px; line-height: 1; }
-  .celebrate-text { font-size: 34px; font-weight: 800; margin-top: 12px; }
-  .celebrate-sub { font-size: 18px; margin-top: 6px; font-weight: 700; opacity: .85; }
-
-  @media (max-width: 980px) {
-    .kpi-grid, .kpi-grid.kpi-grid-4 { grid-template-columns: repeat(2, 1fr); }
-    .header .meta { position: static; transform: none; margin-top: 12px; text-align: left; }
-  }
-  /* ===== CALL FEEDBACK ===== */
-  .fb-head { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-bottom:12px; }
-  .fb-updated { font-size:12px; color:var(--text-dim); }
-  .fb-guide { border:1px solid var(--border); border-radius:12px; background:var(--bg-card2); margin-bottom:16px; overflow:hidden; }
-  .fb-guide summary { cursor:pointer; padding:12px 16px; font-weight:600; color:var(--accent); list-style:none; }
-  .fb-guide summary::-webkit-details-marker { display:none; }
-  .fb-guide .fb-guide-body { padding:0 16px 14px; color:var(--text-dim); font-size:13px; line-height:1.7; }
-  .fb-guide .fb-guide-body b { color:var(--text); }
-  .fb-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(290px,1fr)); gap:14px; }
-  .fb-card { background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:14px 16px; }
-  .fb-card.empty { opacity:.5; }
-  .fb-card-top { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
-  .fb-ava { width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; color:#fff; font-size:14px; flex:0 0 auto; }
-  .fb-name { font-weight:600; }
-  .fb-ext { font-size:11px; color:var(--text-dim); }
-  .fb-score { margin-left:auto; font-size:12px; font-weight:700; padding:3px 9px; border-radius:999px; background:var(--bg-card2); color:var(--gold); }
-  .fb-row { margin:8px 0; font-size:13px; line-height:1.55; }
-  .fb-label { font-size:11px; font-weight:700; letter-spacing:.3px; display:block; margin-bottom:2px; }
-  .fb-pros .fb-label { color:var(--good); }
-  .fb-fix .fb-label { color:var(--warn); }
-  .fb-how .fb-label { color:var(--accent); }
-  .fb-how .fb-text { background:var(--bg-card2); border-radius:8px; padding:7px 10px; display:block; }
-  .fb-date { font-size:11px; color:var(--text-dim); margin-top:8px; text-align:right; }
-  .fb-empty-msg { color:var(--text-dim); font-size:13px; }
 </style>
 </head>
 <body>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a class="topnav-brand" href="index.html">☎️ INFINITY BLU8 · TALKTIME</a>
+    <div class="topnav-links">
+      <a href="index.html" class="active">🏠 ภาพรวม 2 สาขา</a>
+      <a href="hq.html">🏢 HQ RAM</a>
+      <a href="https://kyps88.github.io/rama2-talktime-dashboard/">🌊 RAMA2</a>
+    </div>
+  </div>
+</nav>
+
 <div class="wrap">
 
   <div class="header">
-    <h1>HQ RAM CRM PERFORMANCE DASHBOARD</h1>
-    <div class="sub">INFINITY BLU8 CO., LTD</div>
-    <div class="meta">
-      <div>อัปเดตล่าสุด</div>
-      <b id="asOf"></b>
-    </div>
-    <div class="edit-controls">
-      <button class="edit-btn" id="editBtn" title="ลาก = ขยับ • ล้อ/shift+ลาก = ซูม">📐 ปรับรูป</button>
-      <button class="edit-btn" id="exportBtn" title="คัดลอก config เพื่อบันทึกถาวร" style="display:none">💾 Copy</button>
-      <button class="edit-btn" id="resetBtn" title="คืนค่าตำแหน่งรูปทุกคน" style="display:none">↺ Reset</button>
+    <h1>TALKTIME CENTER — เปรียบเทียบ 2 สาขา</h1>
+    <div class="sub">INFINITY BLU8 CO., LTD — HQ RAM × RAMA2</div>
+    <div class="updated-row">
+      <span>🏢 HQ อัปเดต: <b id="asOfHQ">—</b></span>
+      <span>🌊 RAMA2 อัปเดต: <b id="asOfR2">—</b></span>
     </div>
   </div>
 
-  <!-- QUOTE BAR — คำคมประจำวัน -->
-  <div class="quote-bar">
-    <span class="quote-prefix">✨</span><span class="quote-text" id="quoteText"></span>
+  <div class="err-note" id="errNote"></div>
+
+  <div class="legend">
+    <span class="chip"><span class="dot hq"></span>HQ RAM</span>
+    <span class="chip"><span class="dot rama2"></span>RAMA2</span>
+    <span>· คลิกเมนูด้านบนเพื่อดูแดชบอร์ดเต็มของแต่ละสาขา</span>
   </div>
 
-  <!-- Modal for exporting -->
-  <div class="modal-bg" id="modalBg">
-    <div class="modal">
-      <h3>คัดลอกค่าตำแหน่ง + ซูมรูปไปวางใน build_dashboard.py</h3>
-      <p style="color: var(--text-dim); font-size: 13px; margin: 0 0 12px 0;">
-        แทนที่ EMPLOYEES list ทั้งก้อนด้วยค่าด้านล่างเพื่อบันทึกถาวร (มิฉะนั้นค่าจะอยู่เฉพาะในเบราว์เซอร์นี้)
-      </p>
-      <pre id="exportSnippet"></pre>
-      <div class="row">
-        <button class="ghost" onclick="document.getElementById('modalBg').classList.remove('show')">ปิด</button>
-        <button onclick="navigator.clipboard.writeText(document.getElementById('exportSnippet').textContent); this.textContent='✓ คัดลอกแล้ว'">📋 Copy ทั้งหมด</button>
-      </div>
-    </div>
+  <!-- KPI รวมทั้งบริษัท -->
+  <div class="kpi-grid" id="kpiAll">
+    <div class="load-note">⏳ กำลังโหลดข้อมูล…</div>
   </div>
 
-  <!-- HISTORY CONTROLS -->
-  <div class="hist-bar">
-    <span class="hist-label">📅 ดูผลย้อนหลัง</span>
-    <select id="histDate" class="hist-select"><option value="">— เลือกวัน —</option></select>
-    <select id="histTime" class="hist-select" disabled><option value="">— เลือกเวลา —</option></select>
-    <button id="histLive" class="hist-live">⏺ ปัจจุบัน</button>
-  </div>
-  <div class="hist-banner" id="histBanner" style="display:none">
-    <span>🕒 กำลังดูข้อมูลย้อนหลัง: <b class="hist-when"></b></span>
-  </div>
-
-  <!-- KPI ROW 1: CALLS -->
-  <div class="kpi-grid kpi-grid-3" id="kpiRow1"></div>
-  <!-- KPI ROW 2: SALES -->
-  <div class="kpi-grid" id="kpiRow2"></div>
-
-  <!-- PERFORMANCE LEADERS -->
+  <!-- เปรียบเทียบวันนี้ -->
   <div class="section">
-    <h2 class="section-title">🏆 Performance Leaders</h2>
-    <div class="leaders" id="leaders"></div>
+    <h2 class="section-title">⚔️ เทียบผลงานวันนี้ <span class="note">ตัวเลขในวงเล็บ = เฉลี่ยต่อพนักงาน 1 คน (HQ 9 คน / RAMA2 3 คน จำนวนไม่เท่ากัน)</span></h2>
+    <div class="cmp-list" id="cmpList"><div class="load-note">⏳ กำลังโหลดข้อมูล…</div></div>
   </div>
 
-  <!-- PERFORMANCE BOARD TABLE -->
+  <!-- เป้าหมาย -->
   <div class="section">
-    <h2 class="section-title">📊 Performance Board</h2>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th class="center">#</th>
-            <th>พนักงาน</th>
-            <th class="center">EXT</th>
-            <th class="num">สาย</th>
-            <th class="num">รับสาย</th>
-            <th class="num">&gt;15วิ</th>
-            <th class="num">Talktime</th>
-            <th class="num">Deadair</th>
-            <th class="num">เฉลี่ย/สาย</th>
-            <th class="num">คุยนานสุด</th>
-            <th class="num">ยอดขาย</th>
-            <th class="num">ออเดอร์</th>
-            <th class="num">Size</th>
-            <th class="num">%Con (Call)</th>
-            <th class="num">%Con (Contact)</th>
-            <th class="num">Achieve</th>
-            <th class="num">Score</th>
-          </tr>
-        </thead>
-        <tbody id="board"></tbody>
-      </table>
-    </div>
+    <h2 class="section-title">🏁 ความคืบหน้าเทียบเป้า</h2>
+    <div class="target-grid" id="targetGrid"><div class="load-note">⏳ กำลังโหลดข้อมูล…</div></div>
   </div>
 
-  <!-- HEATMAP รายชั่วโมง -->
+  <!-- Top performers -->
   <div class="section">
-    <h2 class="section-title">🔥 Heatmap ทอล์กไทม์รายชั่วโมง (นาที)</h2>
-    <div class="heatmap-wrap">
-      <table class="heatmap" id="heatmapTable"></table>
-    </div>
-  </div>
-
-  <!-- ฟีดแบกการฟังสาย -->
-  <div class="section">
-    <div class="fb-head">
-      <h2 class="section-title" style="margin:0">📞 ฟีดแบกการฟังสาย</h2>
-      <span class="fb-updated" id="fbUpdated"></span>
-    </div>
-    <details class="fb-guide">
-      <summary>📘 คู่มือให้ฟีดแบก — ฟังหาอะไร / สรุปยังไง</summary>
-      <div class="fb-guide-body">
-        ฟังตาม <b>5 ช่วงของสายที่ดี</b>: (1) เปิดสายอบอุ่น (2) จับความต้องการ—ถามแล้วฟัง (3) นำเสนอคุณค่าให้ตรงปัญหา (4) ปิดการขาย+อัปเซลให้ถึง 3,000 (5) ดูแลต่อ/นัดติดตาม<br>
-        ดันยอดเกิน 3,000: ขายเป็นแพ็ก, ถาม "เอาอันไหน" ไม่ใช่ "เอาไหม", ใช้เส้น 3,000 เป็นเป้าของแถม, อัปเซลของคู่กัน<br>
-        รักษาลูกค้า: จดจำลูกค้า, นัดติดตาม, ขายความจริงใจไม่ยัดเยียด<br>
-        สรุปทุกครั้งเป็น 3 ช่อง: <b>ข้อดี → ข้อควรแก้ → ควรพูดอย่างไร</b> (ชมก่อน แล้วบอกจุดแก้ 1–2 จุด พร้อมประโยคที่ใช้ได้เลย)
-      </div>
-    </details>
-    <div class="fb-grid" id="fbGrid"></div>
+    <h2 class="section-title">🏆 Top 3 ของแต่ละสาขา <span class="note">จัดอันดับด้วยสูตร Score เดียวกับหน้าสาขา (แยกอันดับภายในสาขา)</span></h2>
+    <div class="top-grid" id="topGrid"><div class="load-note">⏳ กำลังโหลดข้อมูล…</div></div>
   </div>
 
 </div>
 
-<script id="payload" type="application/json">{"rows": [{"ext": "202", "name": "มล", "color": "#E91E63", "initial": "ม", "photo": "photos/202.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 14, "answered": 9, "over30": 8, "talk_total_sec": 1888, "talk_out_sec": 1888, "delta_talk_sec": 0, "delta_calls": 0, "has_prev": true, "sales_today": 3570.0, "orders_today": 2, "avg_basket": 1785.0, "target_daily": 12761.0, "month_sales": 41375.0, "month_target": 267500.0, "conversion": 22.22222222222222, "conv_sales": 14.285714285714285, "achieved_pct": 27.97586396050466, "deadair_sec": 0, "longest_sec": 0, "avg_per_call_sec": 0, "feedback": {"date": "2026-08-18", "name": "มล", "pros": "มีความพยายามสร้างความสัมพันธ์กับลูกค้า และพูดถึงการให้กำลังใจ/ดูแลต่อเนื่อง แสดงถึงความใส่ใจลูกค้าในระดับหนึ่ง", "fix": "1) Transcript แทบอ่านไม่ออกเลย — อาจเกิดจากเสียงไม่ชัด พูดเร็วเกิน หรือไมค์มีปัญหา ทำให้ประเมินช่วง Probing/Presentation/Closing/Upsell ไม่ได้จริง ต้องแก้คุณภาพเสียงและความชัดเจนในการพูดก่อนเป็นอันดับแรก 2) ไม่มีร่องรอยการถามจับความต้องการอย่างเป็นระบบ ไม่มีการนำเสนอสินค้าตรงปัญหา ไม่มีการปิดการขายหรืออัปเซลที่ชัดเจน", "how": "ลองใช้โครงสร้างนี้ในสายหน้า: 'พี่ [ชื่อ] ตอนนี้อาการของคุณพ่อที่บอกว่าชาๆ แข็งๆ เป็นมานานแค่ไหนแล้วครับ? แล้วตอนนี้ทานอยู่แค่ตัวเดียวหรือมีตัวอื่นร่วมด้วยครับ?' — ถามก่อน ฟังให้ครบ แล้วค่อยเสนอสิ่งที่ตรงกับที่ลูกค้าบอก", "score": "2", "dest": "10891944", "call_time": "18/08/2026 17:40:49"}}, {"ext": "204", "name": "สาคู", "color": "#9C27B0", "initial": "ส", "photo": "photos/204.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 47, "answered": 20, "over30": 14, "talk_total_sec": 2849, "talk_out_sec": 2849, "delta_talk_sec": 0, "delta_calls": 0, "has_prev": true, "sales_today": 5860.0, "orders_today": 3, "avg_basket": 1953.0, "target_daily": 13277.0, "month_sales": 55780.0, "month_target": 288900.0, "conversion": 15.0, "conv_sales": 6.382978723404255, "achieved_pct": 44.13647661369286, "deadair_sec": 2309, "longest_sec": 195, "avg_per_call_sec": 77, "feedback": {"date": "2026-08-17", "name": "สาคู", "pros": "เปิดสายด้วยน้ำเสียงสุภาพ ถามก่อนว่าสะดวกไหม แสดงความเป็นมิตรและไม่ยัดเยียด", "fix": "สายนี้สั้นมากและไม่มีการ Probing ถามความต้องการเลย เมื่อลูกค้าบอกยุ่ง ควรนัดเวลาโทรกลับให้ชัดเจนแทนที่จะปล่อยแบบคลุมเครือ และไม่มีการปิดขาย เพิ่มยอด หรือนัดติดตามที่วัดผลได้", "how": "พี่ยุ่งอยู่เลยนะคะ งั้นหนูขอโทรกลับพี่ใหม่ได้ไหมคะ พรุ่งนี้ช่วงเช้า 10 โมง หรือบ่ายสองโมง สะดวกช่วงไหนมากกว่ากันคะพี่?'", "score": "2", "dest": "10353324", "call_time": "17/08/2026 17:30:43"}}, {"ext": "206", "name": "นิจ", "color": "#009688", "initial": "น", "photo": "photos/206.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 68, "answered": 40, "over30": 25, "talk_total_sec": 4152, "talk_out_sec": 4152, "delta_talk_sec": 0, "delta_calls": 0, "has_prev": true, "sales_today": 1790.0, "orders_today": 1, "avg_basket": 1790.0, "target_daily": 13727.0, "month_sales": 43605.0, "month_target": 288900.0, "conversion": 2.5, "conv_sales": 1.4705882352941175, "achieved_pct": 13.039994172069644, "deadair_sec": 2568, "longest_sec": 121, "avg_per_call_sec": 44, "feedback": {"date": "2026-08-17", "name": "นิจ", "pros": "", "fix": "", "how": "", "score": "", "dest": "10492634", "call_time": "17/08/2026 17:47:28"}}, {"ext": "230", "name": "อุ้ม", "color": "#FF5722", "initial": "อ", "photo": "photos/230.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 76, "answered": 49, "over30": 32, "talk_total_sec": 4423, "talk_out_sec": 4423, "delta_talk_sec": 40, "delta_calls": 1, "has_prev": true, "sales_today": 6350.0, "orders_today": 3, "avg_basket": 2117.0, "target_daily": 10512.0, "month_sales": 52530.0, "month_target": 235400.0, "conversion": 6.122448979591836, "conv_sales": 3.9473684210526314, "achieved_pct": 60.40715372907154, "deadair_sec": 1744, "longest_sec": 350, "avg_per_call_sec": 77, "feedback": {"date": "2026-08-18", "name": "อุ้ม", "pros": "", "fix": "", "how": "", "score": "", "dest": "10288306", "call_time": "18/08/2026 17:24:07"}}, {"ext": "231", "name": "แพร", "color": "#FF9800", "initial": "แ", "photo": "photos/231.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 0, "answered": 0, "over30": 0, "talk_total_sec": 0, "talk_out_sec": 0, "delta_talk_sec": 0, "delta_calls": 0, "has_prev": false, "sales_today": 0.0, "orders_today": 0, "avg_basket": 0.0, "target_daily": 9484.0, "month_sales": 43285.0, "month_target": 214000.0, "conversion": 0, "conv_sales": 0, "achieved_pct": 0.0, "deadair_sec": 0, "longest_sec": 0, "avg_per_call_sec": 0, "feedback": {"date": "2026-08-13", "name": "แพร", "pros": "มีการกล่าวสวัสดีและจบสายอย่างสุภาพ พูดถึงการช่วยเหลือลูกค้าในเรื่องสุขภาพ", "fix": "transcript ถอดเสียงเสียหายมากจนไม่สามารถระบุได้ว่าครอบคลุมช่วงการขายใดบ้าง ไม่พบการถาม Probing ที่ชัดเจน ไม่พบการนำเสนอสินค้า ไม่พบการปิดการขาย และไม่มีการเพิ่มยอดหรือนัดติดตาม CRM เลย ควรบันทึกเสียงให้ชัดขึ้นและฝึกพูดให้ครบทุกช่วง", "how": "ตัวอย่างประโยคที่ควรพูด: (Probing) 'พี่มีปัญหาเรื่องนี้มานานแค่ไหนแล้วคะ? เคยลองวิธีไหนมาบ้างไหมคะ?' (Closing) 'จากที่พี่เล่ามา ตัวนี้น่าจะช่วยพี่ได้เลยนะคะ รับเป็นแพ็ก 3 กล่องเลยดีไหมคะ ประหยัดกว่าและต่อเนื่องกว่าด้วยค่ะ' (CRM) 'แพรจะโทรมาติดตามผลให้นะคะ ประมาณ 2 สัปดาห์หลังได้รับสินค้าเลยนะคะ'", "score": "1", "dest": "10719166", "call_time": "13/08/2026 17:27:55"}}, {"ext": "234", "name": "บุศ", "color": "#795548", "initial": "บ", "photo": "photos/234.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 89, "answered": 52, "over30": 30, "talk_total_sec": 4718, "talk_out_sec": 4718, "delta_talk_sec": 0, "delta_calls": 0, "has_prev": true, "sales_today": 3290.0, "orders_today": 1, "avg_basket": 3290.0, "target_daily": 10042.0, "month_sales": 36540.0, "month_target": 214000.0, "conversion": 1.9230769230769231, "conv_sales": 1.1235955056179776, "achieved_pct": 32.76239792869946, "deadair_sec": 2736, "longest_sec": 84, "avg_per_call_sec": 38, "feedback": {"date": "2026-08-13", "name": "บุศ", "pros": "มีการยืนยันที่อยู่จัดส่งและปิดออเดอร์ได้สำเร็จในสายสั้น แสดงว่าลูกค้าตัดสินใจซื้อแล้วและพนักงานดำเนินการได้คล่อง", "fix": "1) ยอด 1,790 บาท ต่ำกว่าเป้า 3,000 บาท มากถึง 1,210 บาท — ไม่มีความพยายาม Increase Order เลย ควรเสนอ bundle หรือของแถมเพื่อดึงยอดให้ถึงเป้า 2) ไม่มีการนัดติดตาม/CRM เพื่อรักษาลูกค้าระยะยาว", "how": "ขอบคุณมากเลยนะคะ ก่อนยืนยันออเดอร์ขอแนะนำนิดนึงนะคะ ตอนนี้มีโปรพิเศษ ซื้อครบ 3,000 รับของแถมเพิ่มเลย ถ้าเพิ่มอีก 1 กล่อง จะได้ [ชื่อสินค้า/ของแถม] ฟรี คุ้มกว่าซื้อแยกมากเลยค่ะ สนใจให้จัดเพิ่มได้เลยนะคะ' และก่อนวางสาย: 'ประมาณ 7-10 วันหลังรับสินค้า หนูจะโทรมาติดตามผลให้นะคะ เผื่อมีคำถามอะไรได้เลยค่ะ'", "score": "3", "dest": "10837336", "call_time": "13/08/2026 17:32:53"}}, {"ext": "244", "name": "จอย", "color": "#4CAF50", "initial": "จ", "photo": "photos/244.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 79, "answered": 39, "over30": 29, "talk_total_sec": 3724, "talk_out_sec": 3724, "delta_talk_sec": 0, "delta_calls": 0, "has_prev": true, "sales_today": 6925.0, "orders_today": 2, "avg_basket": 3463.0, "target_daily": 9748.0, "month_sales": 45455.0, "month_target": 214000.0, "conversion": 5.128205128205128, "conv_sales": 2.5316455696202533, "achieved_pct": 71.040213377103, "deadair_sec": 1071, "longest_sec": 278, "avg_per_call_sec": 127, "feedback": {"date": "2026-08-18", "name": "จอย", "pros": "พยายามรักษาความสัมพันธ์และเปิดโอกาสให้ลูกค้าติดต่อกลับมาได้ในอนาคต แสดงถึงทัศนคติด้าน CRM เบื้องต้น", "fix": "1) Probing แทบไม่มีเลย — ลูกค้าบอกว่า 'ไม่รับกินแล้ว' แต่จอยไม่ได้ถามหาสาเหตุที่แท้จริง ควรใช้ CRP: Clarify ก่อน เช่น ถามว่าที่ไม่อยากทานต่อเพราะอะไรคะ รู้สึกยังไงกับตัวเองตอนนี้ 2) ไม่มีการนำเสนอคุณค่าหรือปิดการขายเลย สายสั้นมากและจบด้วยการปล่อยให้ลูกค้าปฏิเสธโดยไม่มีความพยายาม Objection handling", "how": "ที่พี่บอกว่าไม่อยากกินแล้ว หนูขอถามนิดนึงนะคะ พี่รู้สึกยังไงกับร่างกายตอนนี้คะ เพราะบางทีที่เราหยุดช่วงที่ร่างกายยังต้องการ น้ำตาลหรือแป้งที่พี่คุมอยู่อาจกลับมาได้เร็วกว่าที่คิดเลยค่ะ พี่ลองเล่าให้หนูฟังได้เลยนะคะ'", "score": "2", "dest": "10327129", "call_time": "18/08/2026 17:15:45"}}, {"ext": "247", "name": "บี", "color": "#2196F3", "initial": "บ", "photo": "photos/247.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 71, "answered": 40, "over30": 29, "talk_total_sec": 3896, "talk_out_sec": 3896, "delta_talk_sec": 0, "delta_calls": 0, "has_prev": true, "sales_today": 4380.0, "orders_today": 2, "avg_basket": 2190.0, "target_daily": 9043.0, "month_sales": 55600.0, "month_target": 214000.0, "conversion": 5.0, "conv_sales": 2.8169014084507045, "achieved_pct": 48.435253787459914, "deadair_sec": 2081, "longest_sec": 582, "avg_per_call_sec": 174, "feedback": {"date": "2026-07-29", "name": "บี", "pros": "", "fix": "", "how": "", "score": "", "dest": "10381655", "call_time": "29/07/2026 17:44:21"}}, {"ext": "248", "name": "น้ำ", "color": "#673AB7", "initial": "น", "photo": "photos/248.jpg", "photo_pos": "50% 25%", "photo_zoom": 1.0, "total_calls": 77, "answered": 49, "over30": 30, "talk_total_sec": 4414, "talk_out_sec": 4414, "delta_talk_sec": 410, "delta_calls": 1, "has_prev": true, "sales_today": 7850.0, "orders_today": 3, "avg_basket": 2617.0, "target_daily": 9512.0, "month_sales": 50630.0, "month_target": 214000.0, "conversion": 6.122448979591836, "conv_sales": 3.896103896103896, "achieved_pct": 82.5273338940286, "deadair_sec": 1369, "longest_sec": 581, "avg_per_call_sec": 154, "feedback": {"date": "2026-08-15", "name": "น้ำ", "pros": "พนักงานฟังลูกค้าพูดได้นาน และดูเหมือนสร้างความสัมพันธ์กับลูกค้าได้ในระดับหนึ่ง ลูกค้าเปิดใจเล่าเรื่องสุขภาพและชีวิตส่วนตัวได้อย่างละเอียด", "fix": "Transcript ถอดเสียงเสียหายมากจนไม่สามารถประเมินช่วงใดของ Hopeful 8 ได้อย่างมีคุณภาพ — ไม่พบการ Probing อย่างมีโครงสร้าง, ไม่พบ Product Bridge, ไม่พบการ Presentation, ไม่พบการปิดการขายหรือ Upsell และไม่พบการนัดติดตาม CRM ในข้อความที่อ่านได้ สายยาว 39 นาทีแต่ไม่มีหลักฐานว่าเดินหน้าไปสู่การขายได้เลย", "how": "ตัวอย่างที่ควรพูดหลังลูกค้าเล่าปัญหาสุขภาพ: 'พี่ครับ ที่พี่เล่ามาทั้งหมดเลย หนูเข้าใจเลยนะคะว่ามันหนักมาก — ขอถามนิดนึงนะคะ ตอนนี้พี่รู้สึกว่าร่างกายส่วนไหนที่อยากให้ดีขึ้นก่อนเป็นอันดับแรกเลยคะ?' (Probing ชัด) แล้วตามด้วย 'สิ่งที่หนูอยากแนะนำพี่คือตัว [ชื่อผลิตภัณฑ์] เพราะตรงกับที่พี่บอกเรื่อง [ปัญหาที่ลูกค้าพูด] เลยค่ะ ลองเริ่มต้นด้วยโปรแกรม 3 เดือนก่อนได้เลยนะคะ' (Product Bridge + Close)", "score": "2", "dest": "10762580", "call_time": "15/08/2026 17:24:56"}}], "kpis": {"total_calls": 521, "total_over15": 197, "talk_total_sec": 30064, "talk_out_sec": 30064, "total_sales": 40015.0, "total_orders": 17, "avg_basket_all": 2353.823529411765, "conv_all": 57.19769673704415, "target_daily_all": 98106.0, "month_sales_all": 424800.0, "month_target_all": 2150700.0, "achieved_all": 40.78751554441114, "month_pct": 19.751708745989678, "feedback_updated": "2026-09-09T14:01:23+07:00", "today_date": "2026-09-09", "today_quote": "สิ่งที่มีค่ากว่าคำสัญญา คือคำพูดธรรมดาที่ลงมือทำ"}, "as_of": "09/09/2026 14:01 น."}</script>
 <script>
-let D = JSON.parse(document.getElementById('payload').textContent);
-const LIVE = D;
+// ============================================================
+// หน้าแรก — เปรียบเทียบ 2 สาขา
+// ดึง payload จากทั้ง 2 repo (GitHub Pages ส่ง CORS: * ให้อยู่แล้ว)
+//   1) payload.json (ไฟล์ที่ workflow อัปโหลด)
+//   2) fallback: แกะจาก <script id="payload"> ในหน้าแดชบอร์ดสาขา
+// ============================================================
+const HQ_BASE = './';
+const R2_BASE = 'https://kyps88.github.io/rama2-talktime-dashboard/';
+const HQ_PAGE = 'hq.html';
+const R2_PAGE = '';  // index ของ RAMA2
 
-const fmtInt = n => (n||0).toLocaleString('th-TH');
+const fmtInt = n => Math.round(n||0).toLocaleString('th-TH');
 const fmtMoney = n => '฿' + Math.round(n||0).toLocaleString('th-TH');
-const fmtMin = s => ((s||0)/60).toFixed(1) + ' นาที';
 const fmtHMS = s => {
   s = Math.max(0, Math.floor(s||0));
   const h = String(Math.floor(s/3600)).padStart(2,'0');
@@ -615,8 +281,35 @@ const fmtHMS = s => {
   return `${h}:${m}:${sec}`;
 };
 
-// KPI cards
-function kpi(label, value, sub, icon, cls) {
+async function loadPayload(base, pageFile) {
+  try {
+    const r = await fetch(base + 'payload.json?_=' + Date.now());
+    if (r.ok) return await r.json();
+  } catch(e) {}
+  // fallback: อ่านจากหน้าแดชบอร์ดแล้วแกะ JSON ที่ฝังไว้
+  const r2 = await fetch(base + pageFile + '?_=' + Date.now());
+  if (!r2.ok) throw new Error('โหลดไม่ได้: ' + base);
+  const html = await r2.text();
+  const m = html.match(/<script id="payload"[^>]*>([\s\S]*?)<\/script>/);
+  if (!m) throw new Error('ไม่พบ payload ใน ' + base);
+  return JSON.parse(m[1]);
+}
+
+// สูตร Score เดียวกับหน้าสาขา (HQ + RAMA2 ใช้สูตรเดียวกัน)
+function applyScore(rows) {
+  const TARGET_TALK_SEC = 150 * 60, TARGET_CALLS_OV15 = 50, TARGET_CONV_PCT = 13;
+  const maxSales = Math.max(1, ...rows.map(r => r.sales_today || 0));
+  rows.forEach(r => {
+    const sN = Math.min(1, (r.sales_today || 0) / maxSales);
+    const tN = Math.min(1, (r.talk_total_sec || 0) / TARGET_TALK_SEC);
+    const cN = Math.min(1, (r.over30 || 0) / TARGET_CALLS_OV15);
+    const vN = Math.min(1, (r.conv_sales || 0) / TARGET_CONV_PCT);
+    r.score = (sN * .35 + tN * .25 + cN * .10 + vN * .30) * 100;
+  });
+  return [...rows].sort((a,b) => (b.score||0) - (a.score||0));
+}
+
+function kpiCard(label, value, sub, icon, cls) {
   return `<div class="kpi ${cls||''}">
     <div class="kpi-icon">${icon}</div>
     <div class="label">${label}</div>
@@ -625,536 +318,147 @@ function kpi(label, value, sub, icon, cls) {
   </div>`;
 }
 
-// ===== RENDER — ใช้ได้ทั้งข้อมูลปัจจุบันและย้อนหลัง =====
-// ===== Celebration for new #1 (เสียง + แบนเนอร์) =====
-const TOP1_KEY = 'hq-last-top1';
+// จำนวนพนักงานต่อสาขา (เติมค่าใน render ก่อนใช้)
+let nHQ = 1, nR2 = 1;
 
-function playCelebration() {
-  try {
-    const Ctx = window.AudioContext || window.webkitAudioContext;
-    if (!Ctx) return;
-    const ctx = new Ctx();
-    const notes = [
-      {f: 523.25, d: 0.15},   // C5
-      {f: 659.25, d: 0.15},   // E5
-      {f: 783.99, d: 0.15},   // G5
-      {f: 1046.5, d: 0.55},   // C6
-    ];
-    let t = ctx.currentTime + 0.05;
-    notes.forEach(({f, d}) => {
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      osc.type = 'triangle';
-      osc.frequency.value = f;
-      gain.gain.setValueAtTime(0.0001, t);
-      gain.gain.exponentialRampToValueAtTime(0.35, t + 0.01);
-      gain.gain.exponentialRampToValueAtTime(0.001, t + d);
-      osc.connect(gain).connect(ctx.destination);
-      osc.start(t);
-      osc.stop(t + d + 0.05);
-      t += d;
-    });
-  } catch(e) { console.log('celebration audio failed:', e); }
-}
-
-function showCelebrationBanner(row) {
-  const old = document.querySelector('.celebrate-banner');
-  if (old) old.remove();
-  const el = document.createElement('div');
-  el.className = 'celebrate-banner';
-  el.innerHTML = `<div class="celebrate-emoji">🏆</div>
-    <div class="celebrate-text">${row.name} ขึ้นอันดับ 1!</div>
-    <div class="celebrate-sub">ext ${row.ext}</div>`;
-  document.body.appendChild(el);
-  setTimeout(() => el.classList.add('show'), 50);
-  setTimeout(() => {
-    el.classList.remove('show');
-    setTimeout(() => el.remove(), 500);
-  }, 4500);
-}
-
-function checkTop1Change(sorted) {
-  const cur = (sorted[0] || {}).ext;
-  if (!cur) return;
-  const last = localStorage.getItem(TOP1_KEY);
-  if (last && last !== cur) {
-    playCelebration();
-    showCelebrationBanner(sorted[0]);
+// แถวเปรียบเทียบ 1 ตัวชี้วัด: แท่งคู่ HQ vs RAMA2 สเกลตาม max ของคู่
+function cmpRow(title, hqVal, r2Val, fmt, perHead) {
+  const max = Math.max(hqVal||0, r2Val||0, 1);
+  const wHQ = Math.max(0.5, (hqVal||0) / max * 100);
+  const wR2 = Math.max(0.5, (r2Val||0) / max * 100);
+  let win = '';
+  if ((hqVal||0) !== (r2Val||0)) {
+    win = (hqVal||0) > (r2Val||0) ? '👑 HQ นำ' : '👑 RAMA2 นำ';
   }
-  localStorage.setItem(TOP1_KEY, cur);
-}
-
-function renderDashboard(data) {
-  D = data;
-  document.getElementById('asOf').textContent = D.as_of;
-  const qEl = document.getElementById('quoteText');
-  if (qEl) qEl.textContent = D.kpis.today_quote || '';
-
-  const k = D.kpis;
-  document.getElementById('kpiRow1').innerHTML = [
-    kpi('จำนวนสายโทรออก', fmtInt(k.total_calls), 'รวมทุกพนักงาน', '📞', 'info'),
-    kpi('ลูกค้าคุย > 15 วิ', fmtInt(k.total_over15), `จาก ${fmtInt(k.total_calls)} สาย`, '👥', 'good'),
-    kpi('TALK TIME รวม', fmtHMS(k.talk_total_sec), '', '⏱️', ''),
-  ].join('');
-
-  document.getElementById('kpiRow2').innerHTML = [
-    kpi('ยอดขายวันนี้', fmtMoney(k.total_sales), `เป้า ${fmtMoney(k.target_daily_all)}`, '💰', 'good'),
-    kpi('จำนวนออเดอร์', fmtInt(k.total_orders), 'วันนี้', '🛒', 'info'),
-    kpi('SIZE BUCKET', fmtMoney(k.avg_basket_all), 'เฉลี่ยบิล', '📦', 'warn'),
-    kpi('%Con (Call)', (k.total_calls?(k.total_orders/k.total_calls*100):0).toFixed(1) + '%', 'ออเดอร์/สาย', '🎯', 'purple'),
-    kpi('ACHIEVED', (k.achieved_all||0).toFixed(1) + '%', `เป้ารวม ${fmtMoney(k.target_daily_all)}`, '🏁', (k.achieved_all>=100?'good':(k.achieved_all>=70?'warn':''))),
-  ].join('');
-
-  // === SCORE: ยอดขาย 35% + ทอล์กไทม์ 25% + รับสาย>15วิ 10% + %Con (Call) 30% ===
-  // ทอล์กไทม์เต็มที่ 150 นาที, รับสาย>15วิ เต็มที่ 50 สาย, %Con (Call) เต็มที่ 13%, ยอดขายใช้ max ของกลุ่ม
-  const TARGET_TALK_SEC   = 150 * 60;
-  const TARGET_CALLS_OV15 = 50;
-  const TARGET_CONV_PCT   = 13;
-  const maxSales = Math.max(1, ...D.rows.map(r => r.sales_today || 0));
-  D.rows.forEach(r => {
-    const sN = Math.min(1, (r.sales_today || 0) / maxSales);
-    const tN = Math.min(1, (r.talk_total_sec || 0) / TARGET_TALK_SEC);
-    const cN = Math.min(1, (r.over30 || 0) / TARGET_CALLS_OV15);
-    const vN = Math.min(1, (r.conv_sales || 0) / TARGET_CONV_PCT);
-    r.score = (sN * 0.35 + tN * 0.25 + cN * 0.10 + vN * 0.30) * 100;
-  });
-
-  // Sort by score desc (Leaders + Board ใช้ลำดับเดียวกัน)
-  const sorted = [...D.rows].sort((a,b) => (b.score||0) - (a.score||0));
-  if (data === LIVE) checkTop1Change(sorted);
-
-  document.getElementById('leaders').innerHTML = sorted.map((r,i) => `
-    <div class="leader-card ${i===0?'top1':i===1?'top2':i===2?'top3':''}">
-      <span class="rank">#${i+1}</span>
-      ${avatarHTML(r)}
-      <div class="leader-info">
-        <div class="name">${r.name}</div>
-        <div class="ext">ext ${r.ext}</div>
-        <div class="stats">
-          <span>⏱️ <b>${fmtHMS(r.talk_total_sec)}</b></span>
-          <span>📞 <b>${fmtInt(r.total_calls)}</b></span>
-        </div>
-        ${deltaHTML(r)}
+  const per = (v, n) => perHead && n ? `<span class="per">(${fmt(v/n)}/คน)</span>` : '';
+  return `<div class="cmp-row">
+    <div class="cmp-metric">${title} ${win?`<span class="win">${win}</span>`:''}</div>
+    <div class="cmp-bars">
+      <div class="cmp-bar-line" title="HQ: ${fmt(hqVal||0)}">
+        <span class="cmp-branch">HQ</span>
+        <div class="cmp-track"><div class="cmp-fill hq" style="width:${wHQ}%"></div></div>
+        <span class="cmp-val">${fmt(hqVal||0)} ${per(hqVal||0, nHQ)}</span>
+      </div>
+      <div class="cmp-bar-line" title="RAMA2: ${fmt(r2Val||0)}">
+        <span class="cmp-branch">RAMA2</span>
+        <div class="cmp-track"><div class="cmp-fill rama2" style="width:${wR2}%"></div></div>
+        <span class="cmp-val">${fmt(r2Val||0)} ${per(r2Val||0, nR2)}</span>
       </div>
     </div>
-  `).join('');
-
-  document.getElementById('board').innerHTML = sorted.map((r, i) => `
-    <tr>
-      <td class="center"><b>${i+1}</b></td>
-      <td><div class="name-cell">${miniAvatarHTML(r)}${r.name}</div></td>
-      <td class="center">${r.ext}</td>
-      <td class="num">${fmtInt(r.total_calls)}</td>
-      <td class="num">${fmtInt(r.answered)}</td>
-      <td class="num">${fmtInt(r.over30)}</td>
-      <td class="num"><b>${fmtHMS(r.talk_total_sec)}</b></td>
-      <td class="num">${fmtHMS(r.deadair_sec)}</td>
-      <td class="num">${fmtMin(r.avg_per_call_sec)}</td>
-      <td class="num">${fmtHMS(r.longest_sec)}</td>
-      <td class="num">${fmtMoney(r.sales_today)}</td>
-      <td class="num">${fmtInt(r.orders_today)}</td>
-      <td class="num">${fmtMoney(r.avg_basket)}</td>
-      <td class="num">${(r.conv_sales||0).toFixed(1)}%</td>
-      <td class="num">${(r.conversion||0).toFixed(1)}%</td>
-      <td class="num">${badgeFor(r.achieved_pct||0)}</td>
-      <td class="num score-cell">${(r.score||0).toFixed(1)}</td>
-    </tr>
-  `).join('');
-
-  bindAllAvatars();
-  renderHeatmap();
+  </div>`;
 }
 
-// ===== HEATMAP รายชั่วโมง (อ่านจาก history snapshots ของวันนี้) =====
-async function renderHeatmap() {
-  const dateStr = (D && D.kpis && D.kpis.today_date) ? D.kpis.today_date : null;
-  const tbl = document.getElementById('heatmapTable');
-  if (!tbl || !dateStr) return;
-  let day;
-  try {
-    const res = await fetch(`history/${dateStr}.json?_=` + Date.now());
-    if (!res.ok) throw 0;
-    day = await res.json();
-  } catch(e) {
-    tbl.innerHTML = '<tbody><tr><td class="heat-empty">ยังไม่มีข้อมูลรายชั่วโมงสำหรับวันนี้ (รอ history สะสมก่อน)</td></tr></tbody>';
-    return;
-  }
-  const snaps = (day.snapshots || []).slice().sort((a,b) => (a.ts||'').localeCompare(b.ts||''));
-  if (!snaps.length) {
-    tbl.innerHTML = '<tbody><tr><td class="heat-empty">ยังไม่มีข้อมูลรายชั่วโมงสำหรับวันนี้</td></tr></tbody>';
-    return;
-  }
-  function parseHHMM(ts) {
-    const m = (ts || '').match(/T(\d{2}):(\d{2})/);
-    if (!m) return null;
-    return parseInt(m[1])*60 + parseInt(m[2]);
-  }
-  const byExt = {};
-  for (const s of snaps) {
-    const t = parseHHMM(s.ts);
-    if (t === null) continue;
-    const pl = s.payload || {};
-    for (const r of (pl.rows || [])) {
-      if (!r.ext) continue;
-      if (!byExt[r.ext]) byExt[r.ext] = { name: r.name, points: [] };
-      byExt[r.ext].points.push({ t, talk: r.talk_total_sec || 0 });
-    }
-  }
-  function talkAt(ext, targetT) {
-    const pts = (byExt[ext] && byExt[ext].points) || [];
-    let last = 0;
-    for (const p of pts) {
-      if (p.t <= targetT) last = p.talk; else break;
-    }
-    return last;
-  }
-  function heatColor(mins) {
-    const ratio = Math.max(0, Math.min(1, mins / 20));
-    const hue = ratio * 120;
-    return `hsl(${hue}, 70%, 55%)`;
-  }
-  const hours = [9, 10, 11, 12, 13, 14, 15, 16, 17];
-  const LUNCH = 13;
-  const empRows = [];
-  for (const r of D.rows) {
-    const cells = [];
-    let total = 0;
-    for (const h of hours) {
-      const startTalk = talkAt(r.ext, h*60);
-      const endTalk = talkAt(r.ext, (h+1)*60);
-      const mins = Math.max(0, (endTalk - startTalk) / 60);
-      const isLunch = (h === LUNCH);
-      if (!isLunch) total += mins;
-      cells.push({ mins, isLunch });
-    }
-    empRows.push({ ext: r.ext, name: r.name, total, cells });
-  }
-  empRows.sort((a,b) => b.total - a.total);
-  const headHTML = ['<thead><tr><th class="name-col">พนักงาน</th>'];
-  for (const h of hours) {
-    const hh = String(h).padStart(2,'0');
-    headHTML.push(`<th>${hh}.00-${h}.59</th>`);
-  }
-  headHTML.push('<th>รวม 8 ชม.</th></tr></thead>');
-  const bodyHTML = ['<tbody>'];
-  for (const er of empRows) {
-    const row = [`<td class="name-col">${er.name}<span class="ext-tag">ext ${er.ext}</span></td>`];
-    for (const c of er.cells) {
-      if (c.isLunch) {
-        row.push(`<td class="heat-cell lunch">${c.mins.toFixed(2)}</td>`);
-      } else {
-        row.push(`<td class="heat-cell" style="background:${heatColor(c.mins)}">${c.mins.toFixed(2)}</td>`);
-      }
-    }
-    row.push(`<td class="total">${er.total.toFixed(2)}</td>`);
-    bodyHTML.push('<tr>' + row.join('') + '</tr>');
-  }
-  bodyHTML.push('</tbody>');
-  tbl.innerHTML = headHTML.join('') + bodyHTML.join('');
+function targetCard(title, hqPct, r2Pct, hqSub, r2Sub) {
+  const line = (branch, cls, pct, sub) => `<div class="tg-line">
+    <div class="tg-top"><span class="branch">${branch}</span><span class="pct">${(pct||0).toFixed(1)}%</span></div>
+    <div class="tg-track"><div class="tg-fill ${cls}" style="width:${Math.min(100, Math.max(0.5, pct||0))}%"></div></div>
+    <div class="tg-sub">${sub}</div>
+  </div>`;
+  return `<div class="target-card">
+    <h3>${title}</h3>
+    ${line('HQ RAM', 'hq', hqPct, hqSub)}
+    ${line('RAMA2', 'rama2', r2Pct, r2Sub)}
+  </div>`;
 }
 
-// localStorage override ของตำแหน่งรูป — เก็บ {pos, zoom} ต่อ ext
-const PHOTO_KEY = 'hq-photo-settings';
-let photoOverrides = {};
-try {
-  const raw = JSON.parse(localStorage.getItem(PHOTO_KEY) || '{}');
-  // รองรับ schema เก่า: ถ้าค่าเป็น string (pos อย่างเดียว) → wrap เป็น object
-  for (const k in raw) {
-    photoOverrides[k] = (typeof raw[k] === 'string') ? {pos: raw[k], zoom: 1.0} : raw[k];
-  }
-} catch(e) { photoOverrides = {}; }
-
-function getSettings(r) {
-  const ov = photoOverrides[r.ext] || {};
-  return {
-    pos: ov.pos || r.photo_pos || '50% 25%',
-    zoom: (typeof ov.zoom === 'number' ? ov.zoom : (r.photo_zoom || 1.0)),
-  };
-}
-function setSettings(ext, patch) {
-  const cur = photoOverrides[ext] || {};
-  photoOverrides[ext] = {...cur, ...patch};
-  localStorage.setItem(PHOTO_KEY, JSON.stringify(photoOverrides));
-  applyToImages(ext);
-}
-function applyToImages(ext) {
-  const r = D.rows.find(x => x.ext === ext);
-  if (!r) return;
-  const {pos, zoom} = getSettings(r);
-  document.querySelectorAll(`[data-ext="${ext}"] img`).forEach(img => {
-    img.style.objectPosition = pos;
-    img.style.transform = `scale(${zoom})`;
-    img.style.transformOrigin = pos;
-  });
-  document.querySelectorAll(`[data-ext="${ext}"] .pos-hint`).forEach(h => {
-    h.textContent = `${pos} · ${zoom.toFixed(2)}x`;
-  });
-}
-
-function avatarHTML(r) {
-  const {pos, zoom} = getSettings(r);
+function avatarHTML(r, base) {
   if (r.photo) {
-    return `<div class="avatar" data-ext="${r.ext}" style="background:${r.color};padding:0;overflow:hidden;position:relative;"><img src="${r.photo}" style="width:100%;height:100%;object-fit:cover;object-position:${pos};transform:scale(${zoom});transform-origin:${pos};display:block;"/><span class="pos-hint">${pos} · ${zoom.toFixed(2)}x</span></div>`;
+    return `<div class="tp-ava" style="background:${r.color}">
+      <img src="${base}${r.photo}" style="object-position:${r.photo_pos||'50% 25%'}" alt="${r.name}"
+           onerror="this.parentNode.textContent='${r.initial||''}'">
+    </div>`;
   }
-  return `<div class="avatar" data-ext="${r.ext}" style="background: linear-gradient(135deg, ${r.color}, ${r.color}99);">${r.initial}</div>`;
+  return `<div class="tp-ava" style="background:${r.color}">${r.initial||''}</div>`;
 }
-function miniAvatarHTML(r) {
-  const {pos, zoom} = getSettings(r);
-  if (r.photo) {
-    return `<div class="mini-avatar" data-ext="${r.ext}" style="background:${r.color};padding:0;overflow:hidden;"><img src="${r.photo}" style="width:100%;height:100%;object-fit:cover;object-position:${pos};transform:scale(${zoom});transform-origin:${pos};display:block;border-radius:50%;"/></div>`;
+
+function topCol(name, cls, sorted, base, pageUrl) {
+  const rows = sorted.slice(0, 3).map((r, i) => `
+    <div class="tp-row">
+      <span class="tp-rank ${i===0?'r1':''}">#${i+1}</span>
+      ${avatarHTML(r, base)}
+      <div class="tp-info">
+        <div class="name">${r.name}</div>
+        <div class="stats">⏱️ ${fmtHMS(r.talk_total_sec)} · 📞 ${fmtInt(r.total_calls)} สาย · 💰 ${fmtMoney(r.sales_today)}</div>
+      </div>
+      <span class="tp-score">${(r.score||0).toFixed(1)}</span>
+    </div>`).join('');
+  return `<div class="top-col ${cls}">
+    <h3><span class="dot" style="background:var(--${cls})"></span>${name}<a href="${pageUrl}">ดูแดชบอร์ดเต็ม →</a></h3>
+    ${rows || '<div class="load-note">ไม่มีข้อมูล</div>'}
+  </div>`;
+}
+
+function render(hq, r2) {
+  const kH = hq.kpis || {}, kR = r2.kpis || {};
+  document.getElementById('asOfHQ').textContent = hq.as_of || '—';
+  document.getElementById('asOfR2').textContent = r2.as_of || '—';
+
+  nHQ = (hq.rows||[]).length || 1;
+  nR2 = (r2.rows||[]).length || 1;
+
+  // KPI รวมทั้งบริษัท
+  const salesAll = (kH.total_sales||0) + (kR.total_sales||0);
+  const targetAll = (kH.target_daily_all||0) + (kR.target_daily_all||0);
+  const achievedAll = targetAll ? salesAll/targetAll*100 : 0;
+  document.getElementById('kpiAll').innerHTML = [
+    kpiCard('ยอดขายรวม 2 สาขา (วันนี้)', fmtMoney(salesAll), `เป้ารวม ${fmtMoney(targetAll)}`, '💰', 'good'),
+    kpiCard('Achieved รวม', achievedAll.toFixed(1) + '%', 'เทียบเป้าวันนี้ทั้งบริษัท', '🏁', achievedAll>=100?'good':(achievedAll>=70?'warn':'')),
+    kpiCard('สายโทรออกรวม', fmtInt((kH.total_calls||0)+(kR.total_calls||0)), `ออเดอร์รวม ${fmtInt((kH.total_orders||0)+(kR.total_orders||0))}`, '📞', 'info'),
+    kpiCard('Talktime รวม', fmtHMS((kH.talk_total_sec||0)+(kR.talk_total_sec||0)), 'ทั้ง 2 สาขา', '⏱️', ''),
+  ].join('');
+
+  // เปรียบเทียบรายตัวชี้วัด
+  document.getElementById('cmpList').innerHTML = [
+    cmpRow('💰 ยอดขายวันนี้', kH.total_sales, kR.total_sales, fmtMoney, true),
+    cmpRow('📞 จำนวนสายโทรออก', kH.total_calls, kR.total_calls, fmtInt, true),
+    cmpRow('⏱️ Talktime รวม', kH.talk_total_sec, kR.talk_total_sec, fmtHMS, false),
+    cmpRow('👥 สายที่คุย > 15 วิ', kH.total_over15, kR.total_over15, fmtInt, true),
+    cmpRow('🛒 จำนวนออเดอร์', kH.total_orders, kR.total_orders, fmtInt, false),
+    cmpRow('📦 เฉลี่ยต่อบิล', kH.avg_basket_all, kR.avg_basket_all, fmtMoney, false),
+  ].join('');
+
+  // เป้าหมาย
+  document.getElementById('targetGrid').innerHTML = [
+    targetCard('🎯 เป้าวันนี้',
+      kH.achieved_all, kR.achieved_all,
+      `${fmtMoney(kH.total_sales)} จากเป้า ${fmtMoney(kH.target_daily_all)}`,
+      `${fmtMoney(kR.total_sales)} จากเป้า ${fmtMoney(kR.target_daily_all)}`),
+    targetCard('📅 เป้าเดือนนี้',
+      kH.month_pct, kR.month_pct,
+      `${fmtMoney(kH.month_sales_all)} จากเป้า ${fmtMoney(kH.month_target_all)}`,
+      `${fmtMoney(kR.month_sales_all)} จากเป้า ${fmtMoney(kR.month_target_all)}`),
+  ].join('');
+
+  // Top 3 ต่อสาขา
+  document.getElementById('topGrid').innerHTML = [
+    topCol('HQ RAM', 'hq', applyScore(hq.rows||[]), HQ_BASE, 'hq.html'),
+    topCol('RAMA2', 'rama2', applyScore(r2.rows||[]), R2_BASE, R2_BASE),
+  ].join('');
+}
+
+function showError(msg) {
+  const el = document.getElementById('errNote');
+  el.textContent = '⚠️ ' + msg;
+  el.style.display = 'block';
+}
+
+(async () => {
+  const [hqRes, r2Res] = await Promise.allSettled([
+    loadPayload(HQ_BASE, HQ_PAGE),
+    loadPayload(R2_BASE, R2_PAGE),
+  ]);
+  const empty = { rows: [], kpis: {}, as_of: '' };
+  const hq = hqRes.status === 'fulfilled' ? hqRes.value : empty;
+  const r2 = r2Res.status === 'fulfilled' ? r2Res.value : empty;
+  if (hqRes.status !== 'fulfilled' && r2Res.status !== 'fulfilled') {
+    showError('โหลดข้อมูลไม่ได้ทั้ง 2 สาขา — ลองรีเฟรชหน้า หรือเช็คว่า GitHub Pages ของทั้ง 2 repo เปิดอยู่');
+  } else if (hqRes.status !== 'fulfilled') {
+    showError('โหลดข้อมูล HQ ไม่ได้ — แสดงเฉพาะ RAMA2');
+  } else if (r2Res.status !== 'fulfilled') {
+    showError('โหลดข้อมูล RAMA2 ไม่ได้ — แสดงเฉพาะ HQ (เช็คว่า workflow ของ RAMA2 push เข้า rama2-talktime-dashboard แล้ว)');
   }
-  return `<div class="mini-avatar" data-ext="${r.ext}" style="background:${r.color};">${r.initial}</div>`;
-}
-
-function deltaHTML(r) {
-  if (!r.has_prev) {
-    return `<div class="delta muted">— ยังไม่มีข้อมูลชั่วโมงก่อน</div>`;
-  }
-  const t = r.delta_talk_sec || 0;
-  const c = r.delta_calls || 0;
-  if (t === 0 && c === 0) {
-    return `<div class="delta zero">↑ +00:00 · +0 สาย</div>`;
-  }
-  return `<div class="delta">↑ +${fmtHMS(t)} · +${fmtInt(c)} สาย</div>`;
-}
-
-// (leaders render ย้ายไปอยู่ใน renderDashboard แล้ว)
-
-// Performance Board Table — sort by talktime desc
-function badgeFor(pct) {
-  if (pct >= 100) return `<span class="badge good">${pct.toFixed(0)}%</span>`;
-  if (pct >= 70)  return `<span class="badge warn">${pct.toFixed(0)}%</span>`;
-  return `<span class="badge bad">${pct.toFixed(0)}%</span>`;
-}
-// ===== EDIT MODE — drag เพื่อปรับ object-position =====
-const editBtn = document.getElementById('editBtn');
-const exportBtn = document.getElementById('exportBtn');
-const resetBtn = document.getElementById('resetBtn');
-
-editBtn.addEventListener('click', () => {
-  const on = document.body.classList.toggle('edit-mode');
-  editBtn.classList.toggle('active', on);
-  editBtn.textContent = on ? '✓ เสร็จ' : '📐 ปรับรูป';
-  exportBtn.style.display = on ? 'inline-block' : 'none';
-  resetBtn.style.display = on ? 'inline-block' : 'none';
-});
-
-resetBtn.addEventListener('click', () => {
-  if (!confirm('คืนค่าตำแหน่ง + ซูมรูปทุกคนเป็นค่าเริ่มต้น?')) return;
-  photoOverrides = {};
-  localStorage.removeItem(PHOTO_KEY);
-  D.rows.forEach(r => applyToImages(r.ext));
-});
-
-exportBtn.addEventListener('click', () => {
-  // สร้าง snippet ของ EMPLOYEES list พร้อมค่า pos + zoom
-  const lines = D.rows.map(r => {
-    const {pos, zoom} = getSettings(r);
-    const ext = r.ext, nm = r.name, color = r.color;
-    return `    ("${ext}", "${nm}", ["${nm}"], "${color}", "${pos}", ${zoom.toFixed(2)}),`;
-  });
-  const snippet = 'EMPLOYEES = [\n' + lines.join('\n') + '\n]';
-  document.getElementById('exportSnippet').textContent = snippet;
-  document.getElementById('modalBg').classList.add('show');
-});
-
-// Drag handler: คลิก-ลากเพื่อขยับ; scroll wheel / shift+drag เพื่อซูม
-function attachDrag(el) {
-  el.addEventListener('mousedown', startDrag);
-  el.addEventListener('touchstart', startDrag, {passive: false});
-  el.addEventListener('wheel', onWheel, {passive: false});
-}
-
-function onWheel(e) {
-  if (!document.body.classList.contains('edit-mode')) return;
-  const ext = e.currentTarget.dataset.ext;
-  if (!ext) return;
-  e.preventDefault();
-  const r = D.rows.find(x => x.ext === ext);
-  if (!r) return;
-  const cur = getSettings(r);
-  // เลื่อนล้อขึ้น = ซูมเข้า (เพิ่ม), ล้อลง = ซูมออก
-  const step = e.deltaY > 0 ? -0.05 : 0.05;
-  const newZoom = Math.max(1.0, Math.min(3.0, cur.zoom + step));
-  setSettings(ext, {zoom: newZoom});
-}
-
-let dragState = null;
-function startDrag(e) {
-  if (!document.body.classList.contains('edit-mode')) return;
-  const el = e.currentTarget;
-  const ext = el.dataset.ext;
-  if (!ext) return;
-  e.preventDefault();
-  const img = el.querySelector('img');
-  if (!img) return;
-
-  const rect = el.getBoundingClientRect();
-  const r = D.rows.find(x => x.ext === ext);
-  const cur = getSettings(r);
-  const [curX, curY] = cur.pos.split(/\s+/).map(v => parseFloat(v));
-  const startX = (e.touches ? e.touches[0].clientX : e.clientX);
-  const startY = (e.touches ? e.touches[0].clientY : e.clientY);
-  const shift = e.shiftKey;
-  const startZoom = cur.zoom;
-
-  dragState = { el, ext, rect, curX, curY, startX, startY, shift, startZoom };
-  el.classList.add('dragging');
-
-  window.addEventListener('mousemove', onDrag);
-  window.addEventListener('mouseup', endDrag);
-  window.addEventListener('touchmove', onDrag, {passive: false});
-  window.addEventListener('touchend', endDrag);
-}
-
-function onDrag(e) {
-  if (!dragState) return;
-  e.preventDefault();
-  const cx = (e.touches ? e.touches[0].clientX : e.clientX);
-  const cy = (e.touches ? e.touches[0].clientY : e.clientY);
-  if (dragState.shift) {
-    // shift+drag — ขึ้น/ลงเพื่อซูม
-    const dy = (dragState.startY - cy) / 100;  // ลากขึ้น = ซูมเข้า
-    const newZoom = Math.max(1.0, Math.min(3.0, dragState.startZoom + dy));
-    setSettings(dragState.ext, {zoom: newZoom});
-  } else {
-    // drag ปกติ — ขยับตำแหน่ง
-    const dx = ((cx - dragState.startX) / dragState.rect.width) * 100;
-    const dy = ((cy - dragState.startY) / dragState.rect.height) * 100;
-    let nx = dragState.curX - dx;
-    let ny = dragState.curY - dy;
-    nx = Math.max(0, Math.min(100, nx));
-    ny = Math.max(0, Math.min(100, ny));
-    const pos = `${nx.toFixed(0)}% ${ny.toFixed(0)}%`;
-    setSettings(dragState.ext, {pos});
-  }
-}
-
-function endDrag() {
-  if (dragState) dragState.el.classList.remove('dragging');
-  dragState = null;
-  window.removeEventListener('mousemove', onDrag);
-  window.removeEventListener('mouseup', endDrag);
-  window.removeEventListener('touchmove', onDrag);
-  window.removeEventListener('touchend', endDrag);
-}
-
-// ผูก drag handlers ทุก avatar
-function bindAllAvatars() {
-  document.querySelectorAll('.avatar[data-ext], .mini-avatar[data-ext]').forEach(attachDrag);
-}
-
-// ===== ฟีดแบกการฟังสาย =====
-function renderFeedback(data) {
-  const grid = document.getElementById('fbGrid');
-  const upd = document.getElementById('fbUpdated');
-  if (!grid) return;
-  const fbUpd = (data.kpis && data.kpis.feedback_updated) || '';
-  if (upd) upd.textContent = fbUpd ? ('อัปเดตฟีดแบก: ' + String(fbUpd).replace('T',' ').slice(0,16)) : '';
-  const esc = s => (s==null?'':String(s)).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
-  let html = '';
-  (data.rows||[]).forEach(r => {
-    const fb = r.feedback;
-    const s = getSettings(r);
-    const av = r.photo
-      ? '<div class="fb-ava" data-ext="'+esc(r.ext)+'" style="background:'+esc(r.color)+';padding:0;overflow:hidden;"><img src="'+esc(r.photo)+'" style="width:100%;height:100%;object-fit:cover;object-position:'+esc(s.pos)+';transform:scale('+s.zoom+');transform-origin:'+esc(s.pos)+';display:block;"/></div>'
-      : '<div class="fb-ava" style="background:'+esc(r.color)+'">'+esc(r.initial||'')+'</div>';
-    const top = '<div class="fb-card-top">'+av
-      + '<div><div class="fb-name">'+esc(r.name)+'</div><div class="fb-ext">ext '+esc(r.ext)+'</div></div>';
-    if (fb && (fb.pros || fb.fix || fb.how)) {
-      const score = fb.score ? '<span class="fb-score">★ '+esc(fb.score)+'/10</span>' : '';
-      html += '<div class="fb-card">' + top + score + '</div>'
-        + (fb.pros ? '<div class="fb-row fb-pros"><span class="fb-label">✅ ข้อดี</span><span class="fb-text">'+esc(fb.pros)+'</span></div>' : '')
-        + (fb.fix ? '<div class="fb-row fb-fix"><span class="fb-label">⚠️ ข้อควรแก้</span><span class="fb-text">'+esc(fb.fix)+'</span></div>' : '')
-        + (fb.how ? '<div class="fb-row fb-how"><span class="fb-label">💬 ควรพูดอย่างไร</span><span class="fb-text">'+esc(fb.how)+'</span></div>' : '')
-        + ((fb.call_time || fb.dest) ? '<div class="fb-date">📞 '+esc(fb.call_time||'')+(fb.dest ? (' · ปลายทาง '+esc(fb.dest)) : '')+'</div>' : '')
-        + (fb.date ? '<div class="fb-date">'+esc(fb.date)+'</div>' : '')
-        + '</div>';
-    } else {
-      html += '<div class="fb-card empty">' + top + '</div>'
-        + '<div class="fb-empty-msg">ยังไม่มีฟีดแบก — ฟังสายแล้วพิมพ์ลงชีตได้เลย</div>'
-        + '</div>';
-    }
-  });
-  grid.innerHTML = html;
-}
-
-// ===== แสดงข้อมูลปัจจุบันตอนเปิดหน้า =====
-renderDashboard(LIVE);
-renderFeedback(LIVE);
-
-// ===== HISTORY MODE — เลือกวัน/เวลาดูผลย้อนหลังได้ =====
-const histDate = document.getElementById('histDate');
-const histTime = document.getElementById('histTime');
-const histLive = document.getElementById('histLive');
-const histBanner = document.getElementById('histBanner');
-const dayCache = {};
-
-async function loadManifest() {
-  try {
-    const res = await fetch('history/manifest.json?_=' + Date.now());
-    if (!res.ok) throw 0;
-    const m = await res.json();
-    const dates = (m.dates || []).slice().sort().reverse();
-    if (!dates.length) throw 0;
-    histDate.innerHTML = '<option value="">— เลือกวัน —</option>' +
-      dates.map(d => `<option value="${d}">${d}</option>`).join('');
-  } catch(e) {
-    histDate.innerHTML = '<option value="">(ยังไม่มีประวัติ)</option>';
-    histDate.disabled = true;
-  }
-}
-
-async function loadDay(date) {
-  if (dayCache[date]) return dayCache[date];
-  const res = await fetch(`history/${date}.json?_=` + Date.now());
-  if (!res.ok) throw new Error('โหลดไม่ได้');
-  const day = await res.json();
-  dayCache[date] = day;
-  return day;
-}
-
-histDate.addEventListener('change', async () => {
-  const date = histDate.value;
-  histTime.innerHTML = '<option value="">— เลือกเวลา —</option>';
-  histTime.disabled = true;
-  if (!date) return;
-  try {
-    const day = await loadDay(date);
-    const snaps = day.snapshots || [];
-    histTime.innerHTML = '<option value="">— เลือกเวลา —</option>' +
-      snaps.map((s,i) => `<option value="${i}">${(s.ts||'').slice(11,16)} น.</option>`).join('');
-    histTime.disabled = false;
-  } catch(e) {
-    histTime.innerHTML = '<option value="">(โหลดไม่ได้)</option>';
-  }
-});
-
-histTime.addEventListener('change', async () => {
-  const date = histDate.value;
-  const idx = histTime.value;
-  if (!date || idx === '') return;
-  try {
-    const day = await loadDay(date);
-    const snap = (day.snapshots || [])[parseInt(idx)];
-    if (!snap || !snap.payload) return;
-    renderDashboard(snap.payload);
-    histBanner.style.display = 'flex';
-    histBanner.querySelector('.hist-when').textContent =
-      `${date} เวลา ${(snap.ts||'').slice(11,16)} น.`;
-  } catch(e) {}
-});
-
-histLive.addEventListener('click', () => {
-  histBanner.style.display = 'none';
-  histDate.value = '';
-  histTime.innerHTML = '<option value="">— เลือกเวลา —</option>';
-  histTime.disabled = true;
-  renderDashboard(LIVE);
-});
-
-loadManifest();
-
+  render(hq, r2);
+})();
 </script>
 </body>
 </html>
