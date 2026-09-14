@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-09-14T10:30:44+07:00",
+  "as_of": "2026-09-14T11:00:42+07:00",
   "by_employee": {
     "มล": {
       "sales_today": 3290.0,
@@ -194,11 +194,11 @@
       "month_target": 0.0
     },
     "บุศ": {
-      "sales_today": 7270.0,
-      "orders_today": 2,
-      "avg_basket_today": 3635.0,
+      "sales_today": 12960.0,
+      "orders_today": 3,
+      "avg_basket_today": 4320.0,
       "target_daily": 10774.0,
-      "month_sales": 59665.0,
+      "month_sales": 65355.0,
       "month_target": 214000.0
     },
     "ฟลุ๊ค": {
