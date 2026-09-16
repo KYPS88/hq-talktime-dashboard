@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-09-16T18:00:50+07:00",
+  "as_of": "2026-09-16T18:30:47+07:00",
   "by_employee": {
     "มล": {
       "sales_today": 10840.0,
@@ -170,11 +170,11 @@
       "month_target": 0.0
     },
     "แพร": {
-      "sales_today": 7360.0,
-      "orders_today": 3,
-      "avg_basket_today": 2453.0,
+      "sales_today": 11340.0,
+      "orders_today": 5,
+      "avg_basket_today": 2268.0,
       "target_daily": 10337.0,
-      "month_sales": 86975.0,
+      "month_sales": 90955.0,
       "month_target": 214000.0
     },
     "เม": {
