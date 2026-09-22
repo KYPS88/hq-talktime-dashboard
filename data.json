@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-09-22T06:30:40",
-  "updated_label": "22/09/2026 06:30",
+  "updated_at": "2026-09-22T07:00:42",
+  "updated_label": "22/09/2026 07:00",
   "source": "https://client.yalecom.co.th/custom_menu/extension_summary_outbound",
   "row_count": 10,
   "rows": [
@@ -79,23 +79,23 @@
     {
       "extension": "248",
       "name": "น้ำ",
-      "total_calls": 68,
-      "answered": 40,
+      "total_calls": 69,
+      "answered": 41,
       "missed": 28,
-      "talktime": 4626,
-      "avg": 115,
+      "talktime": 4643,
+      "avg": 113,
       "_raw": [
         "248",
         "น้ำ",
-        "68",
-        "40",
+        "69",
+        "41",
         "28",
         "0",
-        "0:25:08",
-        "1:17:06",
+        "0:25:20",
+        "1:17:23",
         "31",
         "12",
-        "28"
+        "29"
       ],
       "_headers": [
         "หมายเลข",
