@@ -241,7 +241,7 @@
 
   <!-- เปรียบเทียบวันนี้ -->
   <div class="section">
-    <h2 class="section-title">⚔️ เทียบผลงานวันนี้ <span class="note">ตัวเลขในวงเล็บ = เฉลี่ยต่อพนักงาน 1 คน (HQ 9 คน / RAMA2 3 คน จำนวนไม่เท่ากัน)</span></h2>
+    <h2 class="section-title">⚔️ เทียบผลงานวันนี้ <span class="note" id="cmpNote">ตัวเลขในวงเล็บ = เฉลี่ยต่อพนักงาน 1 คน</span></h2>
     <div class="cmp-list" id="cmpList"><div class="load-note">⏳ กำลังโหลดข้อมูล…</div></div>
   </div>
 
@@ -399,8 +399,13 @@ function render(hq, r2) {
   document.getElementById('asOfHQ').textContent = hq.as_of || '—';
   document.getElementById('asOfR2').textContent = r2.as_of || '—';
 
-  nHQ = (hq.rows||[]).length || 1;
-  nR2 = (r2.rows||[]).length || 1;
+  // ext ที่ไม่นับหัวในค่าเฉลี่ยต่อคน (เช่น หัวหน้าทีม/ตำแหน่งพิเศษ)
+  const EXCLUDE_PER_HEAD = ['205'];
+  const headcount = rows => (rows||[]).filter(r => !EXCLUDE_PER_HEAD.includes(String(r.ext))).length || 1;
+  nHQ = headcount(hq.rows);
+  nR2 = headcount(r2.rows);
+  const cmpNote = document.getElementById('cmpNote');
+  if (cmpNote) cmpNote.textContent = `ตัวเลขในวงเล็บ = เฉลี่ยต่อพนักงาน 1 คน (HQ ${nHQ} คน / RAMA2 ${nR2} คน — ไม่นับอ้อ 205)`;
 
   // KPI รวมทั้งบริษัท
   const salesAll = (kH.total_sales||0) + (kR.total_sales||0);
@@ -425,7 +430,7 @@ function render(hq, r2) {
 
   // เปรียบเทียบเฉลี่ยต่อคน (หารด้วยจำนวนพนักงานของแต่ละสาขา)
   const noteEl = document.getElementById('perHeadNote');
-  if (noteEl) noteEl.textContent = `หารด้วยจำนวนพนักงาน (HQ ${nHQ} คน / RAMA2 ${nR2} คน) — วัดฟอร์มต่อหัวแบบแฟร์ๆ`;
+  if (noteEl) noteEl.textContent = `หารด้วยจำนวนพนักงาน (HQ ${nHQ} คน / RAMA2 ${nR2} คน — ไม่นับอ้อ 205) — วัดฟอร์มต่อหัวแบบแฟร์ๆ`;
   const perH = v => (v||0) / nHQ, perR = v => (v||0) / nR2;
   const fmtOrd = n => (n||0).toLocaleString('th-TH', {maximumFractionDigits: 1});
   document.getElementById('cmpPerList').innerHTML = [
