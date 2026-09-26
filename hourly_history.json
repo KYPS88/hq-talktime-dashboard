@@ -1,51 +1,6 @@
 {
   "snapshots": [
     {
-      "ts": "2026-09-24T12:00:44.985763+07:00",
-      "by_ext": {
-        "206": {
-          "talktime": 5057,
-          "calls": 24
-        },
-        "234": {
-          "talktime": 4232,
-          "calls": 69
-        },
-        "231": {
-          "talktime": 3301,
-          "calls": 105
-        },
-        "204": {
-          "talktime": 3205,
-          "calls": 78
-        },
-        "230": {
-          "talktime": 3141,
-          "calls": 50
-        },
-        "248": {
-          "talktime": 2974,
-          "calls": 54
-        },
-        "244": {
-          "talktime": 2534,
-          "calls": 51
-        },
-        "247": {
-          "talktime": 2163,
-          "calls": 47
-        },
-        "205": {
-          "talktime": 1025,
-          "calls": 16
-        },
-        "202": {
-          "talktime": 0,
-          "calls": 1
-        }
-      }
-    },
-    {
       "ts": "2026-09-24T12:30:39.165850+07:00",
       "by_ext": {
         "206": {
@@ -2532,6 +2487,51 @@
         "205": {
           "talktime": 146,
           "calls": 2
+        },
+        "231": {
+          "talktime": 0,
+          "calls": 1
+        }
+      }
+    },
+    {
+      "ts": "2026-09-26T12:30:38.241045+07:00",
+      "by_ext": {
+        "206": {
+          "talktime": 4522,
+          "calls": 43
+        },
+        "234": {
+          "talktime": 3974,
+          "calls": 70
+        },
+        "230": {
+          "talktime": 3225,
+          "calls": 26
+        },
+        "248": {
+          "talktime": 1996,
+          "calls": 40
+        },
+        "247": {
+          "talktime": 1907,
+          "calls": 45
+        },
+        "204": {
+          "talktime": 1348,
+          "calls": 24
+        },
+        "244": {
+          "talktime": 1111,
+          "calls": 45
+        },
+        "202": {
+          "talktime": 864,
+          "calls": 24
+        },
+        "205": {
+          "talktime": 146,
+          "calls": 3
         },
         "231": {
           "talktime": 0,
