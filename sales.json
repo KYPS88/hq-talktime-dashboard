@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-10-07T10:00:50+07:00",
+  "as_of": "2026-10-07T10:30:50+07:00",
   "by_employee": {
     "มล": {
       "sales_today": 0.0,
@@ -18,19 +18,19 @@
       "month_target": 171200.0
     },
     "นิจ": {
-      "sales_today": 1790.0,
-      "orders_today": 1,
+      "sales_today": 3580.0,
+      "orders_today": 2,
       "avg_basket_today": 1790.0,
       "target_daily": 12503.0,
-      "month_sales": 62025.0,
+      "month_sales": 63815.0,
       "month_target": 310300.0
     },
     "สาคู": {
-      "sales_today": 0.0,
-      "orders_today": 0,
-      "avg_basket_today": 0.0,
+      "sales_today": 1790.0,
+      "orders_today": 1,
+      "avg_basket_today": 1790.0,
       "target_daily": 13684.0,
-      "month_sales": 36630.0,
+      "month_sales": 38420.0,
       "month_target": 310300.0
     },
     "ซา": {
@@ -266,11 +266,11 @@
       "month_target": 0.0
     },
     "จอย": {
-      "sales_today": 1790.0,
-      "orders_today": 1,
-      "avg_basket_today": 1790.0,
+      "sales_today": 7825.0,
+      "orders_today": 2,
+      "avg_basket_today": 3913.0,
       "target_daily": 11250.0,
-      "month_sales": 44300.0,
+      "month_sales": 50335.0,
       "month_target": 267500.0
     },
     "กร": {
@@ -298,11 +298,11 @@
       "month_target": 0.0
     },
     "บี": {
-      "sales_today": 0.0,
-      "orders_today": 0,
-      "avg_basket_today": 0.0,
+      "sales_today": 4070.0,
+      "orders_today": 2,
+      "avg_basket_today": 2035.0,
       "target_daily": 11995.0,
-      "month_sales": 27605.0,
+      "month_sales": 31675.0,
       "month_target": 267500.0
     },
     "ไอซ์": {
@@ -322,11 +322,11 @@
       "month_target": 267500.0
     },
     "อุ้ม": {
-      "sales_today": 0.0,
-      "orders_today": 0,
-      "avg_basket_today": 0.0,
+      "sales_today": 2590.0,
+      "orders_today": 1,
+      "avg_basket_today": 2590.0,
       "target_daily": 13584.0,
-      "month_sales": 38630.0,
+      "month_sales": 41220.0,
       "month_target": 310300.0
     },
     "ลูกโซ่": {
