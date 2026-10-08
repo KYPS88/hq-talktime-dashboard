@@ -1,11 +1,11 @@
 {
-  "as_of": "2026-10-08T09:00:58+07:00",
+  "as_of": "2026-10-08T09:30:45+07:00",
   "by_employee": {
     "มล": {
       "sales_today": 0.0,
       "orders_today": 0,
       "avg_basket_today": 0.0,
-      "target_daily": 9808.0,
+      "target_daily": 10031.0,
       "month_sales": 20200.0,
       "month_target": 210790.0
     },
@@ -13,23 +13,23 @@
       "sales_today": 0.0,
       "orders_today": 0,
       "avg_basket_today": 0.0,
-      "target_daily": 8078.0,
+      "target_daily": 8383.0,
       "month_sales": 11920.0,
       "month_target": 171200.0
     },
     "นิจ": {
-      "sales_today": 0.0,
-      "orders_today": 0,
-      "avg_basket_today": 0.0,
-      "target_daily": 12503.0,
-      "month_sales": 78225.0,
+      "sales_today": 3290.0,
+      "orders_today": 1,
+      "avg_basket_today": 3290.0,
+      "target_daily": 12214.0,
+      "month_sales": 81515.0,
       "month_target": 310300.0
     },
     "สาคู": {
       "sales_today": 0.0,
       "orders_today": 0,
       "avg_basket_today": 0.0,
-      "target_daily": 13684.0,
+      "target_daily": 13720.0,
       "month_sales": 49615.0,
       "month_target": 310300.0
     },
@@ -170,11 +170,11 @@
       "month_target": 0.0
     },
     "แพร": {
-      "sales_today": 0.0,
-      "orders_today": 0,
-      "avg_basket_today": 0.0,
-      "target_daily": 11604.0,
-      "month_sales": 35420.0,
+      "sales_today": 1790.0,
+      "orders_today": 1,
+      "avg_basket_today": 1790.0,
+      "target_daily": 12215.0,
+      "month_sales": 37210.0,
       "month_target": 267500.0
     },
     "เม": {
@@ -197,7 +197,7 @@
       "sales_today": 0.0,
       "orders_today": 0,
       "avg_basket_today": 0.0,
-      "target_daily": 11810.0,
+      "target_daily": 11481.0,
       "month_sales": 49365.0,
       "month_target": 267500.0
     },
@@ -269,7 +269,7 @@
       "sales_today": 0.0,
       "orders_today": 0,
       "avg_basket_today": 0.0,
-      "target_daily": 11250.0,
+      "target_daily": 11430.0,
       "month_sales": 50335.0,
       "month_target": 267500.0
     },
@@ -301,7 +301,7 @@
       "sales_today": 0.0,
       "orders_today": 0,
       "avg_basket_today": 0.0,
-      "target_daily": 11995.0,
+      "target_daily": 11778.0,
       "month_sales": 43725.0,
       "month_target": 267500.0
     },
@@ -317,7 +317,7 @@
       "sales_today": 0.0,
       "orders_today": 0,
       "avg_basket_today": 0.0,
-      "target_daily": 12270.0,
+      "target_daily": 12038.0,
       "month_sales": 38785.0,
       "month_target": 267500.0
     },
@@ -325,7 +325,7 @@
       "sales_today": 0.0,
       "orders_today": 0,
       "avg_basket_today": 0.0,
-      "target_daily": 13584.0,
+      "target_daily": 14026.0,
       "month_sales": 43810.0,
       "month_target": 310300.0
     },
