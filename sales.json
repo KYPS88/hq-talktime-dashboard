@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-10-15T10:00:50+07:00",
+  "as_of": "2026-10-15T10:30:41+07:00",
   "by_employee": {
     "มล": {
       "sales_today": 0.0,
@@ -26,11 +26,11 @@
       "month_target": 310300.0
     },
     "สาคู": {
-      "sales_today": 0.0,
-      "orders_today": 0,
-      "avg_basket_today": 0.0,
+      "sales_today": 2490.0,
+      "orders_today": 1,
+      "avg_basket_today": 2490.0,
       "target_daily": 14586.0,
-      "month_sales": 76925.0,
+      "month_sales": 79415.0,
       "month_target": 310300.0
     },
     "ซา": {
