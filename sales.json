@@ -1,12 +1,12 @@
 {
-  "as_of": "2026-10-24T14:30:50+07:00",
+  "as_of": "2026-10-24T15:00:47+07:00",
   "by_employee": {
     "มล": {
-      "sales_today": 15560.0,
-      "orders_today": 3,
-      "avg_basket_today": 5187.0,
+      "sales_today": 17350.0,
+      "orders_today": 4,
+      "avg_basket_today": 4338.0,
       "target_daily": 19873.0,
-      "month_sales": 107115.0,
+      "month_sales": 108905.0,
       "month_target": 210790.0
     },
     "อ้อ": {
@@ -266,11 +266,11 @@
       "month_target": 0.0
     },
     "จอย": {
-      "sales_today": 2590.0,
-      "orders_today": 1,
-      "avg_basket_today": 2590.0,
+      "sales_today": 4380.0,
+      "orders_today": 2,
+      "avg_basket_today": 2190.0,
       "target_daily": 18428.0,
-      "month_sales": 169625.0,
+      "month_sales": 171415.0,
       "month_target": 267500.0
     },
     "กร": {
