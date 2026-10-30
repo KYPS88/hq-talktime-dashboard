@@ -1,12 +1,12 @@
 {
-  "as_of": "2026-10-30T17:00:48+07:00",
+  "as_of": "2026-10-30T17:30:51+07:00",
   "by_employee": {
     "มล": {
-      "sales_today": 5570.0,
-      "orders_today": 2,
-      "avg_basket_today": 2785.0,
+      "sales_today": 7360.0,
+      "orders_today": 3,
+      "avg_basket_today": 2453.0,
       "target_daily": 19373.0,
-      "month_sales": 177615.0,
+      "month_sales": 179405.0,
       "month_target": 210790.0
     },
     "อ้อ": {
@@ -18,19 +18,19 @@
       "month_target": 171200.0
     },
     "นิจ": {
-      "sales_today": 9140.0,
-      "orders_today": 5,
-      "avg_basket_today": 1828.0,
+      "sales_today": 10930.0,
+      "orders_today": 6,
+      "avg_basket_today": 1822.0,
       "target_daily": 17270.0,
-      "month_sales": 284900.0,
+      "month_sales": 286690.0,
       "month_target": 310300.0
     },
     "สาคู": {
-      "sales_today": 10940.0,
-      "orders_today": 5,
-      "avg_basket_today": 2188.0,
+      "sales_today": 12030.0,
+      "orders_today": 6,
+      "avg_basket_today": 2005.0,
       "target_daily": 43120.0,
-      "month_sales": 235000.0,
+      "month_sales": 236090.0,
       "month_target": 310300.0
     },
     "ซา": {
@@ -170,11 +170,11 @@
       "month_target": 0.0
     },
     "แพร": {
-      "sales_today": 2970.0,
-      "orders_today": 2,
-      "avg_basket_today": 1485.0,
+      "sales_today": 3660.0,
+      "orders_today": 3,
+      "avg_basket_today": 1220.0,
       "target_daily": 42695.0,
-      "month_sales": 185080.0,
+      "month_sales": 185770.0,
       "month_target": 267500.0
     },
     "เม": {
