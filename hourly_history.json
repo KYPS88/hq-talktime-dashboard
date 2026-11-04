@@ -2013,6 +2013,47 @@
           "calls": 3
         }
       }
+    },
+    {
+      "ts": "2026-11-04T10:00:45.028331+07:00",
+      "by_ext": {
+        "234": {
+          "talktime": 1049,
+          "calls": 17
+        },
+        "231": {
+          "talktime": 741,
+          "calls": 14
+        },
+        "206": {
+          "talktime": 711,
+          "calls": 25
+        },
+        "204": {
+          "talktime": 361,
+          "calls": 3
+        },
+        "247": {
+          "talktime": 338,
+          "calls": 8
+        },
+        "230": {
+          "talktime": 324,
+          "calls": 9
+        },
+        "244": {
+          "talktime": 303,
+          "calls": 19
+        },
+        "248": {
+          "talktime": 277,
+          "calls": 18
+        },
+        "202": {
+          "talktime": 91,
+          "calls": 1
+        }
+      }
     }
   ]
 }
