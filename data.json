@@ -1,29 +1,29 @@
 {
-  "updated_at": "2026-11-28T06:00:40",
-  "updated_label": "28/11/2026 06:00",
+  "updated_at": "2026-11-28T06:30:35",
+  "updated_label": "28/11/2026 06:30",
   "source": "https://client.yalecom.co.th/custom_menu/extension_summary_outbound",
   "row_count": 8,
   "rows": [
     {
       "extension": "247",
       "name": "บี",
-      "total_calls": 68,
-      "answered": 23,
+      "total_calls": 69,
+      "answered": 24,
       "missed": 44,
-      "talktime": 4066,
-      "avg": 176,
+      "talktime": 4928,
+      "avg": 205,
       "_raw": [
         "247",
         "บี",
-        "68",
-        "23",
+        "69",
+        "24",
         "44",
         "1",
-        "0:20:45",
-        "1:07:46",
-        "19",
+        "0:21:17",
+        "1:22:08",
+        "20",
         "12",
-        "11"
+        "12"
       ],
       "_headers": [
         "หมายเลข",
